@@ -1,22 +1,9 @@
+import Header from "./components/Header";
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-zinc-900">
-      <header className="border-b border-zinc-200">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
-          <span className="text-lg font-semibold tracking-tight">BALWEH</span>
-          <nav className="hidden gap-6 text-sm text-zinc-600 md:flex">
-            <a href="#leistungen" className="hover:text-zinc-900">
-              Leistungen
-            </a>
-            <a href="#unternehmen" className="hover:text-zinc-900">
-              Unternehmen
-            </a>
-            <a href="#kontakt" className="hover:text-zinc-900">
-              Kontakt
-            </a>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       <main>
         <section className="mx-auto w-full max-w-6xl px-6 py-20 md:py-28">
