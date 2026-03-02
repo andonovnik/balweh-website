@@ -28,17 +28,14 @@ export default function Home() {
         <div className="absolute inset-0 bg-zinc-950/55" />
         <div className="relative mx-auto flex min-h-[72vh] w-full max-w-6xl items-center px-6 py-20 md:py-28">
           <div>
-            <p className="mb-4 text-sm font-medium uppercase tracking-wide text-zinc-200">
-              Home / Startseite
-            </p>
             <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-5xl">
               Balweh Gebäudereinigung und Galabau: Qualität, die man sieht.
               Service, den man spürt.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-100">
-              Willkommen bei Ihrem Experten für professionelle
-              Gebäudereinigung und leidenschaftlichen Galabau. Wir sorgen für
-              Werterhalt und Wohlbefinden in und um Ihr Objekt.
+              Willkommen bei Ihrem Experten für professionelle Gebäudereinigung
+              und leidenschaftlichen Galabau. Wir sorgen für Werterhalt und
+              Wohlbefinden in und um Ihr Objekt.
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <a
@@ -74,9 +71,8 @@ export default function Home() {
               Qualität, die man sieht – Unsere Kernkompetenzen
             </h2>
             <p className="mt-4 leading-8 text-zinc-600">
-              Wir sorgen für erstklassige Ergebnisse in der Gebäudereinigung
-              und im Galabau. Unser Anspruch ist höchste Sorgfalt bei jedem
-              Projekt.
+              Wir sorgen für erstklassige Ergebnisse in der Gebäudereinigung und
+              im Galabau. Unser Anspruch ist höchste Sorgfalt bei jedem Projekt.
             </p>
           </article>
 

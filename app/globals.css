@@ -32,10 +32,10 @@ body {
 }
 
 header {
-  position: sticky !important;
-  top: 0 !important;
+  position: sticky;
+  top: 0;
   background-color: #fff;
-  z-index: 50 !important;
+  z-index: 50;
   /* Ensure header stays on top on iOS */
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
