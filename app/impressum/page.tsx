@@ -32,6 +32,24 @@ export default function ImpressumPage() {
           <p>Baumberger Str. 54</p>
           <p>51373 Leverkusen</p>
         </section>
+
+        <section className="space-y-2">
+          <h2 className="text-lg font-semibold text-zinc-900">Bildnachweise</h2>
+          <p>
+            Die auf dieser Website verwendeten Bilder stammen von{" "}
+            <a
+              href="https://www.pexels.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              Pexels
+            </a>
+            . Alle Bilder stehen unter freien Lizenzen zur kommerziellen Nutzung
+            und erfordern keine Namensnennung. Wir danken den Fotografen für die
+            Bereitstellung ihrer Werke.
+          </p>
+        </section>
       </div>
     </main>
   );

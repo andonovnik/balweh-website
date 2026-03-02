@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Garten- & Landschaftsbau Leverkusen | Galabau | Balweh Service",
@@ -29,6 +30,14 @@ export default function GartenLandschaftsbau() {
         <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-600">
           Balweh Service ist Ihr zuverlässiger Partner für professionellen Garten- und Landschaftsbau in Leverkusen und Umgebung. Wir gestalten, pflegen und erneuern Außenanlagen individuell, fachgerecht und termintreu.
         </p>
+        <Image
+          src="/images/garten-hero.jpg"
+          alt="Gepflegte Grünanlage mit Rasenpflege"
+          className="mt-8 h-72 w-full rounded-2xl object-cover"
+          width={1600}
+          height={900}
+          loading="eager"
+        />
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <a
             href="/kontakt"
@@ -39,7 +48,17 @@ export default function GartenLandschaftsbau() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-6xl px-6 py-16">
+      <section className="relative isolate overflow-hidden">
+        <Image
+          src="/images/garten-background.jpg"
+          alt="Gartenarbeit und Steinverlegung in Arbeit"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-white/94" />
+        <div className="relative mx-auto w-full max-w-6xl px-6 py-16">
         <article className="mb-8">
           <h2 className="text-2xl font-semibold tracking-tight">
             Unsere Leistungen im Galabau
@@ -78,6 +97,61 @@ export default function GartenLandschaftsbau() {
             wir bieten maßgeschneiderte Lösungen für jedes Projekt.
           </p>
         </article>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <article className="group relative isolate overflow-hidden rounded-2xl">
+            <div className="relative aspect-[4/3]">
+              <Image
+                src="/images/garten-card-pflaster.jpg"
+                alt="Pflasterarbeiten mit Naturstein"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-zinc-950/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-lg font-semibold text-white">Pflasterarbeiten</h3>
+                <p className="mt-1 text-sm text-zinc-200">Hochwertige Steinverlegung</p>
+              </div>
+            </div>
+          </article>
+          <article className="group relative isolate overflow-hidden rounded-2xl">
+            <div className="relative aspect-[4/3]">
+              <Image
+                src="/images/garten-card-terrasse.jpg"
+                alt="Gemütliche Terrasse mit rustikalen Holzmöbeln"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-zinc-950/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-lg font-semibold text-white">Terrassenbau</h3>
+                <p className="mt-1 text-sm text-zinc-200">Holz & WPC-Terrassen</p>
+              </div>
+            </div>
+          </article>
+          <article className="group relative isolate overflow-hidden rounded-2xl">
+            <div className="relative aspect-[4/3]">
+              <Image
+                src="/images/garten-card-rasen.jpg"
+                alt="Gepflegter grüner Rasen"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-zinc-950/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-lg font-semibold text-white">Grünflächenpflege</h3>
+                <p className="mt-1 text-sm text-zinc-200">Rasen & Gartenpflege</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        </div>
       </section>
     </main>
   );

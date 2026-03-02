@@ -15,7 +15,8 @@ export const metadata: Metadata = {
     default: "Balweh Gebäudereinigung und Galabau",
     template: "%s | Balweh - Gebäudereinigung und Galabau",
   },
-  description: "Description here.",
+  description:
+    "Professionelle Gebäudereinigung und Gartenlandschaftsbau in Deutschland. Zuverlässige Dienstleistungen für Unternehmen und private Kunden.",
   applicationName: "Balweh - Gebäudereinigung und Galabau",
   alternates: {
     canonical: "/",
@@ -43,7 +44,8 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   openGraph: {
     title: "Balweh - Gebäudereinigung und Galabau",
-    description: "Description here.",
+    description:
+      "Professionelle Gebäudereinigung und Gartenlandschaftsbau in Deutschland. Zuverlässige Dienstleistungen für Unternehmen und private Kunden.",
     locale: "de_DE",
     type: "website",
   },
