@@ -1,14 +1,32 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Prevent body scroll when mobile menu is open (iOS fix)
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <>
-      <header className="sticky top-0 z-10 bg-white">
+      <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
           <Link href="/" className="text-lg font-semibold tracking-tight">
             BALWEH
@@ -42,10 +60,23 @@ export default function Header() {
         </div>
       </header>
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-white md:hidden">
+        <div
+          className="fixed inset-0 z-50 bg-white md:hidden"
+          style={{
+            height: "100dvh",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+          }}
+        >
           <div className="flex h-full flex-col">
             <div className="flex items-center justify-between px-6 py-4">
-              <Link href="/" className="text-lg font-semibold tracking-tight">
+              <Link
+                href="/"
+                className="text-lg font-semibold tracking-tight"
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 BALWEH
               </Link>
               <button

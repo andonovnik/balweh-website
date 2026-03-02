@@ -59,11 +59,9 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body className={`${geistSans.variable} font-sans antialiased`}>
-        <div className="min-h-screen bg-white text-zinc-900">
-          <Header />
-          {children}
-          <Footer />
-        </div>
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );

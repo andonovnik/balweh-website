@@ -13,21 +13,33 @@
   --font-mono: var(--font-geist-mono);
 }
 
-html,
-body {
-  overflow-x: hidden;
-  overflow-y: auto;
+html {
   height: 100%;
+  /* Use dynamic viewport height for iOS Safari */
+  height: 100dvh;
+  overflow-x: hidden;
+  /* iOS Safari smooth scrolling fix */
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
-  @apply min-h-screen bg-white text-zinc-900 font-sans antialiased;
+  min-height: 100%;
+  /* Use dynamic viewport height for iOS Safari */
+  min-height: 100dvh;
+  background: white;
+  /* Prevent bounce/rubber-band scrolling on iOS */
+  overscroll-behavior-y: none;
 }
 
 header {
-  position: sticky;
-  top: 0;
+  position: sticky !important;
+  top: 0 !important;
   background-color: #fff;
-  z-index: 10;
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.05);
+  z-index: 50 !important;
+  /* Ensure header stays on top on iOS */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+  /* iOS safe area support for header */
+  padding-top: env(safe-area-inset-top, 0);
 }
