@@ -12,11 +12,11 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.balweh.de"),
   title: {
-    default: "BALWEH Gebäudereinigung und Galabau",
-    template: "%s | BALWEH - Gebäudereinigung und Galabau",
+    default: "Balweh Gebäudereinigung und Galabau",
+    template: "%s | Balweh - Gebäudereinigung und Galabau",
   },
   description: "Description here.",
-  applicationName: "BALWEH - Gebäudereinigung und Galabau",
+  applicationName: "Balweh - Gebäudereinigung und Galabau",
   alternates: {
     canonical: "/",
   },
@@ -38,11 +38,11 @@ export const metadata: Metadata = {
   },
   appleWebApp: {
     capable: true,
-    title: "BALWEH",
+    title: "Balweh",
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "BALWEH - Gebäudereinigung und Galabau",
+    title: "Balweh - Gebäudereinigung und Galabau",
     description: "Description here.",
     locale: "de_DE",
     type: "website",
