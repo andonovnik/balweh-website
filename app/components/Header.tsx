@@ -14,13 +14,19 @@ export default function Header() {
             BALWEH
           </Link>
           <nav className="hidden gap-6 text-sm text-zinc-600 md:flex">
-            <Link href="/#leistungen" className="hover:text-zinc-900">
-              Leistungen
+            <Link href="/" className="hover:text-zinc-900">
+              Startseite
             </Link>
-            <Link href="/#unternehmen" className="hover:text-zinc-900">
-              Unternehmen
+            <Link href="/gebaeudereinigung" className="hover:text-zinc-900">
+              Gebäudereinigung
             </Link>
-            <Link href="/#kontakt" className="hover:text-zinc-900">
+            <Link href="/garten-landschaftsbau" className="hover:text-zinc-900">
+              Garten- & Landschaftsbau
+            </Link>
+            <Link href="/ueber-uns" className="hover:text-zinc-900">
+              Über uns
+            </Link>
+            <Link href="/kontakt" className="hover:text-zinc-900">
               Kontakt
             </Link>
           </nav>
@@ -64,21 +70,35 @@ export default function Header() {
             </div>
             <nav className="flex flex-1 flex-col items-center justify-center gap-8 text-2xl">
               <Link
-                href="/#leistungen"
+                href="/"
                 className="text-zinc-900 hover:text-zinc-600"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Leistungen
+                Startseite
               </Link>
               <Link
-                href="/#unternehmen"
+                href="/gebaeudereinigung"
                 className="text-zinc-900 hover:text-zinc-600"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Unternehmen
+                Gebäudereinigung
               </Link>
               <Link
-                href="/#kontakt"
+                href="/garten-landschaftsbau"
+                className="text-zinc-900 hover:text-zinc-600"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Garten- & Landschaftsbau
+              </Link>
+              <Link
+                href="/ueber-uns"
+                className="text-zinc-900 hover:text-zinc-600"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Über uns
+              </Link>
+              <Link
+                href="/kontakt"
                 className="text-zinc-900 hover:text-zinc-600"
                 onClick={() => setMobileMenuOpen(false)}
               >

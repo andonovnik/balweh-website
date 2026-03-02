@@ -1,5 +1,7 @@
 export const metadata = {
   title: "Impressum",
+  description:
+    "Impressum von Balweh Gebäudereinigung & Garten- und Landschaftsbau mit allen Pflichtangaben gemäß § 5 TMG.",
 };
 
 export default function ImpressumPage() {
@@ -13,22 +15,22 @@ export default function ImpressumPage() {
           <h2 className="text-lg font-semibold text-zinc-900">
             Angaben gemäß § 5 TMG
           </h2>
-          <p>Balweh GmbH</p>
-          <p>Musterstraße 1</p>
-          <p>00000 Musterstadt</p>
+          <p>Balweh Gebäudereinigung & Garten- und Landschaftsbau</p>
+          <p>Inhaber: Abdula Balweh</p>
+          <p>Baumberger Str. 54</p>
+          <p>51373 Leverkusen</p>
+          <p>Deutschland</p>
+          <p>Telefon: 0214 – 23 08 68 69</p>
+          <p>E-Mail: info@balweh.de</p>
         </section>
 
         <section className="space-y-2">
           <h2 className="text-lg font-semibold text-zinc-900">
-            Vertreten durch
+            Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
           </h2>
-          <p>Abdula Balweh - Geschäftsführer</p>
-        </section>
-
-        <section className="space-y-2">
-          <h2 className="text-lg font-semibold text-zinc-900">Kontakt</h2>
-          <p>Telefon: +49 0000 000000</p>
-          <p>E-Mail: info@balweh.de</p>
+          <p>Abdula Balweh</p>
+          <p>Baumberger Str. 54</p>
+          <p>51373 Leverkusen</p>
         </section>
       </div>
     </main>
