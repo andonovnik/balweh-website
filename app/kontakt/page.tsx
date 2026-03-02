@@ -30,7 +30,7 @@ export default function Kontakt() {
           direkt Kontakt mit uns auf – persönlich, unkompliziert und schnell.
         </p>
         <Image
-          src="/images/kontakt-hero.jpg"
+          src="/images/kontakt-hero.webp"
           alt="Kontaktaufnahme per Telefon und E-Mail"
           className="mt-8 h-72 w-full rounded-2xl object-cover"
           width={1600}

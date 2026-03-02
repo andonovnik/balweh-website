@@ -31,7 +31,7 @@ export default function GartenLandschaftsbau() {
           Balweh Service ist Ihr zuverlässiger Partner für professionellen Garten- und Landschaftsbau in Leverkusen und Umgebung. Wir gestalten, pflegen und erneuern Außenanlagen individuell, fachgerecht und termintreu.
         </p>
         <Image
-          src="/images/garten-hero.jpg"
+          src="/images/garten-hero.webp"
           alt="Gepflegte Grünanlage mit Rasenpflege"
           className="mt-8 h-72 w-full rounded-2xl object-cover"
           width={1600}
@@ -50,7 +50,7 @@ export default function GartenLandschaftsbau() {
 
       <section className="relative isolate overflow-hidden">
         <Image
-          src="/images/garten-background.jpg"
+          src="/images/garten-background.webp"
           alt="Gartenarbeit und Steinverlegung in Arbeit"
           fill
           sizes="100vw"
@@ -102,7 +102,7 @@ export default function GartenLandschaftsbau() {
           <article className="group relative isolate overflow-hidden rounded-2xl">
             <div className="relative aspect-[4/3]">
               <Image
-                src="/images/garten-card-pflaster.jpg"
+                src="/images/garten-card-pflaster.webp"
                 alt="Pflasterarbeiten mit Naturstein"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
@@ -119,7 +119,7 @@ export default function GartenLandschaftsbau() {
           <article className="group relative isolate overflow-hidden rounded-2xl">
             <div className="relative aspect-[4/3]">
               <Image
-                src="/images/garten-card-terrasse.jpg"
+                src="/images/garten-card-terrasse.webp"
                 alt="Gemütliche Terrasse mit rustikalen Holzmöbeln"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
@@ -136,7 +136,7 @@ export default function GartenLandschaftsbau() {
           <article className="group relative isolate overflow-hidden rounded-2xl">
             <div className="relative aspect-[4/3]">
               <Image
-                src="/images/garten-card-rasen.jpg"
+                src="/images/garten-card-rasen.webp"
                 alt="Gepflegter grüner Rasen"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"

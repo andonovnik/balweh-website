@@ -32,7 +32,7 @@ export default function ÜberUns() {
           Service, den man spürt.
         </p>
         <Image
-          src="/images/ueber-uns-hero.jpg"
+          src="/images/ueber-uns-hero.webp"
           alt="Teammeeting für professionelle Serviceplanung"
           className="mt-8 h-72 w-full rounded-2xl object-cover"
           width={1600}
@@ -51,7 +51,7 @@ export default function ÜberUns() {
 
       <section className="relative isolate overflow-hidden">
         <Image
-          src="/images/ueber-uns-background.jpg"
+          src="/images/ueber-uns-background.webp"
           alt="Arbeiter bei Gartenarbeit und Landschaftsbau"
           fill
           sizes="100vw"

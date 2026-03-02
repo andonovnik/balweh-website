@@ -18,7 +18,7 @@ export default function Home() {
     <main>
       <section className="relative isolate min-h-[72vh] overflow-hidden">
         <Image
-          src="/images/homepage-hero.jpg"
+          src="/images/homepage-hero.webp"
           alt="Moderne Gebäudereinigung in einem professionellen Arbeitsumfeld"
           fill
           priority
@@ -60,7 +60,7 @@ export default function Home() {
 
       <section id="leistungen" className="relative isolate overflow-hidden">
         <Image
-          src="/images/homepage-background.jpg"
+          src="/images/homepage-background.webp"
           alt="Professionelles Team bei Gebäudeservice und Planung"
           fill
           sizes="100vw"
@@ -108,7 +108,7 @@ export default function Home() {
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/homepage-card-gebaeudereinigung.jpg"
+                  src="/images/homepage-card-gebaeudereinigung.webp"
                   alt="Modernes Bürogebäude mit Glasfassade"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
@@ -129,7 +129,7 @@ export default function Home() {
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/homepage-card-galabau.jpg"
+                  src="/images/homepage-card-galabau.webp"
                   alt="Haus mit Blumen und Pflanzen"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
@@ -150,7 +150,7 @@ export default function Home() {
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/homepage-card-kontakt.jpg"
+                  src="/images/homepage-card-kontakt.webp"
                   alt="Persönliche Beratung für Gebäudeservice und Galabau"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"

@@ -35,7 +35,7 @@ export default function Gebaeudereinigung() {
           professionell.
         </p>
         <Image
-          src="/images/gebaeudereinigung-hero.jpg"
+          src="/images/gebaeudereinigung-hero.webp"
           alt="Modernes Geschäftsgebäude mit gepflegter Glasfassade"
           className="mt-8 h-72 w-full rounded-2xl object-cover"
           width={1600}
@@ -54,7 +54,7 @@ export default function Gebaeudereinigung() {
 
       <section className="relative isolate overflow-hidden">
         <Image
-          src="/images/gebaeudereinigung-background.jpg"
+          src="/images/gebaeudereinigung-background.webp"
           alt="Innenbereich eines modernen Bürogebäudes"
           fill
           sizes="100vw"
@@ -124,7 +124,7 @@ export default function Gebaeudereinigung() {
             <article className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/gebaeudereinigung-grid-1.jpg"
+                  src="/images/gebaeudereinigung-grid-1.webp"
                   alt="Traditionelle Wonhäuser mit typisch mitteleuropäischer Architektur"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
@@ -136,7 +136,7 @@ export default function Gebaeudereinigung() {
             <article className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/gebaeudereinigung-grid-2.jpg"
+                  src="/images/gebaeudereinigung-grid-2.webp"
                   alt="Moderner Büroinnenraum mit klarer Architektur"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
@@ -148,7 +148,7 @@ export default function Gebaeudereinigung() {
             <article className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/gebaeudereinigung-grid-3.jpg"
+                  src="/images/gebaeudereinigung-grid-3.webp"
                   alt="Fenster- und Glasreinigung an einem modernen Gebäude"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
