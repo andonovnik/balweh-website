@@ -37,7 +37,7 @@ export default function Gebaeudereinigung() {
         <Image
           src="/images/gebaeudereinigung-hero.webp"
           alt="Modernes Geschäftsgebäude mit gepflegter Glasfassade"
-          className="mt-8 h-72 w-full rounded-2xl object-cover"
+          className="mt-8 h-72 w-full object-cover"
           width={1600}
           height={900}
           loading="eager"

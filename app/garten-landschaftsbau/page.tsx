@@ -36,7 +36,7 @@ export default function GartenLandschaftsbau() {
         <Image
           src="/images/garten-hero.webp"
           alt="Gepflegte Grünanlage mit Rasenpflege"
-          className="mt-8 h-72 w-full rounded-2xl object-cover"
+          className="mt-8 h-72 w-full object-cover"
           width={1600}
           height={900}
           loading="eager"
