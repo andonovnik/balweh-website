@@ -71,8 +71,8 @@ export default function Home() {
             <Image
               src={BalwehLogo}
               alt="Balweh Logo"
-              width={400}
-              height={120}
+              width={300}
+              height={90}
               style={{ height: "auto" }}
             />
           </div>
