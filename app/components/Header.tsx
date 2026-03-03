@@ -17,14 +17,14 @@ const NAV_ITEMS = [
 
 function desktopNavClass(isActive: boolean) {
   return isActive
-    ? "inline-flex items-center font-semibold text-zinc-900"
-    : "inline-flex items-center hover:text-zinc-900";
+    ? "inline-flex items-center font-semibold text-brand-header-button"
+    : "inline-flex items-center hover:text-brand-header-button";
 }
 
 function mobileNavClass(isActive: boolean) {
   return isActive
-    ? "font-semibold text-zinc-900"
-    : "text-zinc-900 hover:text-zinc-600";
+    ? "font-semibold text-brand-header-button"
+    : "text-zinc-900 hover:text-brand-header-button";
 }
 
 export default function Header() {
@@ -70,9 +70,9 @@ export default function Header() {
             className="flex flex-col gap-1.5 p-2 md:hidden"
             aria-label="Open menu"
           >
-            <span className="h-0.5 w-6 bg-zinc-900"></span>
-            <span className="h-0.5 w-6 bg-zinc-900"></span>
-            <span className="h-0.5 w-6 bg-zinc-900"></span>
+            <span className="h-0.5 w-6 bg-brand-primary"></span>
+            <span className="h-0.5 w-6 bg-brand-primary"></span>
+            <span className="h-0.5 w-6 bg-brand-primary"></span>
           </button>
         </div>
       </header>
@@ -98,7 +98,7 @@ export default function Header() {
             </Link>
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2"
+              className="p-2 text-brand-primary"
               aria-label="Close menu"
             >
               <svg

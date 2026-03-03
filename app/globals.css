@@ -3,12 +3,14 @@
 :root {
   --brand-primary: #073646;
   --brand-secondary: #63a86a;
+  --brand-header-button: #5a7b70;
 }
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --color-brand-primary: var(--brand-primary);
   --color-brand-secondary: var(--brand-secondary);
+  --color-brand-header-button: var(--brand-header-button);
 }
 
 html {
