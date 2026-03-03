@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "@/app/balweh_logo.svg";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   // Prevent body scroll when mobile menu is open (iOS fix)
   useEffect(() => {
@@ -34,19 +36,54 @@ export default function Header() {
             <Image src={logo} alt="BALWEH Logo" className="h-16 w-auto" />
           </Link>
           <nav className="hidden gap-6 text-base text-zinc-600 md:flex">
-            <Link href="/" className="hover:text-zinc-900">
+            <Link
+              href="/"
+              className={
+                pathname === "/"
+                  ? "font-semibold text-zinc-900"
+                  : "hover:text-zinc-900"
+              }
+            >
               Startseite
             </Link>
-            <Link href="/gebaeudereinigung" className="hover:text-zinc-900">
+            <Link
+              href="/gebaeudereinigung"
+              className={
+                pathname === "/gebaeudereinigung"
+                  ? "font-semibold text-zinc-900"
+                  : "hover:text-zinc-900"
+              }
+            >
               Gebäudereinigung
             </Link>
-            <Link href="/garten-landschaftsbau" className="hover:text-zinc-900">
+            <Link
+              href="/garten-landschaftsbau"
+              className={
+                pathname === "/garten-landschaftsbau"
+                  ? "font-semibold text-zinc-900"
+                  : "hover:text-zinc-900"
+              }
+            >
               Garten- & Landschaftsbau
             </Link>
-            <Link href="/ueber-uns" className="hover:text-zinc-900">
+            <Link
+              href="/ueber-uns"
+              className={
+                pathname === "/ueber-uns"
+                  ? "font-semibold text-zinc-900"
+                  : "hover:text-zinc-900"
+              }
+            >
               Über uns
             </Link>
-            <Link href="/kontakt" className="hover:text-zinc-900">
+            <Link
+              href="/kontakt"
+              className={
+                pathname === "/kontakt"
+                  ? "font-semibold text-zinc-900"
+                  : "hover:text-zinc-900"
+              }
+            >
               Kontakt
             </Link>
           </nav>
@@ -100,35 +137,55 @@ export default function Header() {
             <nav className="flex flex-1 flex-col items-center justify-center gap-8 text-base">
               <Link
                 href="/"
-                className="text-zinc-900 hover:text-zinc-600"
+                className={
+                  pathname === "/"
+                    ? "font-semibold text-zinc-900"
+                    : "text-zinc-900 hover:text-zinc-600"
+                }
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Startseite
               </Link>
               <Link
                 href="/gebaeudereinigung"
-                className="text-zinc-900 hover:text-zinc-600"
+                className={
+                  pathname === "/gebaeudereinigung"
+                    ? "font-semibold text-zinc-900"
+                    : "text-zinc-900 hover:text-zinc-600"
+                }
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Gebäudereinigung
               </Link>
               <Link
                 href="/garten-landschaftsbau"
-                className="text-zinc-900 hover:text-zinc-600"
+                className={
+                  pathname === "/garten-landschaftsbau"
+                    ? "font-semibold text-zinc-900"
+                    : "text-zinc-900 hover:text-zinc-600"
+                }
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Garten- & Landschaftsbau
               </Link>
               <Link
                 href="/ueber-uns"
-                className="text-zinc-900 hover:text-zinc-600"
+                className={
+                  pathname === "/ueber-uns"
+                    ? "font-semibold text-zinc-900"
+                    : "text-zinc-900 hover:text-zinc-600"
+                }
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Über uns
               </Link>
               <Link
                 href="/kontakt"
-                className="text-zinc-900 hover:text-zinc-600"
+                className={
+                  pathname === "/kontakt"
+                    ? "font-semibold text-zinc-900"
+                    : "text-zinc-900 hover:text-zinc-600"
+                }
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Kontakt
