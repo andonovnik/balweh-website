@@ -8,40 +8,38 @@ import logo from "@/app/balweh_logo.svg";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  // Prevent body scroll when mobile menu is open (iOS fix)
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-      document.body.style.position = "fixed";
-      document.body.style.width = "100%";
-    } else {
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
     };
-  }, [mobileMenuOpen]);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-2">
+      <header
+        className={`sticky top-0 z-50 border-b transition-all duration-300 ${
+          scrolled
+            ? "border-zinc-200 bg-white"
+            : "border-transparent bg-white/80 backdrop-blur-md"
+        }`}
+      >
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6">
           <Link href="/">
-            <Image src={logo} alt="BALWEH Logo" className="h-16 w-auto" />
+            <Image src={logo} alt="BALWEH Logo" className="h-14 w-auto" />
           </Link>
-          <nav className="hidden gap-6 text-base text-zinc-600 md:flex">
+          <nav className="hidden items-center gap-6 text-base text-zinc-600 md:flex">
             <Link
               href="/"
               className={
                 pathname === "/"
-                  ? "font-semibold text-zinc-900"
-                  : "hover:text-zinc-900"
+                  ? "inline-flex items-center font-semibold text-zinc-900"
+                  : "inline-flex items-center hover:text-zinc-900"
               }
             >
               Startseite
@@ -50,8 +48,8 @@ export default function Header() {
               href="/gebaeudereinigung"
               className={
                 pathname === "/gebaeudereinigung"
-                  ? "font-semibold text-zinc-900"
-                  : "hover:text-zinc-900"
+                  ? "inline-flex items-center font-semibold text-zinc-900"
+                  : "inline-flex items-center hover:text-zinc-900"
               }
             >
               Gebäudereinigung
@@ -60,8 +58,8 @@ export default function Header() {
               href="/garten-landschaftsbau"
               className={
                 pathname === "/garten-landschaftsbau"
-                  ? "font-semibold text-zinc-900"
-                  : "hover:text-zinc-900"
+                  ? "inline-flex items-center font-semibold text-zinc-900"
+                  : "inline-flex items-center hover:text-zinc-900"
               }
             >
               Garten- & Landschaftsbau
@@ -70,8 +68,8 @@ export default function Header() {
               href="/ueber-uns"
               className={
                 pathname === "/ueber-uns"
-                  ? "font-semibold text-zinc-900"
-                  : "hover:text-zinc-900"
+                  ? "inline-flex items-center font-semibold text-zinc-900"
+                  : "inline-flex items-center hover:text-zinc-900"
               }
             >
               Über uns
@@ -80,8 +78,8 @@ export default function Header() {
               href="/kontakt"
               className={
                 pathname === "/kontakt"
-                  ? "font-semibold text-zinc-900"
-                  : "hover:text-zinc-900"
+                  ? "inline-flex items-center font-semibold text-zinc-900"
+                  : "inline-flex items-center hover:text-zinc-900"
               }
             >
               Kontakt
@@ -134,62 +132,64 @@ export default function Header() {
                 </svg>
               </button>
             </div>
-            <nav className="flex flex-1 flex-col items-center justify-center gap-8 text-base">
-              <Link
-                href="/"
-                className={
-                  pathname === "/"
-                    ? "font-semibold text-zinc-900"
-                    : "text-zinc-900 hover:text-zinc-600"
-                }
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Startseite
-              </Link>
-              <Link
-                href="/gebaeudereinigung"
-                className={
-                  pathname === "/gebaeudereinigung"
-                    ? "font-semibold text-zinc-900"
-                    : "text-zinc-900 hover:text-zinc-600"
-                }
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Gebäudereinigung
-              </Link>
-              <Link
-                href="/garten-landschaftsbau"
-                className={
-                  pathname === "/garten-landschaftsbau"
-                    ? "font-semibold text-zinc-900"
-                    : "text-zinc-900 hover:text-zinc-600"
-                }
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Garten- & Landschaftsbau
-              </Link>
-              <Link
-                href="/ueber-uns"
-                className={
-                  pathname === "/ueber-uns"
-                    ? "font-semibold text-zinc-900"
-                    : "text-zinc-900 hover:text-zinc-600"
-                }
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Über uns
-              </Link>
-              <Link
-                href="/kontakt"
-                className={
-                  pathname === "/kontakt"
-                    ? "font-semibold text-zinc-900"
-                    : "text-zinc-900 hover:text-zinc-600"
-                }
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Kontakt
-              </Link>
+            <nav className="flex flex-1 flex-col items-center justify-center px-6 text-lg">
+              <div className="flex flex-col items-start gap-8">
+                <Link
+                  href="/"
+                  className={
+                    pathname === "/"
+                      ? "font-semibold text-zinc-900"
+                      : "text-zinc-900 hover:text-zinc-600"
+                  }
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Startseite
+                </Link>
+                <Link
+                  href="/gebaeudereinigung"
+                  className={
+                    pathname === "/gebaeudereinigung"
+                      ? "font-semibold text-zinc-900"
+                      : "text-zinc-900 hover:text-zinc-600"
+                  }
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Gebäudereinigung
+                </Link>
+                <Link
+                  href="/garten-landschaftsbau"
+                  className={
+                    pathname === "/garten-landschaftsbau"
+                      ? "font-semibold text-zinc-900"
+                      : "text-zinc-900 hover:text-zinc-600"
+                  }
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Garten- & Landschaftsbau
+                </Link>
+                <Link
+                  href="/ueber-uns"
+                  className={
+                    pathname === "/ueber-uns"
+                      ? "font-semibold text-zinc-900"
+                      : "text-zinc-900 hover:text-zinc-600"
+                  }
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Über uns
+                </Link>
+                <Link
+                  href="/kontakt"
+                  className={
+                    pathname === "/kontakt"
+                      ? "font-semibold text-zinc-900"
+                      : "text-zinc-900 hover:text-zinc-600"
+                  }
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Kontakt
+                </Link>
+              </div>
             </nav>
           </div>
         </div>
