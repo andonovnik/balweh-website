@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import logo from "@/app/balweh_logo.svg";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -27,11 +29,11 @@ export default function Header() {
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
-          <Link href="/" className="text-lg font-semibold tracking-tight">
-            BALWEH
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-2">
+          <Link href="/">
+            <Image src={logo} alt="BALWEH Logo" className="h-16 w-auto" />
           </Link>
-          <nav className="hidden gap-6 text-sm text-zinc-600 md:flex">
+          <nav className="hidden gap-6 text-base text-zinc-600 md:flex">
             <Link href="/" className="hover:text-zinc-900">
               Startseite
             </Link>
@@ -71,13 +73,9 @@ export default function Header() {
           }}
         >
           <div className="flex h-full flex-col">
-            <div className="flex items-center justify-between px-6 py-4">
-              <Link
-                href="/"
-                className="text-lg font-semibold tracking-tight"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                BALWEH
+            <div className="flex items-center justify-between px-6 py-2">
+              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                <Image src={logo} alt="BALWEH Logo" className="h-16 w-auto" />
               </Link>
               <button
                 onClick={() => setMobileMenuOpen(false)}
@@ -99,7 +97,7 @@ export default function Header() {
                 </svg>
               </button>
             </div>
-            <nav className="flex flex-1 flex-col items-center justify-center gap-8 text-2xl">
+            <nav className="flex flex-1 flex-col items-center justify-center gap-8 text-base">
               <Link
                 href="/"
                 className="text-zinc-900 hover:text-zinc-600"
