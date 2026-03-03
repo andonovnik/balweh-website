@@ -125,18 +125,18 @@ export default function Kontakt() {
               E-Mail
             </h2>
             <div className="mt-3 space-y-4">
+              <a
+                href="mailto:info@balweh.de"
+                className="block font-medium text-zinc-900 hover:text-blue-600"
+              >
+                info@balweh.de
+              </a>
               <p className="text-sm leading-7 text-zinc-600">
                 Senden Sie uns eine E-Mail mit Ihren Anfragen und Wünschen.
                 Während unserer Geschäftszeiten sind wir telefonisch für Sie
                 erreichbar. Außerhalb dieser Zeiten können Sie uns jederzeit
                 eine E-Mail oder eine Nachricht über Instagram senden.
               </p>
-              <a
-                href="mailto:info@balweh.de"
-                className="font-medium text-zinc-900 hover:text-blue-600"
-              >
-                info@balweh.de
-              </a>
             </div>
           </article>
           <article className="rounded-xl border border-zinc-200 bg-white p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
@@ -150,17 +150,17 @@ export default function Kontakt() {
               </svg>
               Instagram
             </h2>
-            <p className="mt-3 text-sm leading-7 text-zinc-600">
-              Folgen Sie uns auf Instagram und schreiben Sie uns direkt:
-            </p>
             <a
               href="https://www.instagram.com/balweh_/"
               target="_blank"
               rel="noreferrer noopener"
-              className="mt-4 inline-block font-medium text-zinc-900 hover:text-blue-600"
+              className="mt-3 block font-medium text-zinc-900 hover:text-blue-600"
             >
-              instagram.com/balweh_/
+              @balweh_
             </a>
+            <p className="mt-4 text-sm leading-7 text-zinc-600">
+              Folgen Sie uns auf Instagram und schreiben Sie uns direkt.
+            </p>
           </article>
         </div>
       </section>
