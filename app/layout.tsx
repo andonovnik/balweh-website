@@ -20,35 +20,35 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   applicationName: "Balweh - Gebäudereinigung und Galabau",
-  alternates: {
-    canonical: "/",
-  },
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-icon.png",
-    other: [
+    icon: [
       {
-        rel: "icon",
-        url: "/icon0.svg",
-        type: "image/svg+xml",
+        url: "/web-app-manifest-192x192.png",
+        type: "image/png",
       },
       {
-        rel: "icon",
-        url: "/icon1.png",
+        url: "/web-app-manifest-512x512.png",
         type: "image/png",
       },
     ],
+    apple: "/web-app-manifest-192x192.png",
   },
   appleWebApp: {
     capable: true,
     title: "Balweh",
   },
   manifest: "/manifest.json",
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: "Balweh - Gebäudereinigung und Galabau",
     description: SITE_DESCRIPTION,
     locale: "de_DE",
     type: "website",
+    siteName: "Balweh",
+    url: "https://www.balweh.de",
   },
 };
 
