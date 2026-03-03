@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import CacheConsent from "./components/CacheConsent";
+import CachePreferences from "./components/CachePreferences";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -113,6 +115,8 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <CacheConsent />
+        <CachePreferences />
       </body>
     </html>
   );

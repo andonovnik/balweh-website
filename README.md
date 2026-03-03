@@ -33,4 +33,17 @@ npm run start
 
 ## Deployment
 
-The app can be deployed to any Node.js-capable platform (e.g. Vercel, Azure, Docker). Always run `npm run build` before production deployment.
+### Hostinger (static export)
+
+This project uses static export (`output: "export"`).
+
+1. Build the site:
+
+```bash
+npm run build
+```
+
+2. Upload the contents of `out/` to Hostinger `public_html` directory.
+3. Keep `.htaccess` in the uploaded root (it is included via `public/.htaccess`) so cache and security headers are applied.
+
+Note: Next.js `headers()` are not used with static export, so caching is handled by `.htaccess` on Hostinger.
