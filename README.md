@@ -27,9 +27,9 @@ npm run start
 
 ## Project structure
 
-- `app/layout.tsx` – global structure and SEO metadata
-- `app/page.tsx` – homepage
-- `app/globals.css` – Tailwind import and global styles
+- `app/layout.tsx` - global structure and SEO metadata
+- `app/page.tsx` - homepage
+- `app/globals.css` - Tailwind import and global styles
 
 ## Deployment
 
