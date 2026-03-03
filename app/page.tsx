@@ -78,7 +78,7 @@ export default function Home() {
           </div>
 
           <article className="mb-8">
-            <h2 className="text-2xl font-semibold tracking-tight">
+            <h2 className="text-2xl font-semibold tracking-tight text-brand-primary">
               Qualität, die man sieht – Unsere Kernkompetenzen
             </h2>
             <p className="mt-4 leading-8 text-zinc-600">
@@ -88,7 +88,7 @@ export default function Home() {
           </article>
 
           <article className="mb-8">
-            <h2 className="text-2xl font-semibold tracking-tight">
+            <h2 className="text-2xl font-semibold tracking-tight text-brand-primary">
               Service, den man spürt – Unser Versprechen
             </h2>
             <p className="mt-4 leading-8 text-zinc-600">
@@ -99,7 +99,7 @@ export default function Home() {
           </article>
 
           <article>
-            <h2 className="text-2xl font-semibold tracking-tight">
+            <h2 className="text-2xl font-semibold tracking-tight text-brand-primary">
               Alles aus einer Hand
             </h2>
             <p className="mt-4 leading-8 text-zinc-600">
@@ -124,7 +124,7 @@ export default function Home() {
                 />
               </div>
               <div className="p-5">
-                <h3 className="text-base font-semibold text-zinc-900">
+                <h3 className="text-base font-semibold text-brand-primary">
                   Gebäudereinigung
                 </h3>
               </div>
@@ -145,7 +145,7 @@ export default function Home() {
                 />
               </div>
               <div className="p-5">
-                <h3 className="text-base font-semibold text-zinc-900">
+                <h3 className="text-base font-semibold text-brand-primary">
                   Garten- & Landschaftsbau
                 </h3>
               </div>
@@ -166,7 +166,7 @@ export default function Home() {
                 />
               </div>
               <div className="p-5">
-                <h3 className="text-base font-semibold text-zinc-900">
+                <h3 className="text-base font-semibold text-brand-primary">
                   Beratung & Service
                 </h3>
               </div>

@@ -25,7 +25,7 @@ export default function Gebaeudereinigung() {
         <p className="mb-4 text-sm font-medium uppercase tracking-wide text-zinc-500">
           Gebäudereinigung
         </p>
-        <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-zinc-950 md:text-5xl">
+        <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-brand-primary md:text-5xl">
           Professionelle Gebäudereinigung
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-600">
@@ -64,7 +64,7 @@ export default function Gebaeudereinigung() {
         <div className="absolute inset-0 bg-white/94" />
         <div className="relative mx-auto w-full max-w-6xl px-6 py-16">
           <article className="mb-8">
-            <h2 className="text-2xl font-semibold tracking-tight">
+            <h2 className="text-2xl font-semibold tracking-tight text-brand-primary">
               Unsere Leistungen im Bereich Gebäudeservice
             </h2>
             <ul className="mt-4 list-disc space-y-2 pl-6 leading-8 text-zinc-600">
@@ -107,7 +107,7 @@ export default function Gebaeudereinigung() {
           </article>
 
           <article className="mb-8">
-            <h2 className="text-2xl font-semibold tracking-tight">
+            <h2 className="text-2xl font-semibold tracking-tight text-brand-primary">
               Gebäudereinigung für Gewerbe und Privatkunden
             </h2>
             <p className="mt-4 leading-8 text-zinc-600">Wir betreuen:</p>

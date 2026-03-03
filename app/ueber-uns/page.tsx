@@ -20,7 +20,7 @@ export default function ÜberUns() {
         <p className="mb-4 text-sm font-medium uppercase tracking-wide text-zinc-500">
           Wer wir sind
         </p>
-        <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-zinc-950 md:text-5xl">
+        <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-brand-primary md:text-5xl">
           Balweh – Qualität, die man sieht. Service, den man spürt.
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-600">
@@ -61,7 +61,7 @@ export default function ÜberUns() {
         <div className="absolute inset-0 bg-white/98" />
         <div className="relative mx-auto w-full max-w-6xl px-6 py-16">
           <article className="mb-8">
-            <h2 className="text-2xl font-semibold tracking-tight">
+            <h2 className="text-2xl font-semibold tracking-tight text-brand-primary">
               Was &quot;Qualität, die man sieht&quot; für uns bedeutet
             </h2>
             <p className="mt-4 leading-8 text-zinc-600">
@@ -89,7 +89,7 @@ export default function ÜberUns() {
           </article>
 
           <article className="mb-8">
-            <h2 className="text-2xl font-semibold tracking-tight">
+            <h2 className="text-2xl font-semibold tracking-tight text-brand-primary">
               Was &quot;Service, den man spürt&quot; für unsere Kunden heißt
             </h2>
             <p className="mt-4 leading-8 text-zinc-600">
@@ -110,7 +110,7 @@ export default function ÜberUns() {
           </article>
 
           <article className="mb-8">
-            <h2 className="text-2xl font-semibold tracking-tight">
+            <h2 className="text-2xl font-semibold tracking-tight text-brand-primary">
               Regional verwurzelt – In ganz NRW im Einsatz
             </h2>
             <p className="mt-4 leading-8 text-zinc-600">
@@ -132,7 +132,7 @@ export default function ÜberUns() {
           </article>
 
           <article>
-            <h2 className="text-2xl font-semibold tracking-tight">
+            <h2 className="text-2xl font-semibold tracking-tight text-brand-primary">
               Unser Anspruch
             </h2>
             <p className="mt-4 leading-8 text-zinc-600">

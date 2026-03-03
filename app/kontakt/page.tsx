@@ -20,7 +20,7 @@ export default function Kontakt() {
         <p className="mb-4 text-sm font-medium uppercase tracking-wide text-zinc-500">
           In Verbindung bleiben
         </p>
-        <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-zinc-950 md:text-5xl">
+        <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-brand-primary md:text-5xl">
           Kontakt – Wir freuen uns auf Ihre Anfrage
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-600">
@@ -42,7 +42,7 @@ export default function Kontakt() {
       <section className="border-y border-zinc-200 bg-zinc-50">
         <section className="mx-auto w-full max-w-6xl px-6 pt-16 pb-4">
           <article>
-            <h2 className="text-2xl font-semibold tracking-tight">
+            <h2 className="text-2xl font-semibold tracking-tight text-brand-primary">
               Persönliche Beratung & unverbindliches Angebot
             </h2>
             <p className="mt-4 leading-8 text-zinc-600">
@@ -54,7 +54,9 @@ export default function Kontakt() {
         </section>
         <div className="mx-auto grid w-full max-w-6xl gap-6 px-6 py-16 md:grid-cols-3">
           <article className="rounded-xl border border-zinc-200 bg-white p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-            <h2 className="text-lg font-semibold">Unsere Kontaktdaten</h2>
+            <h2 className="text-lg font-semibold text-brand-primary">
+              Unsere Kontaktdaten
+            </h2>
             <div className="mt-3 space-y-4">
               <p className="text-sm font-medium text-zinc-900">
                 Balweh Gebäudereinigung & Garten- und Landschaftsbau
@@ -106,7 +108,7 @@ export default function Kontakt() {
             </div>
           </article>
           <article className="rounded-xl border border-zinc-200 bg-white p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-            <h2 className="text-lg font-semibold">
+            <h2 className="text-lg font-semibold text-brand-primary">
               <svg
                 className="mb-1 mr-2 inline-block h-5 w-5"
                 fill="none"
@@ -138,7 +140,7 @@ export default function Kontakt() {
             </div>
           </article>
           <article className="rounded-xl border border-zinc-200 bg-white p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-            <h2 className="text-lg font-semibold">
+            <h2 className="text-lg font-semibold text-brand-primary">
               <svg
                 className="mb-1 mr-2 inline-block h-5 w-5"
                 fill="currentColor"

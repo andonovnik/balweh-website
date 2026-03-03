@@ -7,12 +7,12 @@ export const metadata = {
 export default function DatenschutzPage() {
   return (
     <main className="mx-auto w-full max-w-6xl px-6 py-16">
-      <h1 className="text-3xl font-semibold tracking-tight text-zinc-950">
+      <h1 className="text-3xl font-semibold tracking-tight text-brand-primary">
         Datenschutzerklärung
       </h1>
       <div className="mt-8 space-y-6 text-zinc-700">
         <section className="space-y-2">
-          <h2 className="text-lg font-semibold text-zinc-900">
+          <h2 className="text-lg font-semibold text-brand-primary">
             1. Allgemeine Hinweise
           </h2>
           <p>
@@ -24,7 +24,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-lg font-semibold text-zinc-900">
+          <h2 className="text-lg font-semibold text-brand-primary">
             2. Verantwortlicher
           </h2>
           <p>
@@ -40,7 +40,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-lg font-semibold text-zinc-900">
+          <h2 className="text-lg font-semibold text-brand-primary">
             3. Hosting & Server-Logfiles
           </h2>
           <p>
@@ -56,7 +56,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-lg font-semibold text-zinc-900">
+          <h2 className="text-lg font-semibold text-brand-primary">
             4. Kontaktaufnahme per E-Mail oder Telefon
           </h2>
           <p>
@@ -70,7 +70,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-lg font-semibold text-zinc-900">5. Instagram</h2>
+          <h2 className="text-lg font-semibold text-brand-primary">5. Instagram</h2>
           <p>
             Auf unserer Website befindet sich ein Link zum sozialen Netzwerk
             Instagram.
@@ -91,7 +91,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-lg font-semibold text-zinc-900">
+          <h2 className="text-lg font-semibold text-brand-primary">
             6. Ihre Rechte
           </h2>
           <p>Sie haben das Recht auf:</p>
@@ -108,7 +108,7 @@ export default function DatenschutzPage() {
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-lg font-semibold text-zinc-900">
+          <h2 className="text-lg font-semibold text-brand-primary">
             7. Beschwerderecht
           </h2>
           <p>

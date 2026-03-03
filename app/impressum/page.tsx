@@ -7,12 +7,12 @@ export const metadata = {
 export default function ImpressumPage() {
   return (
     <main className="mx-auto w-full max-w-6xl px-6 py-16">
-      <h1 className="text-3xl font-semibold tracking-tight text-zinc-950">
+      <h1 className="text-3xl font-semibold tracking-tight text-brand-primary">
         Impressum
       </h1>
       <div className="mt-8 space-y-6 text-zinc-700">
         <section className="space-y-2">
-          <h2 className="text-lg font-semibold text-zinc-900">
+          <h2 className="text-lg font-semibold text-brand-primary">
             Angaben gemäß § 5 TMG
           </h2>
           <p>Balweh Gebäudereinigung & Garten- und Landschaftsbau</p>
@@ -25,7 +25,7 @@ export default function ImpressumPage() {
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-lg font-semibold text-zinc-900">
+          <h2 className="text-lg font-semibold text-brand-primary">
             Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
           </h2>
           <p>Abdula Balweh</p>
@@ -34,7 +34,9 @@ export default function ImpressumPage() {
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-lg font-semibold text-zinc-900">Bildnachweise</h2>
+          <h2 className="text-lg font-semibold text-brand-primary">
+            Bildnachweise
+          </h2>
           <p>
             Die auf dieser Website verwendeten Bilder stammen von{" "}
             <a
