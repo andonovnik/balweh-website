@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "@/app/balweh_logo.svg";
+import logoWithText from "@/app/balweh_logo_with_text.svg";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -110,7 +111,11 @@ export default function Header() {
         >
           <div className="flex items-center justify-between px-6 py-2">
             <Link href="/" onClick={() => setMobileMenuOpen(false)}>
-              <Image src={logo} alt="BALWEH Logo" className="h-16 w-auto" />
+              <Image
+                src={logoWithText}
+                alt="BALWEH Logo"
+                className="h-20 w-auto"
+              />
             </Link>
             <button
               onClick={() => setMobileMenuOpen(false)}
