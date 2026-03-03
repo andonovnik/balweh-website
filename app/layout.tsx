@@ -9,14 +9,16 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
+const SITE_DESCRIPTION =
+  "Professionelle Gebäudereinigung und Gartenlandschaftsbau in Deutschland. Zuverlässige Dienstleistungen für Unternehmen und private Kunden.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.balweh.de"),
   title: {
     default: "Balweh Gebäudereinigung und Galabau",
     template: "%s | Balweh - Gebäudereinigung und Galabau",
   },
-  description:
-    "Professionelle Gebäudereinigung und Gartenlandschaftsbau in Deutschland. Zuverlässige Dienstleistungen für Unternehmen und private Kunden.",
+  description: SITE_DESCRIPTION,
   applicationName: "Balweh - Gebäudereinigung und Galabau",
   alternates: {
     canonical: "/",
@@ -44,8 +46,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   openGraph: {
     title: "Balweh - Gebäudereinigung und Galabau",
-    description:
-      "Professionelle Gebäudereinigung und Gartenlandschaftsbau in Deutschland. Zuverlässige Dienstleistungen für Unternehmen und private Kunden.",
+    description: SITE_DESCRIPTION,
     locale: "de_DE",
     type: "website",
   },

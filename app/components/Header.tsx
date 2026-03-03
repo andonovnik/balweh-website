@@ -7,6 +7,26 @@ import Link from "next/link";
 import logo from "@/app/balweh_logo.svg";
 import logoWithText from "@/app/balweh_logo_with_text.svg";
 
+const NAV_ITEMS = [
+  { href: "/", label: "Startseite" },
+  { href: "/gebaeudereinigung", label: "Gebäudereinigung" },
+  { href: "/garten-landschaftsbau", label: "Garten- & Landschaftsbau" },
+  { href: "/ueber-uns", label: "Über uns" },
+  { href: "/kontakt", label: "Kontakt" },
+];
+
+function desktopNavClass(isActive: boolean) {
+  return isActive
+    ? "inline-flex items-center font-semibold text-zinc-900"
+    : "inline-flex items-center hover:text-zinc-900";
+}
+
+function mobileNavClass(isActive: boolean) {
+  return isActive
+    ? "font-semibold text-zinc-900"
+    : "text-zinc-900 hover:text-zinc-600";
+}
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -35,56 +55,15 @@ export default function Header() {
             <Image src={logo} alt="BALWEH Logo" className="h-14 w-auto" />
           </Link>
           <nav className="hidden items-center gap-6 text-base text-zinc-600 md:flex">
-            <Link
-              href="/"
-              className={
-                pathname === "/"
-                  ? "inline-flex items-center font-semibold text-zinc-900"
-                  : "inline-flex items-center hover:text-zinc-900"
-              }
-            >
-              Startseite
-            </Link>
-            <Link
-              href="/gebaeudereinigung"
-              className={
-                pathname === "/gebaeudereinigung"
-                  ? "inline-flex items-center font-semibold text-zinc-900"
-                  : "inline-flex items-center hover:text-zinc-900"
-              }
-            >
-              Gebäudereinigung
-            </Link>
-            <Link
-              href="/garten-landschaftsbau"
-              className={
-                pathname === "/garten-landschaftsbau"
-                  ? "inline-flex items-center font-semibold text-zinc-900"
-                  : "inline-flex items-center hover:text-zinc-900"
-              }
-            >
-              Garten- & Landschaftsbau
-            </Link>
-            <Link
-              href="/ueber-uns"
-              className={
-                pathname === "/ueber-uns"
-                  ? "inline-flex items-center font-semibold text-zinc-900"
-                  : "inline-flex items-center hover:text-zinc-900"
-              }
-            >
-              Über uns
-            </Link>
-            <Link
-              href="/kontakt"
-              className={
-                pathname === "/kontakt"
-                  ? "inline-flex items-center font-semibold text-zinc-900"
-                  : "inline-flex items-center hover:text-zinc-900"
-              }
-            >
-              Kontakt
-            </Link>
+            {NAV_ITEMS.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={desktopNavClass(pathname === item.href)}
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
           <button
             onClick={() => setMobileMenuOpen(true)}
@@ -139,61 +118,16 @@ export default function Header() {
           </div>
           <nav className="flex flex-1 flex-col items-center justify-center px-6 text-lg">
             <div className="flex flex-col items-start gap-8">
-              <Link
-                href="/"
-                className={
-                  pathname === "/"
-                    ? "font-semibold text-zinc-900"
-                    : "text-zinc-900 hover:text-zinc-600"
-                }
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Startseite
-              </Link>
-              <Link
-                href="/gebaeudereinigung"
-                className={
-                  pathname === "/gebaeudereinigung"
-                    ? "font-semibold text-zinc-900"
-                    : "text-zinc-900 hover:text-zinc-600"
-                }
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Gebäudereinigung
-              </Link>
-              <Link
-                href="/garten-landschaftsbau"
-                className={
-                  pathname === "/garten-landschaftsbau"
-                    ? "font-semibold text-zinc-900"
-                    : "text-zinc-900 hover:text-zinc-600"
-                }
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Garten- & Landschaftsbau
-              </Link>
-              <Link
-                href="/ueber-uns"
-                className={
-                  pathname === "/ueber-uns"
-                    ? "font-semibold text-zinc-900"
-                    : "text-zinc-900 hover:text-zinc-600"
-                }
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Über uns
-              </Link>
-              <Link
-                href="/kontakt"
-                className={
-                  pathname === "/kontakt"
-                    ? "font-semibold text-zinc-900"
-                    : "text-zinc-900 hover:text-zinc-600"
-                }
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Kontakt
-              </Link>
+              {NAV_ITEMS.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={mobileNavClass(pathname === item.href)}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
             </div>
           </nav>
         </div>

@@ -70,7 +70,9 @@ export default function DatenschutzPage() {
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-lg font-semibold text-brand-primary">5. Instagram</h2>
+          <h2 className="text-lg font-semibold text-brand-primary">
+            5. Instagram
+          </h2>
           <p>
             Auf unserer Website befindet sich ein Link zum sozialen Netzwerk
             Instagram.
