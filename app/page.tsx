@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import BalwehLogo from "./balweh_logo_with_text.svg";
 
 export const metadata: Metadata = {
   title: "Balweh Gebäudereinigung und Galabau Leverkusen & NRW",
@@ -66,6 +67,16 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-white/92" />
         <div className="relative mx-auto w-full max-w-6xl px-6 py-16">
+          <div className="flex justify-center mb-8">
+            <Image
+              src={BalwehLogo}
+              alt="Balweh Logo"
+              width={400}
+              height={120}
+              style={{ height: "auto" }}
+            />
+          </div>
+
           <article className="mb-8">
             <h2 className="text-2xl font-semibold tracking-tight">
               Qualität, die man sieht – Unsere Kernkompetenzen
