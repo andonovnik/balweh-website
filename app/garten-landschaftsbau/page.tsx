@@ -44,7 +44,7 @@ export default function GartenLandschaftsbau() {
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <a
             href="/kontakt"
-            className="inline-flex items-center justify-center rounded-lg bg-zinc-900 px-5 py-3 text-sm font-medium text-white hover:bg-zinc-800"
+            className="inline-flex items-center justify-center rounded-lg bg-brand-secondary px-5 py-3 text-sm font-medium text-white hover:bg-brand-secondary/90"
           >
             Jetzt unverbindlich beraten lassen
           </a>
