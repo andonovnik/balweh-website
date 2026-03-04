@@ -57,14 +57,6 @@ export default function Home() {
       </section>
 
       <section id="leistungen" className="relative isolate overflow-hidden">
-        <Image
-          src="/images/homepage-background.webp"
-          alt="Professionelles Team bei Gebäudeservice und Planung"
-          fill
-          sizes="100vw"
-          className="object-cover"
-          loading="lazy"
-        />
         <div className="absolute inset-0 bg-white/92" />
         <div className="relative mx-auto w-full max-w-6xl px-6 py-16">
           <div className="flex justify-center mb-8">
