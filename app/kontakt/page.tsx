@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import ContactForm from "../components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Kontakt",
@@ -164,6 +165,8 @@ export default function Kontakt() {
           </article>
         </div>
       </section>
+
+      <ContactForm />
     </main>
   );
 }

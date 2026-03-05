@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Impressum",
   description:
-    "Impressum von Balweh Gebäudereinigung und Galabau mit allen Pflichtangaben gemäß § 5 TMG.",
+    "Impressum von Balweh Gebaeudereinigung und Galabau mit Pflichtangaben gemaess § 5 DDG.",
 };
 
 export default function ImpressumPage() {
@@ -13,30 +13,31 @@ export default function ImpressumPage() {
       <div className="mt-8 space-y-6 text-zinc-700">
         <section className="space-y-2">
           <h2 className="text-lg font-semibold text-brand-primary">
-            Angaben gemäß § 5 TMG
+            Angaben gemaess § 5 DDG
           </h2>
           <p>Balweh Gebäudereinigung und Galabau e.K.</p>
           <p>Inhaber: Abdula Balweh</p>
           <p>Baumberger Str. 54</p>
           <p>51373 Leverkusen</p>
           <p>Deutschland</p>
+          <p>Telefon: +49 155 - 67 20 09 71</p>
+          <p>E-Mail: info@balweh.de</p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-lg font-semibold text-brand-primary">
+            Registereintrag
+          </h2>
+          <p>Handelsregister: Amtsgericht [eintragen]</p>
+          <p>Registernummer: HRA [eintragen]</p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-lg font-semibold text-brand-primary">
+            Umsatzsteuer-ID
+          </h2>
           <p>
-            Telefon:{" "}
-            <a
-              href="tel:+4915567200971"
-              className="text-blue-600 hover:underline"
-            >
-              +49 155 - 67 20 09 71
-            </a>
-          </p>
-          <p>
-            E-Mail:{" "}
-            <a
-              href="mailto:info@balweh.de"
-              className="text-blue-600 hover:underline"
-            >
-              info@balweh.de
-            </a>
+            Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: [eintragen]
           </p>
         </section>
 
@@ -47,6 +48,17 @@ export default function ImpressumPage() {
           <p>Abdula Balweh</p>
           <p>Baumberger Str. 54</p>
           <p>51373 Leverkusen</p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-lg font-semibold text-brand-primary">
+            Verbraucherstreitbeilegung (VSBG)
+          </h2>
+          <p>
+            Wir sind nicht verpflichtet und nicht bereit, an
+            Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
+            teilzunehmen.
+          </p>
         </section>
 
         <section className="space-y-2">
