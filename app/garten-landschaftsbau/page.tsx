@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Garten- & Landschaftsbau Leverkusen | Galabau | Balweh Service",
+  title: "Garten- und Landschaftsbau",
   description:
-    "Professioneller Garten- & Landschaftsbau in Leverkusen. Pflasterarbeiten, Terrassenbau, Zaunanlagen, Rollrasen und Gartenpflege. Jetzt unverbindlich beraten lassen!",
+    "Professioneller Garten- und Landschaftsbau in Leverkusen. Pflasterarbeiten, Terrassenbau, Zaunanlagen, Rollrasen und Gartenpflege. Jetzt unverbindlich beraten lassen!",
   keywords: [
     "Gartenbau Leverkusen",
     "Landschaftsbau Leverkusen",
@@ -25,7 +25,7 @@ export default function GartenLandschaftsbau() {
           Garten- und Landschaftsbau (GaLabau)
         </p>
         <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-brand-primary md:text-5xl">
-          Professioneller Garten- & Landschaftsbau in Leverkusen
+          Professioneller Garten- und Landschaftsbau in Leverkusen
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-600">
           Balweh Service ist Ihr zuverlässiger Partner für professionellen
@@ -67,15 +67,15 @@ export default function GartenLandschaftsbau() {
               Unsere Leistungen im Galabau
             </h2>
             <ul className="mt-4 list-disc space-y-2 pl-6 leading-8 text-zinc-600">
-              <li>Gestaltung & Pflege von Grünanlagen</li>
+              <li>Gestaltung und Pflege von Grünanlagen</li>
               <li>Pflasterarbeiten</li>
-              <li>Baum- & Heckenschnitt</li>
+              <li>Baum- und Heckenschnitt</li>
               <li>Rasenpflege</li>
               <li>Rollrasen verlegen</li>
-              <li>Neu- & Umgestaltung von Außenanlagen</li>
-              <li>Terrassenbau (Holz & WPC)</li>
-              <li>Zaun- & Toranlagen</li>
-              <li>Teich- & Wasserlaufbau</li>
+              <li>Neu- und Umgestaltung von Außenanlagen</li>
+              <li>Terrassenbau (Holz und WPC)</li>
+              <li>Zaun- und Toranlagen</li>
+              <li>Teich- und Wasserlaufbau</li>
             </ul>
           </article>
 
@@ -139,7 +139,7 @@ export default function GartenLandschaftsbau() {
                     Terrassenbau
                   </h3>
                   <p className="mt-1 text-sm text-zinc-200">
-                    Holz & WPC-Terrassen
+                    Holz und WPC-Terrassen
                   </p>
                 </div>
               </div>
@@ -160,7 +160,7 @@ export default function GartenLandschaftsbau() {
                     Grünflächenpflege
                   </h3>
                   <p className="mt-1 text-sm text-zinc-200">
-                    Rasen & Gartenpflege
+                    Rasen und Gartenpflege
                   </p>
                 </div>
               </div>
