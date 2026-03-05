@@ -5,7 +5,7 @@ import ContactForm from "../components/ContactForm";
 export const metadata: Metadata = {
   title: "Kontakt",
   description:
-    "Kontaktieren Sie Balweh in Leverkusen für professionelle Gebäudereinigung und Garten- & Landschaftsbau. Telefonisch erreichbar Montag bis Freitag von 08:00–18:00 Uhr.",
+    "Kontaktieren Sie Balweh in Leverkusen für professionelle Gebäudereinigung und Garten- und Landschaftsbau. Telefonisch erreichbar Montag bis Freitag von 08:00–18:00 Uhr.",
   keywords: [
     "Kontakt Gebäudereinigung Leverkusen",
     "Kontakt Galabau Leverkusen",
@@ -44,7 +44,7 @@ export default function Kontakt() {
         <section className="mx-auto w-full max-w-6xl px-6 pt-16 pb-4">
           <article>
             <h2 className="text-2xl font-semibold tracking-tight text-brand-primary">
-              Persönliche Beratung & unverbindliches Angebot
+              Persönliche Beratung und unverbindliches Angebot
             </h2>
             <p className="mt-4 leading-8 text-zinc-600">
               Wir beraten Sie individuell und erstellen Ihnen ein

@@ -42,7 +42,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 // Map service types to German names
 $service_map = [
     'gebaeudereinigung' => 'Gebäudereinigung',
-    'galabau' => 'Garten- & Landschaftsbau',
+    'galabau' => 'Garten- und Landschaftsbau',
     'beide' => 'Beide Dienstleistungen'
 ];
 
