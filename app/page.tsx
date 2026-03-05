@@ -3,7 +3,7 @@ import Image from "next/image";
 import BalwehLogo from "./balweh_logo_with_text.svg";
 
 export const metadata: Metadata = {
-  title: "Balweh Gebäudereinigung und Galabau Leverkusen & NRW",
+  title: "Balweh Gebäudereinigung und Galabau Leverkusen",
   description:
     "Ihr Partner für glänzende Gebäude und gepflegte Gärten. Erleben Sie Qualität, die man sieht, und einen Service, den man spürt.",
   keywords: [
@@ -138,7 +138,7 @@ export default function Home() {
               </div>
               <div className="p-5">
                 <h3 className="text-base font-semibold text-brand-primary">
-                  Garten- & Landschaftsbau
+                  Garten- und Landschaftsbau
                 </h3>
               </div>
             </a>
@@ -159,7 +159,7 @@ export default function Home() {
               </div>
               <div className="p-5">
                 <h3 className="text-base font-semibold text-brand-primary">
-                  Beratung & Service
+                  Beratung und Service
                 </h3>
               </div>
             </a>

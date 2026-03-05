@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Gebäudereinigung | Unterhalts- & Glasreinigung | Balweh Service",
+  title: "Gebäudereinigung",
   description:
-    "Professionelle Gebäudereinigung in Leverkusen. Unterhaltsreinigung, Glas- & Fassadenreinigung, Büro- & Hotelreinigung, Winterdienst und mehr.",
+    "Professionelle Gebäudereinigung in Leverkusen. Unterhaltsreinigung, Glas- und Fassadenreinigung, Büro- und Hotelreinigung, Winterdienst und mehr.",
   keywords: [
     "Gebäudereinigung Leverkusen",
     "Gebäudeservice Leverkusen",
     "Büroreinigung Leverkusen",
-    "Glas- & Fassadenreinigung Leverkusen",
+    "Glas- und Fassadenreinigung Leverkusen",
     "Unterhaltsreinigung Leverkusen",
     "Hotelreinigung Leverkusen",
     "Baustellenreinigung Leverkusen",
@@ -69,11 +69,11 @@ export default function Gebaeudereinigung() {
             </h2>
             <ul className="mt-4 list-disc space-y-2 pl-6 leading-8 text-zinc-600">
               <li>
-                Unterhalts- & Grundreinigung: Regelmäßige Reinigung von Büros,
+                Unterhalts- und Grundreinigung: Regelmäßige Reinigung von Büros,
                 Praxen, Treppenhäusern und Gewerbeflächen.
               </li>
               <li>
-                Glas- & Fassadenreinigung: Professionelle Reinigung von
+                Glas- und Fassadenreinigung: Professionelle Reinigung von
                 Fenstern, Glasflächen und Fassaden.
               </li>
               <li>
@@ -100,7 +100,7 @@ export default function Gebaeudereinigung() {
                 Eis.
               </li>
               <li>
-                Müll- & Entrümpelung: Fachgerechte Entsorgung und
+                Müll- und Entrümpelung: Fachgerechte Entsorgung und
                 Entrümpelungsservice.
               </li>
             </ul>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Über Balweh Service | Gebäudereinigung & Galabau in Leverkusen&Nrw",
+  title: "Über uns",
   description:
     "Mit Sitz in Leverkusen betreuen wir Kunden in ganz Nordrhein-Westfalen – von privaten Haushalten bis hin zu großen Gewerbeobjekten.",
   keywords: [
