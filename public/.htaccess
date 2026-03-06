@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Do nothing for real files/directories
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Compatibility rewrite for Next.js RSC prefetch requests on exported routes:
+# /kontakt/__next.kontakt.__PAGE__.txt -> /kontakt/__next.kontakt/__PAGE__.txt
+RewriteRule ^(.+)/__next\.(.+)\.__PAGE__\.txt$ /$1/__next.$2/__PAGE__.txt [L]
+
+# Static export route handling: always use trailing slash for directories
+RewriteRule ^(.+[^/])$ /$1/ [R=301,L]

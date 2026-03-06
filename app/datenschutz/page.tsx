@@ -49,6 +49,10 @@ export default function DatenschutzPage() {
             Auftrag zur Bereitstellung und Absicherung der Website.
           </p>
           <p>
+            Weitere Informationen zum Datenschutz bei Hostinger:
+            https://www.hostinger.com/de/legal/datenschutz-bestimmungen
+          </p>
+          <p>
             Beim Aufruf der Website werden in Server-Logfiles typischerweise
             folgende Daten erfasst: IP-Adresse, Datum und Uhrzeit des Zugriffs,
             aufgerufene Seite/Datei, Referrer-URL, Browsertyp und
@@ -76,16 +80,65 @@ export default function DatenschutzPage() {
             Dienstleistung und Nachricht), um Ihre Anfrage zu bearbeiten und mit
             Ihnen Kontakt aufzunehmen.
           </p>
-          <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>
           <p>
-            Die Bereitstellung der Daten ist für die Bearbeitung Ihrer Anfrage
-            erforderlich. Ohne diese Angaben können wir Ihre Anfrage ggf. nicht
-            beantworten.
+            <strong>Zusätzlich erfasste Daten:</strong>
+          </p>
+          <ul className="list-disc space-y-1 pl-6">
+            <li>
+              <strong>IP-Adresse:</strong> Wird zur Missbrauchsprävention (Rate
+              Limiting), Sicherheitsprotokollierung und zur Bearbeitung Ihrer
+              Anfrage erfasst und gespeichert.
+            </li>
+            <li>
+              <strong>Zeitstempel:</strong> Datum und Uhrzeit der
+              Formularübermittlung werden erfasst.
+            </li>
+            <li>
+              <strong>Session-Cookie (PHPSESSID):</strong> Ein technisch
+              notwendiges Cookie wird gesetzt, um CSRF-Angriffe zu verhindern
+              (Schutz vor gefälschten Anfragen). Dieses Cookie enthält keine
+              personenbezogenen Daten und wird automatisch gelöscht, wenn Sie
+              Ihren Browser schließen.
+            </li>
+          </ul>
+          <p>
+            <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO
+            (Vertragsanbahnung) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
+            Interesse an der Verhinderung von Missbrauch und Sicherstellung der
+            technischen Sicherheit).
           </p>
           <p>
-            Die Daten werden gelöscht, sobald Ihre Anfrage abschliessend
-            bearbeitet wurde und keine gesetzlichen Aufbewahrungspflichten mehr
-            bestehen.
+            <strong>Verarbeitung und Übermittlung:</strong> Die eingegebenen
+            Daten werden über unseren Server verarbeitet und per E-Mail an uns
+            übermittelt. Eine Weitergabe an Dritte erfolgt nicht.
+          </p>
+          <p>
+            <strong>Speicherdauer:</strong>
+          </p>
+          <ul className="list-disc space-y-1 pl-6">
+            <li>
+              <strong>Formulardaten:</strong> Werden gelöscht, sobald Ihre
+              Anfrage abschließend bearbeitet wurde und keine gesetzlichen
+              Aufbewahrungspflichten mehr bestehen (in der Regel nach 6
+              Monaten).
+            </li>
+            <li>
+              <strong>IP-Adressen und Rate-Limiting-Daten:</strong> Werden nach
+              spätestens 1 Stunde automatisch gelöscht.
+            </li>
+            <li>
+              <strong>Sicherheitsprotokolle (Logs):</strong> Werden nach 30
+              Tagen automatisch gelöscht.
+            </li>
+            <li>
+              <strong>Session-Cookie:</strong> Wird beim Schließen des Browsers
+              automatisch gelöscht.
+            </li>
+          </ul>
+          <p>
+            Die Bereitstellung der Daten ist für die Bearbeitung Ihrer Anfrage
+            erforderlich. Ohne diese Angaben können wir Ihre Anfrage nicht
+            beantworten.
           </p>
         </section>
 
@@ -110,9 +163,18 @@ export default function DatenschutzPage() {
             benötigen.
           </p>
           <p>
-            Externe Empfänger können insbesondere unser Hosting-Anbieter sowie
-            eingesetzte E-Mail-Dienstleister sein, soweit dies zur technischen
-            Bereitstellung und Kommunikation erforderlich ist.
+            <strong>Auftragsverarbeiter:</strong>
+          </p>
+          <ul className="list-disc space-y-1 pl-6">
+            <li>
+              <strong>Hostinger International Ltd</strong> - als
+              Hosting-Anbieter für die technische Bereitstellung der Website und
+              E-Mail-Infrastruktur
+            </li>
+          </ul>
+          <p>
+            Es erfolgt keine Weitergabe Ihrer Daten an Dritte zu Werbe- oder
+            Marketingzwecken.
           </p>
         </section>
 
@@ -121,16 +183,53 @@ export default function DatenschutzPage() {
             7. Cookies, Tracking und Analyse
           </h2>
           <p>
-            Auf dieser Website setzen wir derzeit keine Analyse- oder
-            Marketing-Tools ein, die eine Einwilligung erfordern. Es werden
-            keine nicht technisch erforderlichen Cookies zu Tracking- oder
-            Werbezwecken gesetzt.
+            <strong>Technisch notwendige Cookies:</strong> Auf dieser Website
+            wird ein technisch notwendiges Session-Cookie (PHPSESSID) verwendet,
+            um das Kontaktformular vor CSRF-Angriffen zu schützen. Dieses Cookie
+            ist für die sichere Funktion des Formulars erforderlich und enthält
+            keine personenbezogenen Daten. Es wird automatisch beim Schließen
+            des Browsers gelöscht.
+          </p>
+          <p>
+            <strong>Marketing und Analyse:</strong> Wir setzen derzeit keine
+            Analyse- oder Marketing-Tools ein, die eine Einwilligung erfordern.
+            Es werden keine Cookies zu Tracking- oder Werbezwecken gesetzt.
+          </p>
+          <p>
+            Rechtsgrundlage für technisch notwendige Cookies: Art. 6 Abs. 1 lit.
+            f DSGVO (berechtigtes Interesse an der sicheren Bereitstellung der
+            Website).
           </p>
         </section>
 
         <section className="space-y-2">
           <h2 className="text-lg font-semibold text-brand-primary">
-            8. Instagram
+            8. Datensicherheit und SSL-Verschlüsselung
+          </h2>
+          <p>
+            Wir setzen technische und organisatorische Sicherheitsmaßnahmen ein,
+            um Ihre personenbezogenen Daten gegen zufällige oder vorsätzliche
+            Manipulationen, Verlust, Zerstörung oder den Zugriff unberechtigter
+            Personen zu schützen.
+          </p>
+          <p>
+            Diese Website nutzt aus Sicherheitsgründen und zum Schutz der
+            Übertragung personenbezogener Daten eine SSL- bzw.
+            TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie
+            daran, dass die Adresszeile des Browsers von &quot;http://&quot; auf
+            &quot;https://&quot; wechselt und an dem Schloss-Symbol in Ihrer
+            Browserzeile.
+          </p>
+          <p>
+            Wenn die SSL- bzw. TLS-Verschlüsselung aktiviert ist, können die
+            Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen
+            werden.
+          </p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-lg font-semibold text-brand-primary">
+            9. Instagram
           </h2>
           <p>
             Auf unserer Website befindet sich ein Link zum sozialen Netzwerk
@@ -153,7 +252,7 @@ export default function DatenschutzPage() {
 
         <section className="space-y-2">
           <h2 className="text-lg font-semibold text-brand-primary">
-            9. Ihre Rechte
+            10. Ihre Rechte
           </h2>
           <p>Sie haben das Recht auf:</p>
           <ul className="list-disc space-y-1 pl-6">
@@ -170,7 +269,7 @@ export default function DatenschutzPage() {
 
         <section className="space-y-2">
           <h2 className="text-lg font-semibold text-brand-primary">
-            10. Beschwerderecht bei Aufsichtsbehörde
+            11. Beschwerderecht bei Aufsichtsbehörde
           </h2>
           <p>
             Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu
@@ -187,9 +286,9 @@ export default function DatenschutzPage() {
 
         <section className="space-y-2">
           <h2 className="text-lg font-semibold text-brand-primary">
-            11. Stand der Datenschutzerklaerung
+            12. Stand der Datenschutzerklärung
           </h2>
-          <p>Stand: 05.03.2026</p>
+          <p>Stand: 06.03.2026</p>
         </section>
       </div>
     </main>
