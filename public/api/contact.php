@@ -217,7 +217,6 @@ $body .= "Name: " . $name . "\n";
 $body .= "E-Mail: " . $email . "\n";
 $body .= "Telefon: " . $phone . "\n";
 $body .= "Dienstleistung: " . $service_name . "\n";
-$body .= "IP-Adresse: " . $client_ip . "\n";
 $body .= "Zeitstempel: " . date('Y-m-d H:i:s') . "\n";
 $body .= "\nNachricht:\n";
 $body .= $message . "\n";
