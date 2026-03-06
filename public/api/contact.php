@@ -208,7 +208,7 @@ if (!isset($service_map[$service])) {
 $service_name = $service_map[$service];
 
 // Prepare email
-$to = 'andonov_nikola@outlook.com';
+$to = 'info@balweh.de';
 $subject = 'Neue Kontaktanfrage von ' . sanitize_header($name);
 
 // Escape data for email body (prevent any potential issues)
