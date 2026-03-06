@@ -46,6 +46,7 @@ app/
 │   └── Footer.tsx         # Site footer
 ├── layout.tsx             # Root layout with metadata
 ├── page.tsx               # Homepage
+├── not-found.tsx          # Custom 404 page
 ├── globals.css            # Tailwind and custom styles
 ├── kontakt/               # Contact page
 ├── ueber-uns/             # About page
@@ -55,6 +56,7 @@ app/
 └── garten-landschaftsbau/ # Landscaping service page
 
 public/
+├── .htaccess              # URL rewriting & custom 404 handler
 ├── api/
 │   ├── contact.php        # Form submission handler
 │   ├── csrf-token.php     # CSRF token generator
