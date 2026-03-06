@@ -20,7 +20,7 @@ export default function ImpressumPage() {
           <p>Baumberger Str. 54</p>
           <p>51373 Leverkusen</p>
           <p>Deutschland</p>
-          <p>Telefon: +49 155 - 67 20 09 71</p>
+          <p>Telefon: +49 155 67200971</p>
           <p>E-Mail: info@balweh.de</p>
         </section>
 

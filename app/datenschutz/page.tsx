@@ -30,12 +30,12 @@ export default function DatenschutzPage() {
           <p>
             Verantwortlich für die Datenverarbeitung auf dieser Website ist:
           </p>
-          <p>Balweh Service</p>
+          <p>Balweh Gebäudereinigung und Galabau e.K.</p>
           <p>Inhaber: Abdula Balweh</p>
           <p>Baumberger Str. 54</p>
           <p>51373 Leverkusen</p>
           <p>Deutschland</p>
-          <p>Telefon: +49 155 - 67 20 09 71</p>
+          <p>Telefon: +49 155 67200971</p>
           <p>E-Mail: info@balweh.de</p>
         </section>
 
@@ -85,9 +85,13 @@ export default function DatenschutzPage() {
           </p>
           <ul className="list-disc space-y-1 pl-6">
             <li>
-              <strong>IP-Adresse:</strong> Wird zur Missbrauchsprävention (Rate
-              Limiting), Sicherheitsprotokollierung und zur Bearbeitung Ihrer
-              Anfrage erfasst und gespeichert.
+              <strong>IP-Adresse:</strong> Wird ausschließlich zur
+              Missbrauchsprävention (Rate Limiting) erfasst und für maximal 1
+              Stunde gespeichert. Zusätzlich wird die IP-Adresse für
+              Sicherheitsprotokollierung (Abuse-Monitoring) erfasst und für
+              maximal 30 Tage gespeichert. Die IP-Adresse wird NICHT im
+              E-Mail-Versand und NICHT zur Bearbeitung Ihrer Anfrage
+              verwendet.
             </li>
             <li>
               <strong>Zeitstempel:</strong> Datum und Uhrzeit der
