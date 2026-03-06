@@ -53,7 +53,8 @@ export default function ContactForm() {
     if (!formData.email.trim()) {
       errors.email = "E-Mail ist erforderlich";
     } else if (!validateEmail(formData.email)) {
-      errors.email = "Bitte geben Sie eine gültige E-Mail-Adresse ein (z.B. name@beispiel.de)";
+      errors.email =
+        "Bitte geben Sie eine gültige E-Mail-Adresse ein (z.B. name@beispiel.de)";
     } else if (formData.email.length > 255) {
       errors.email = "E-Mail ist zu lang (max. 255 Zeichen)";
     }
@@ -61,7 +62,8 @@ export default function ContactForm() {
     if (!formData.phone.trim()) {
       errors.phone = "Telefonnummer ist erforderlich";
     } else if (!validatePhone(formData.phone)) {
-      errors.phone = "Telefonnummer ungültig (mindestens 5 Zeichen, nur Ziffern und +, -, (), Leerzeichen)";
+      errors.phone =
+        "Telefonnummer ungültig (mindestens 5 Zeichen, nur Ziffern und +, -, (), Leerzeichen)";
     } else if (formData.phone.length > 30) {
       errors.phone = "Telefonnummer ist zu lang (max. 30 Zeichen)";
     }
@@ -91,11 +93,9 @@ export default function ContactForm() {
         if (response.ok) {
           const data = await response.json();
           setCsrfToken(data.csrf_token);
-        } else {
-          console.error("Failed to fetch CSRF token, status:", response.status);
         }
       } catch (error) {
-        console.error("Failed to fetch CSRF token:", error);
+        // CSRF token fetch failed, will be retried on form submission
       }
     };
 
@@ -142,7 +142,6 @@ export default function ContactForm() {
         tokenToUse = data.csrf_token;
         setCsrfToken(tokenToUse);
       } catch (error) {
-        console.error("Failed to fetch CSRF token:", error);
         setStatus("error");
         setMessage(
           "Es gab einen Fehler beim Versenden Ihrer Anfrage. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.",
@@ -151,13 +150,8 @@ export default function ContactForm() {
       }
     }
 
-    // Log form data for debugging
-    console.log("Form data being sent:", formData);
-    console.log("CSRF token:", tokenToUse);
-
     try {
       const body = new URLSearchParams(formData);
-      console.log("URL-encoded body:", body.toString());
 
       const response = await fetch("/api/contact.php", {
         method: "POST",
@@ -170,8 +164,6 @@ export default function ContactForm() {
       });
 
       const responseData = await response.json();
-      console.log("Response status:", response.status);
-      console.log("Response data:", responseData);
 
       if (response.ok) {
         setStatus("success");
