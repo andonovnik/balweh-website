@@ -31,6 +31,8 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  // Normalize pathname by removing trailing slash for matching (/kontakt/ -> /kontakt), fallback to '/' for root
+  const normalizedPath = pathname.replace(/\/$/, '') || '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,7 +61,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={desktopNavClass(pathname === item.href)}
+                className={desktopNavClass(normalizedPath === item.href)}
               >
                 {item.label}
               </Link>
@@ -122,7 +124,7 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={mobileNavClass(pathname === item.href)}
+                  className={mobileNavClass(normalizedPath === item.href)}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
