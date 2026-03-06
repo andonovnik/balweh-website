@@ -1,3 +1,6 @@
+# Custom 404 error page
+ErrorDocument 404 /404.html
+
 RewriteEngine On
 
 # Do nothing for real files/directories
