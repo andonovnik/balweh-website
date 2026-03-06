@@ -37,6 +37,7 @@ export default function DatenschutzPage() {
           <p>Deutschland</p>
           <p>Telefon: +49 155 67200971</p>
           <p>E-Mail: info@balweh.de</p>
+          <p>balweh.de</p>
         </section>
 
         <section className="space-y-2">
@@ -90,8 +91,7 @@ export default function DatenschutzPage() {
               Stunde gespeichert. Zusätzlich wird die IP-Adresse für
               Sicherheitsprotokollierung (Abuse-Monitoring) erfasst und für
               maximal 30 Tage gespeichert. Die IP-Adresse wird NICHT im
-              E-Mail-Versand und NICHT zur Bearbeitung Ihrer Anfrage
-              verwendet.
+              E-Mail-Versand und NICHT zur Bearbeitung Ihrer Anfrage verwendet.
             </li>
             <li>
               <strong>Zeitstempel:</strong> Datum und Uhrzeit der
