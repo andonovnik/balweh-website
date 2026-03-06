@@ -1,0 +1,4 @@
+# Protect secret key files and other dotfiles in /api
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>

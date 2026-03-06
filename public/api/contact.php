@@ -230,17 +230,16 @@ $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
 // Log submission (for security monitoring)
 $log_file = sys_get_temp_dir() . '/contact_form_submissions.log';
-$log_entry = sprintf(
-    "[%s] IP: %s, Email: %s, Name: %s\n",
-    date('Y-m-d H:i:s'),
-    $client_ip,
-    $email,
-    $name
-);
-error_log($log_entry, 3, $log_file);
+$cleanup_marker_file = sys_get_temp_dir() . '/contact_form_log_cleanup.timestamp';
 
-// Clean up old log entries (delete entries older than 30 days per GDPR)
-if (file_exists($log_file) && (time() - filemtime($log_file)) > 86400) { // Check once per day
+// Run retention cleanup at most once per day using an independent marker file.
+$should_run_cleanup = true;
+if (file_exists($cleanup_marker_file)) {
+    $last_cleanup = (int) file_get_contents($cleanup_marker_file);
+    $should_run_cleanup = (time() - $last_cleanup) > 86400;
+}
+
+if ($should_run_cleanup && file_exists($log_file)) {
     $log_contents = file_get_contents($log_file);
     $log_lines = explode("\n", $log_contents);
     $thirty_days_ago = time() - (30 * 86400);
@@ -255,10 +254,18 @@ if (file_exists($log_file) && (time() - filemtime($log_file)) > 86400) { // Chec
         }
     }
 
-    if (count($new_log) < count($log_lines)) {
-        file_put_contents($log_file, implode("\n", $new_log), LOCK_EX);
-    }
+    file_put_contents($log_file, implode("\n", $new_log), LOCK_EX);
+    file_put_contents($cleanup_marker_file, (string) time(), LOCK_EX);
 }
+
+$log_entry = sprintf(
+    "[%s] IP: %s, Email: %s, Name: %s\n",
+    date('Y-m-d H:i:s'),
+    $client_ip,
+    $email,
+    $name
+);
+error_log($log_entry, 3, $log_file);
 
 // Send email
 if (mail($to, $subject, $body, $headers)) {
