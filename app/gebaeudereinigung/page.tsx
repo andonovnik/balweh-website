@@ -29,7 +29,7 @@ export default function Gebaeudereinigung() {
           Professionelle Gebäudereinigung
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-600">
-          Balweh Service ist Ihr zuverlässiger Partner für Gebäudereinigung und
+          Balweh ist Ihr zuverlässiger Partner für Gebäudereinigung und
           Gebäudeservice in Leverkusen und Umgebung. Wir sorgen für Sauberkeit,
           Werterhalt und einen gepflegten Eindruck – flexibel, gründlich und
           professionell.

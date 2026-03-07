@@ -24,12 +24,11 @@ export default function ÜberUns() {
           Balweh – Qualität, die man sieht. Service, den man spürt.
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-600">
-          Balweh Service steht für professionelle Gebäudereinigung und
-          hochwertigen Garten- & Landschaftsbau mit Sitz in Leverkusen. Von hier
-          aus betreuen wir Privat- und Gewerbekunden in ganz
-          Nordrhein-Westfalen. Unser Slogan ist dabei nicht nur ein Versprechen
-          – sondern unsere tägliche Arbeitsweise: Qualität, die man sieht.
-          Service, den man spürt.
+          Balweh steht für professionelle Gebäudereinigung und hochwertigen
+          Garten- & Landschaftsbau mit Sitz in Leverkusen. Von hier aus betreuen
+          wir Privat- und Gewerbekunden in ganz Nordrhein-Westfalen. Unser
+          Slogan ist dabei nicht nur ein Versprechen – sondern unsere tägliche
+          Arbeitsweise: Qualität, die man sieht. Service, den man spürt.
         </p>
         <Image
           src="/images/ueber-uns-hero.webp"

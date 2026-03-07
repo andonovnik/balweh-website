@@ -28,10 +28,9 @@ export default function GartenLandschaftsbau() {
           Professioneller Garten- und Landschaftsbau in Leverkusen
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-600">
-          Balweh Service ist Ihr zuverlässiger Partner für professionellen
-          Garten- und Landschaftsbau in Leverkusen und Umgebung. Wir gestalten,
-          pflegen und erneuern Außenanlagen individuell, fachgerecht und
-          termintreu.
+          Balweh ist Ihr zuverlässiger Partner für professionellen Garten- und
+          Landschaftsbau in Leverkusen und Umgebung. Wir gestalten, pflegen und
+          erneuern Außenanlagen individuell, fachgerecht und termintreu.
         </p>
         <Image
           src="/images/garten-hero.webp"
