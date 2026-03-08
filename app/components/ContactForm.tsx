@@ -417,7 +417,7 @@ export default function ContactForm() {
               href="/datenschutz"
               className="font-medium text-blue-600 hover:underline"
             >
-              Datenschutzerklaerung
+              Datenschutzerklärung
             </Link>
             .
           </p>

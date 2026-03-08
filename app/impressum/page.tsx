@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Impressum",
   description:
-    "Impressum von Balweh Gebaeudereinigung und Galabau mit Pflichtangaben gemaess § 5 DDG.",
+    "Impressum von Balweh Gebäudereinigung und Galabau mit Pflichtangaben gemäß § 5 DDG.",
 };
 
 export default function ImpressumPage() {
@@ -13,7 +13,7 @@ export default function ImpressumPage() {
       <div className="mt-8 space-y-6 text-zinc-700">
         <section className="space-y-2">
           <h2 className="text-lg font-semibold text-brand-primary">
-            Angaben gemaess § 5 DDG
+            Angaben gemäß § 5 DDG
           </h2>
           <p>Balweh Gebäudereinigung und Galabau e.K.</p>
           <p>Inhaber: Abdula Balweh</p>

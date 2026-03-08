@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Datenschutz",
   description:
-    "Datenschutzerklaerung von Balweh zur Verarbeitung personenbezogener Daten gemaess DSGVO.",
+    "Datenschutzerklärung von Balweh zur Verarbeitung personenbezogener Daten gemäß DSGVO.",
 };
 
 export default function DatenschutzPage() {
@@ -114,9 +114,9 @@ export default function DatenschutzPage() {
           <p>
             <strong>Verarbeitung und Übermittlung:</strong> Die eingegebenen
             Daten werden über unseren Server verarbeitet und per E-Mail an uns
-            übermittelt. Eine Weitergabe zu Werbe- oder Marketingzwecken
-            erfolgt nicht. Eine Verarbeitung durch technische
-            Auftragsverarbeiter (z. B. Hosting-Anbieter) kann stattfinden.
+            übermittelt. Eine Weitergabe zu Werbe- oder Marketingzwecken erfolgt
+            nicht. Eine Verarbeitung durch technische Auftragsverarbeiter (z. B.
+            Hosting-Anbieter) kann stattfinden.
           </p>
           <p>
             <strong>Speicherdauer:</strong>
@@ -131,9 +131,9 @@ export default function DatenschutzPage() {
               gesetzlichen Aufbewahrungspflichten.
             </li>
             <li>
-              <strong>IP-Adressen und Rate-Limiting-Daten:</strong> Diese
-              Daten werden für den Schutz vor zu vielen Anfragen innerhalb von
-              1 Stunde gespeichert und danach bei der nächsten automatischen
+              <strong>IP-Adressen und Rate-Limiting-Daten:</strong> Diese Daten
+              werden für den Schutz vor zu vielen Anfragen innerhalb von 1
+              Stunde gespeichert und danach bei der nächsten automatischen
               Systemverarbeitung gelöscht.
             </li>
             <li>
@@ -295,7 +295,7 @@ export default function DatenschutzPage() {
             Landesbeauftragte für Datenschutz und Informationsfreiheit
             Nordrhein-Westfalen
           </p>
-          <p>Kavalleriestr. 2-4, 40213 Duesseldorf</p>
+          <p>Kavalleriestr. 2-4, 40213 Düsseldorf</p>
           <p>https://www.ldi.nrw.de</p>
         </section>
 
