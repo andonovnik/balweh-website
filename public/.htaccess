@@ -14,3 +14,28 @@ RewriteRule ^(.+)/__next\.(.+)\.__PAGE__\.txt$ /$1/__next.$2/__PAGE__.txt [L]
 
 # Static export route handling: always use trailing slash for directories
 RewriteRule ^(.+[^/])$ /$1/ [R=301,L]
+
+# Privacy-conscious cache policy for static export:
+# - HTML/TXT documents: no cache (fresh content on each visit)
+# - JS/CSS/fonts: long cache
+# - Images/icons: medium cache
+# - Metadata files: short cache
+<IfModule mod_headers.c>
+	<FilesMatch "\.(html|txt)$">
+		Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+		Header set Pragma "no-cache"
+		Header set Expires "0"
+	</FilesMatch>
+
+	<FilesMatch "\.(js|mjs|css|woff|woff2)$">
+		Header set Cache-Control "public, max-age=31536000, immutable"
+	</FilesMatch>
+
+	<FilesMatch "\.(png|jpg|jpeg|gif|webp|avif|svg|ico)$">
+		Header set Cache-Control "public, max-age=2592000"
+	</FilesMatch>
+
+	<FilesMatch "\.(json|xml|webmanifest)$">
+		Header set Cache-Control "public, max-age=3600, must-revalidate"
+	</FilesMatch>
+</IfModule>
