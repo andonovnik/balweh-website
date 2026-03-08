@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,9 +30,13 @@ function mobileNavClass(isActive: boolean) {
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement | null>(null);
+  const openMenuButtonRef = useRef<HTMLButtonElement | null>(null);
+  const closeMenuButtonRef = useRef<HTMLButtonElement | null>(null);
+  const wasMenuOpenRef = useRef(false);
   const pathname = usePathname();
   // Normalize pathname by removing trailing slash for matching (/kontakt/ -> /kontakt), fallback to '/' for root
-  const normalizedPath = pathname.replace(/\/$/, '') || '/';
+  const normalizedPath = pathname.replace(/\/$/, "") || "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,6 +46,71 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) {
+      return;
+    }
+
+    const focusableSelector =
+      'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMobileMenuOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const container = mobileMenuRef.current;
+      if (!container) {
+        return;
+      }
+
+      const focusableElements = Array.from(
+        container.querySelectorAll<HTMLElement>(focusableSelector),
+      );
+
+      if (focusableElements.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const first = focusableElements[0];
+      const last = focusableElements[focusableElements.length - 1];
+      const activeElement = document.activeElement as HTMLElement | null;
+
+      if (!activeElement || !container.contains(activeElement)) {
+        event.preventDefault();
+        first.focus();
+        return;
+      }
+
+      if (event.shiftKey && activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      closeMenuButtonRef.current?.focus();
+    } else if (wasMenuOpenRef.current) {
+      openMenuButtonRef.current?.focus();
+    }
+
+    wasMenuOpenRef.current = mobileMenuOpen;
+  }, [mobileMenuOpen]);
 
   return (
     <>
@@ -67,73 +136,88 @@ export default function Header() {
               </Link>
             ))}
           </nav>
-          <button
-            onClick={() => setMobileMenuOpen(true)}
-            className="flex flex-col gap-1.5 p-2 md:hidden"
-            aria-label="Open menu"
-          >
-            <span className="h-0.5 w-6 bg-brand-primary"></span>
-            <span className="h-0.5 w-6 bg-brand-primary"></span>
-            <span className="h-0.5 w-6 bg-brand-primary"></span>
-          </button>
+          {mobileMenuOpen ? (
+            <button
+              ref={openMenuButtonRef}
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex flex-col gap-1.5 p-2 md:hidden"
+              aria-label="Close menu"
+              aria-expanded="true"
+              aria-controls="mobile-navigation"
+            >
+              <span className="h-0.5 w-6 bg-brand-primary"></span>
+              <span className="h-0.5 w-6 bg-brand-primary"></span>
+              <span className="h-0.5 w-6 bg-brand-primary"></span>
+            </button>
+          ) : (
+            <button
+              ref={openMenuButtonRef}
+              onClick={() => setMobileMenuOpen(true)}
+              className="flex flex-col gap-1.5 p-2 md:hidden"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="mobile-navigation"
+            >
+              <span className="h-0.5 w-6 bg-brand-primary"></span>
+              <span className="h-0.5 w-6 bg-brand-primary"></span>
+              <span className="h-0.5 w-6 bg-brand-primary"></span>
+            </button>
+          )}
         </div>
       </header>
-      <div
-        className={`fixed inset-0 z-50 h-dvh bg-white transition-opacity duration-300 md:hidden ${
-          mobileMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
-      >
+      {mobileMenuOpen && (
         <div
-          className={`flex h-full flex-col transition-all duration-300 ${
-            mobileMenuOpen
-              ? "translate-y-0 opacity-100"
-              : "translate-y-4 opacity-0"
-          }`}
+          id="mobile-navigation"
+          ref={mobileMenuRef}
+          className="fixed inset-0 z-50 h-dvh bg-white transition-opacity duration-300 md:hidden opacity-100"
         >
-          <div className="flex items-center justify-between px-6 py-2">
-            <Link href="/" onClick={() => setMobileMenuOpen(false)}>
-              <Image
-                src={logoWithText}
-                alt="BALWEH Logo"
-                className="h-20 w-auto"
-              />
-            </Link>
-            <button
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-2 text-brand-primary"
-              aria-label="Close menu"
-            >
-              <svg
-                className="h-8 w-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
+          <div className="flex h-full flex-col transition-all duration-300 translate-y-0 opacity-100">
+            <div className="flex items-center justify-between px-6 py-2">
+              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                <Image
+                  src={logoWithText}
+                  alt="BALWEH Logo"
+                  className="h-20 w-auto"
                 />
-              </svg>
-            </button>
-          </div>
-          <nav className="flex flex-1 flex-col items-center justify-center px-6 text-lg">
-            <div className="flex flex-col items-start gap-8">
-              {NAV_ITEMS.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={mobileNavClass(normalizedPath === item.href)}
-                  onClick={() => setMobileMenuOpen(false)}
+              </Link>
+              <button
+                ref={closeMenuButtonRef}
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-2 text-brand-primary"
+                aria-label="Close menu"
+              >
+                <svg
+                  className="h-8 w-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  {item.label}
-                </Link>
-              ))}
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
             </div>
-          </nav>
+            <nav className="flex flex-1 flex-col items-center justify-center px-6 text-lg">
+              <div className="flex flex-col items-start gap-8">
+                {NAV_ITEMS.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={mobileNavClass(normalizedPath === item.href)}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </nav>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
