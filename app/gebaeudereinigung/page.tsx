@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Gebäudereinigung",
@@ -43,12 +44,12 @@ export default function Gebaeudereinigung() {
           loading="eager"
         />
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-          <a
+          <Link
             href="/kontakt"
             className="inline-flex items-center justify-center rounded-lg bg-brand-secondary px-5 py-3 text-sm font-medium text-white hover:bg-brand-secondary/90"
           >
             Jetzt unverbindliches Angebot anfordern
-          </a>
+          </Link>
         </div>
       </section>
 

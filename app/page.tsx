@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import BalwehLogo from "./balweh_logo_with_text.svg";
 
 export const metadata: Metadata = {
@@ -39,18 +40,18 @@ export default function Home() {
               Wohlbefinden in und um Ihr Objekt.
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <a
+              <Link
                 href="/kontakt"
                 className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-3 text-sm font-medium text-zinc-900 hover:bg-zinc-100"
               >
                 Jetzt unverbindliches Angebot sichern!
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/gebaeudereinigung"
                 className="inline-flex items-center justify-center rounded-lg border border-white/60 px-5 py-3 text-sm font-medium text-white hover:bg-white/10"
               >
                 Unsere Services
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -101,7 +102,7 @@ export default function Home() {
           </article>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <a
+            <Link
               href="/gebaeudereinigung"
               className="group block overflow-hidden rounded-2xl border border-zinc-200 bg-white"
             >
@@ -120,9 +121,9 @@ export default function Home() {
                   Gebäudereinigung
                 </h3>
               </div>
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/garten-landschaftsbau"
               className="group block overflow-hidden rounded-2xl border border-zinc-200 bg-white"
             >
@@ -141,9 +142,9 @@ export default function Home() {
                   Garten- und Landschaftsbau
                 </h3>
               </div>
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/kontakt"
               className="group block overflow-hidden rounded-2xl border border-zinc-200 bg-white"
             >
@@ -162,7 +163,7 @@ export default function Home() {
                   Beratung und Service
                 </h3>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
