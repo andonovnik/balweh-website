@@ -46,7 +46,7 @@ export default function Gebaeudereinigung() {
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <Link
             href="/kontakt"
-            className="inline-flex items-center justify-center rounded-lg bg-brand-secondary px-5 py-3 text-sm font-medium text-white hover:bg-brand-secondary/90"
+            className="inline-flex items-center justify-center rounded-lg bg-brand-secondary px-5 py-3 text-sm font-medium text-white hover:bg-brand-secondary-hover"
           >
             Jetzt unverbindliches Angebot anfordern
           </Link>
