@@ -1,7 +1,7 @@
 <?php
 // Configure session cookie before starting session
 session_set_cookie_params([
-    'lifetime' => 3600,
+    'lifetime' => 0,
     'path' => '/',
     'domain' => '',
     'secure' => !in_array($_SERVER['HTTP_HOST'] ?? 'localhost', ['localhost', 'localhost:3000']),

@@ -15,7 +15,7 @@
 
 // Configure session cookie before starting session
 session_set_cookie_params([
-    'lifetime' => 3600,
+    'lifetime' => 0,
     'path' => '/',
     'domain' => '',
     'secure' => !in_array($_SERVER['HTTP_HOST'] ?? 'localhost', ['localhost', 'localhost:3000']),
@@ -259,11 +259,9 @@ if ($should_run_cleanup && file_exists($log_file)) {
 }
 
 $log_entry = sprintf(
-    "[%s] IP: %s, Email: %s, Name: %s\n",
+    "[%s] IP: %s\n",
     date('Y-m-d H:i:s'),
-    $client_ip,
-    $email,
-    $name
+    $client_ip
 );
 error_log($log_entry, 3, $log_file);
 

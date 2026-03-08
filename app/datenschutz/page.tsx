@@ -114,7 +114,9 @@ export default function DatenschutzPage() {
           <p>
             <strong>Verarbeitung und Übermittlung:</strong> Die eingegebenen
             Daten werden über unseren Server verarbeitet und per E-Mail an uns
-            übermittelt. Eine Weitergabe an Dritte erfolgt nicht.
+            übermittelt. Eine Weitergabe zu Werbe- oder Marketingzwecken
+            erfolgt nicht. Eine Verarbeitung durch technische
+            Auftragsverarbeiter (z. B. Hosting-Anbieter) kann stattfinden.
           </p>
           <p>
             <strong>Speicherdauer:</strong>
@@ -124,11 +126,15 @@ export default function DatenschutzPage() {
               <strong>Formulardaten:</strong> Werden gelöscht, sobald Ihre
               Anfrage abschließend bearbeitet wurde und keine gesetzlichen
               Aufbewahrungspflichten mehr bestehen (in der Regel nach 6
-              Monaten).
+              Monaten). Erfolgt die Bearbeitung per E-Mail, richtet sich die
+              tatsächliche Löschung nach den internen Postfachprozessen und
+              gesetzlichen Aufbewahrungspflichten.
             </li>
             <li>
-              <strong>IP-Adressen und Rate-Limiting-Daten:</strong> Werden nach
-              spätestens 1 Stunde automatisch gelöscht.
+              <strong>IP-Adressen und Rate-Limiting-Daten:</strong> Diese
+              Daten werden für den Schutz vor zu vielen Anfragen innerhalb von
+              1 Stunde gespeichert und danach bei der nächsten automatischen
+              Systemverarbeitung gelöscht.
             </li>
             <li>
               <strong>Sicherheitsprotokolle (Logs):</strong> Werden nach 30
@@ -203,6 +209,11 @@ export default function DatenschutzPage() {
             Rechtsgrundlage für technisch notwendige Cookies: Art. 6 Abs. 1 lit.
             f DSGVO (berechtigtes Interesse an der sicheren Bereitstellung der
             Website).
+          </p>
+          <p>
+            Hinweis zur Speicherdauer des Session-Cookies: Das Cookie ist als
+            Session-Cookie konfiguriert und wird beim Schließen des Browsers
+            gelöscht.
           </p>
         </section>
 
@@ -292,7 +303,7 @@ export default function DatenschutzPage() {
           <h2 className="text-lg font-semibold text-brand-primary">
             12. Stand der Datenschutzerklärung
           </h2>
-          <p>Stand: 06.03.2026</p>
+          <p>Stand: 08.03.2026</p>
         </section>
       </div>
     </main>
