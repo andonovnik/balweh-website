@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   appleWebApp: {
     capable: true,
-    title: "Balweh",
+    title: "Balweh - Gebäudereinigung und Galabau",
   },
   manifest: "/manifest.json",
   robots: {
@@ -43,12 +43,20 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Balweh - Gebäudereinigung und Galabau",
+    title: "Balweh Gebäudereinigung und Galabau",
     description: SITE_DESCRIPTION,
     locale: "de_DE",
     type: "website",
-    siteName: "Balweh",
+    siteName: "Balweh Gebäudereinigung und Galabau",
     url: "https://www.balweh.de",
+    images: [
+      {
+        url: "/social/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Balweh Gebäudereinigung und Galabau",
+      },
+    ],
   },
 };
 
@@ -106,7 +114,9 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema),
+          }}
         />
       </head>
       <body className={`${geistSans.variable} font-sans antialiased`}>
