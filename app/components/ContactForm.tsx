@@ -404,7 +404,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="w-full rounded-lg bg-brand-primary py-3 font-medium text-white transition-colors hover:bg-opacity-90 disabled:opacity-50"
+            className="w-full rounded-lg bg-brand-primary py-3 font-medium text-white transition-all duration-200 hover:bg-brand-primary/90 hover:shadow-lg hover:scale-[1.02] disabled:opacity-50 disabled:hover:scale-100 disabled:hover:shadow-none"
           >
             {status === "loading" ? "Wird versendet..." : "Anfrage versenden"}
           </button>
