@@ -74,6 +74,15 @@ export default function ImpressumPage() {
               className="text-blue-600 hover:underline"
             >
               Pexels
+            </a>{" "}
+            und{" "}
+            <a
+              href="https://unsplash.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              Unsplash
             </a>
             . Alle Bilder stehen unter freien Lizenzen zur kommerziellen Nutzung
             und erfordern keine Namensnennung. Wir danken den Fotografen für die
