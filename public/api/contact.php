@@ -265,8 +265,32 @@ $log_entry = sprintf(
 );
 error_log($log_entry, 3, $log_file);
 
-// Send email
+// Send email to Balweh
 if (mail($to, $subject, $body, $headers)) {
+    // Send auto-reply to customer
+    $auto_reply_to = $email;
+    $auto_reply_subject = 'Bestätigung Ihrer Kontaktanfrage – Balweh';
+
+    // Create simple plain text auto-reply
+    $auto_reply_body = "Vielen Dank für Ihre Kontaktanfrage!\n\n";
+    $auto_reply_body .= "Wir haben Ihre Nachricht erhalten und werden uns schnellstmöglich bei Ihnen melden.\n\n";
+    $auto_reply_body .= "Mit freundlichen Grüßen,\n\n";
+    $auto_reply_body .= "Balweh Gebäudereinigung und Galabau e.K.\n";
+    $auto_reply_body .= "Professionelle Gebäudereinigung & Garten- und Landschaftsbau\n\n";
+    $auto_reply_body .= "Telefon: +49 155 - 67200971\n";
+    $auto_reply_body .= "E-Mail: info@balweh.de\n";
+    $auto_reply_body .= "Web: https://balweh.de\n\n";
+    $auto_reply_body .= "Erreichbarkeit: Montag – Freitag, 08:00 – 18:00 Uhr";
+
+    // Set headers for auto-reply (plain text with proper line breaks)
+    $auto_reply_headers = "From: noreply@balweh.de\r\n";
+    $auto_reply_headers .= "Reply-To: info@balweh.de\r\n";
+    $auto_reply_headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $auto_reply_headers .= "Content-Transfer-Encoding: 8bit\r\n";
+
+    // Send auto-reply (don't fail the response if auto-reply fails)
+    $auto_reply_sent = mail($auto_reply_to, $auto_reply_subject, $auto_reply_body, $auto_reply_headers);
+
     http_response_code(200);
     echo json_encode(['success' => 'E-Mail erfolgreich versendet']);
 } else {
