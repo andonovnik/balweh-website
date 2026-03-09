@@ -29,6 +29,7 @@ function mobileNavClass(isActive: boolean) {
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMenuMounted, setMobileMenuMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
   const openMenuButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -37,6 +38,17 @@ export default function Header() {
   const pathname = usePathname();
   // Normalize pathname by removing trailing slash for matching (/kontakt/ -> /kontakt), fallback to '/' for root
   const normalizedPath = pathname.replace(/\/$/, "") || "/";
+
+  const openMobileMenu = () => {
+    setMobileMenuMounted(true);
+    window.requestAnimationFrame(() => {
+      setMobileMenuOpen(true);
+    });
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,6 +60,18 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
+    if (mobileMenuOpen || !mobileMenuMounted) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setMobileMenuMounted(false);
+    }, 300);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [mobileMenuMounted, mobileMenuOpen]);
+
+  useEffect(() => {
     if (!mobileMenuOpen) {
       return;
     }
@@ -57,7 +81,7 @@ export default function Header() {
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setMobileMenuOpen(false);
+        closeMobileMenu();
         return;
       }
 
@@ -139,7 +163,7 @@ export default function Header() {
           {mobileMenuOpen ? (
             <button
               ref={openMenuButtonRef}
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={closeMobileMenu}
               className="flex flex-col gap-1.5 p-2 md:hidden"
               aria-label="Close menu"
               aria-expanded="true"
@@ -152,7 +176,7 @@ export default function Header() {
           ) : (
             <button
               ref={openMenuButtonRef}
-              onClick={() => setMobileMenuOpen(true)}
+              onClick={openMobileMenu}
               className="flex flex-col gap-1.5 p-2 md:hidden"
               aria-label="Open menu"
               aria-expanded="false"
@@ -165,15 +189,23 @@ export default function Header() {
           )}
         </div>
       </header>
-      {mobileMenuOpen && (
+      {mobileMenuMounted && (
         <div
           id="mobile-navigation"
           ref={mobileMenuRef}
-          className="fixed inset-0 z-50 h-dvh bg-white transition-opacity duration-300 md:hidden opacity-100"
+          className={`fixed inset-0 z-50 h-dvh bg-white transition-opacity duration-300 md:hidden ${
+            mobileMenuOpen
+              ? "pointer-events-auto opacity-100"
+              : "pointer-events-none opacity-0"
+          }`}
         >
-          <div className="flex h-full flex-col transition-all duration-300 translate-y-0 opacity-100">
+          <div
+            className={`flex h-full flex-col transition-all duration-300 ${
+              mobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
+            }`}
+          >
             <div className="flex items-center justify-between px-6 py-2">
-              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/" onClick={closeMobileMenu}>
                 <Image
                   src={logoWithText}
                   alt="BALWEH Logo"
@@ -182,7 +214,7 @@ export default function Header() {
               </Link>
               <button
                 ref={closeMenuButtonRef}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={closeMobileMenu}
                 className="p-2 text-brand-primary"
                 aria-label="Close menu"
               >
@@ -208,7 +240,7 @@ export default function Header() {
                     key={item.href}
                     href={item.href}
                     className={mobileNavClass(normalizedPath === item.href)}
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={closeMobileMenu}
                   >
                     {item.label}
                   </Link>
