@@ -82,7 +82,7 @@ export default function Kontakt() {
                     href="tel:+4915567200971"
                     className="font-medium text-blue-600 hover:underline"
                   >
-                    +49 155 - 67 20 09 71
+                    +49 155 - 67200971
                   </a>
                 </div>
               </div>
