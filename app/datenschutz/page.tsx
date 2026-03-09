@@ -10,70 +10,124 @@ export default function DatenschutzPage() {
       <h1 className="text-3xl font-semibold tracking-tight text-brand-primary">
         Datenschutzerklärung
       </h1>
+      <p className="mt-4 text-sm text-zinc-600">Stand: 08.03.2026</p>
       <div className="mt-8 space-y-6 text-zinc-700">
         <section className="space-y-2">
           <h2 className="text-lg font-semibold text-brand-primary">
             1. Allgemeine Hinweise
           </h2>
           <p>
-            Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen.
-            Nachfolgend informieren wir Sie über die Verarbeitung
-            personenbezogener Daten auf dieser Website gemäß der
+            Wir freuen uns über Ihr Interesse an unserer Website. Der Schutz
+            Ihrer personenbezogenen Daten ist uns wichtig. Nachfolgend
+            informieren wir Sie darüber, welche personenbezogenen Daten wir bei
+            der Nutzung dieser Website verarbeiten und zu welchen Zwecken dies
+            geschieht. Die Verarbeitung erfolgt nach den Vorgaben der
             Datenschutz-Grundverordnung (DSGVO).
+          </p>
+          <p>
+            Personenbezogene Daten sind alle Daten, mit denen Sie persönlich
+            identifiziert werden können.
           </p>
         </section>
 
         <section className="space-y-2">
           <h2 className="text-lg font-semibold text-brand-primary">
-            2. Verantwortlicher
+            2. Verantwortlicher (Art. 13 Abs. 1 lit. a DSGVO)
           </h2>
           <p>
             Verantwortlich für die Datenverarbeitung auf dieser Website ist:
           </p>
-          <p>Balweh Gebäudereinigung und Galabau e.K.</p>
+          <p className="font-medium">
+            Balweh Gebäudereinigung und Galabau e.K.
+          </p>
           <p>Inhaber: Abdula Balweh</p>
           <p>Baumberger Str. 54</p>
           <p>51373 Leverkusen</p>
           <p>Deutschland</p>
           <p>Telefon: +49 155 67200971</p>
           <p>E-Mail: info@balweh.de</p>
-          <p>balweh.de</p>
+          <p>Website: balweh.de</p>
         </section>
 
         <section className="space-y-2">
           <h2 className="text-lg font-semibold text-brand-primary">
-            3. Hosting und Server-Logfiles
+            3. Datenschutzbeauftragter (Art. 13 Abs. 1 lit. b DSGVO)
           </h2>
           <p>
-            Diese Website wird bei der Hostinger International Ltd gehostet. Der
-            Hosting-Anbieter verarbeitet personenbezogene Daten in unserem
-            Auftrag zur Bereitstellung und Absicherung der Website.
-          </p>
-          <p>
-            Weitere Informationen zum Datenschutz bei Hostinger:
-            https://www.hostinger.com/de/legal/datenschutz-bestimmungen
-          </p>
-          <p>
-            Beim Aufruf der Website werden in Server-Logfiles typischerweise
-            folgende Daten erfasst: IP-Adresse, Datum und Uhrzeit des Zugriffs,
-            aufgerufene Seite/Datei, Referrer-URL, Browsertyp und
-            Betriebssystem.
-          </p>
-          <p>
-            Die Verarbeitung erfolgt zur technisch sicheren Bereitstellung der
-            Website und zur Fehleranalyse.
-          </p>
-          <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
-          <p>
-            Die Speicherdauer der Logfiles richtet sich nach den Einstellungen
-            des Hosting-Anbieters und erfolgt nur so lange, wie dies für den
-            sicheren Betrieb erforderlich ist.
+            Ein Datenschutzbeauftragter ist für unser Unternehmen nicht
+            bestellt.
           </p>
         </section>
 
-        <section className="space-y-2">
+        <section className="space-y-4">
           <h2 className="text-lg font-semibold text-brand-primary">
-            4. Kontaktformular
+            4. Hosting und Bereitstellung der Website (Art. 13 Abs. 1 lit. c, e,
+            f DSGVO; Art. 28 DSGVO)
+          </h2>
+          <p>
+            Unsere Website wird bei Hostinger International Ltd gehostet. Der
+            Hosting-Anbieter verarbeitet personenbezogene Daten in unserem
+            Auftrag zur technischen Bereitstellung und Absicherung der Website
+            (Auftragsverarbeitung nach Art. 28 DSGVO).
+          </p>
+
+          <div className="space-y-2">
+            <h3 className="font-semibold text-brand-primary">
+              4.1 Server-Logfiles
+            </h3>
+            <p>
+              Beim Aufruf unserer Website werden in Server-Logfiles
+              typischerweise folgende Daten verarbeitet:
+            </p>
+            <ul className="list-disc space-y-1 pl-6">
+              <li>IP-Adresse</li>
+              <li>Datum und Uhrzeit des Zugriffs</li>
+              <li>aufgerufene Seite/Datei</li>
+              <li>Referrer-URL</li>
+              <li>Browsertyp und Betriebssystem</li>
+            </ul>
+            <p>
+              <strong>Zwecke:</strong> technisch sichere Bereitstellung der
+              Website, Stabilität, IT-Sicherheit und Fehleranalyse.
+            </p>
+            <p>
+              <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO
+              (berechtigtes Interesse an der sicheren und stabilen
+              Bereitstellung der Website).
+            </p>
+            <p>
+              <strong>Speicherdauer:</strong> Die Speicherdauer richtet sich
+              nach der serverseitigen Konfiguration und erfolgt nur so lange,
+              wie dies für den sicheren Betrieb erforderlich ist.
+            </p>
+          </div>
+
+          <div className="space-y-2">
+            <h3 className="font-semibold text-brand-primary">
+              4.2 Empfänger (Art. 13 Abs. 1 lit. e DSGVO)
+            </h3>
+            <p>
+              Empfänger der Daten ist unser Hosting-Dienstleister Hostinger
+              International Ltd (Hosting/technische Bereitstellung).
+            </p>
+          </div>
+
+          <div className="space-y-2">
+            <h3 className="font-semibold text-brand-primary">
+              4.3 Drittlandübermittlung (Art. 13 Abs. 1 lit. f DSGVO)
+            </h3>
+            <p>
+              Nach Ihren Angaben erfolgt das Hosting ausschließlich innerhalb
+              der EU/des EWR. Eine Übermittlung personenbezogener Daten in
+              Staaten außerhalb der EU/des EWR findet im Rahmen des Hostings
+              nicht statt.
+            </p>
+          </div>
+        </section>
+
+        <section className="space-y-4">
+          <h2 className="text-lg font-semibold text-brand-primary">
+            5. Kontaktformular (Art. 13 Abs. 1 lit. c DSGVO)
           </h2>
           <p>
             Wenn Sie unser Kontaktformular nutzen, verarbeiten wir die von Ihnen
@@ -81,91 +135,187 @@ export default function DatenschutzPage() {
             Dienstleistung und Nachricht), um Ihre Anfrage zu bearbeiten und mit
             Ihnen Kontakt aufzunehmen.
           </p>
-          <p>
-            <strong>Zusätzlich erfasste Daten:</strong>
-          </p>
-          <ul className="list-disc space-y-1 pl-6">
-            <li>
-              <strong>IP-Adresse:</strong> Wird ausschließlich zur
-              Missbrauchsprävention (Rate Limiting) erfasst und für maximal 1
-              Stunde gespeichert. Zusätzlich wird die IP-Adresse für
-              Sicherheitsprotokollierung (Abuse-Monitoring) erfasst und für
-              maximal 30 Tage gespeichert. Die IP-Adresse wird NICHT im
-              E-Mail-Versand und NICHT zur Bearbeitung Ihrer Anfrage verwendet.
-            </li>
-            <li>
-              <strong>Zeitstempel:</strong> Datum und Uhrzeit der
-              Formularübermittlung werden erfasst.
-            </li>
-            <li>
-              <strong>Session-Cookie (PHPSESSID):</strong> Ein technisch
-              notwendiges Cookie wird gesetzt, um CSRF-Angriffe zu verhindern
-              (Schutz vor gefälschten Anfragen). Dieses Cookie enthält keine
-              personenbezogenen Daten und wird automatisch gelöscht, wenn Sie
-              Ihren Browser schließen.
-            </li>
-          </ul>
-          <p>
-            <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO
-            (Vertragsanbahnung) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
-            Interesse an der Verhinderung von Missbrauch und Sicherstellung der
-            technischen Sicherheit).
-          </p>
-          <p>
-            <strong>Verarbeitung und Übermittlung:</strong> Die eingegebenen
-            Daten werden über unseren Server verarbeitet und per E-Mail an uns
-            übermittelt. Eine Weitergabe zu Werbe- oder Marketingzwecken erfolgt
-            nicht. Eine Verarbeitung durch technische Auftragsverarbeiter (z. B.
-            Hosting-Anbieter) kann stattfinden.
-          </p>
-          <p>
-            <strong>Speicherdauer:</strong>
-          </p>
-          <ul className="list-disc space-y-1 pl-6">
-            <li>
-              <strong>Formulardaten:</strong> Werden gelöscht, sobald Ihre
-              Anfrage abschließend bearbeitet wurde und keine gesetzlichen
-              Aufbewahrungspflichten mehr bestehen (in der Regel nach 6
-              Monaten). Erfolgt die Bearbeitung per E-Mail, richtet sich die
-              tatsächliche Löschung nach den internen Postfachprozessen und
-              gesetzlichen Aufbewahrungspflichten.
-            </li>
-            <li>
-              <strong>IP-Adressen und Rate-Limiting-Daten:</strong> Diese Daten
-              werden für den Schutz vor zu vielen Anfragen innerhalb von 1
-              Stunde gespeichert und danach bei der nächsten automatischen
-              Systemverarbeitung gelöscht.
-            </li>
-            <li>
-              <strong>Sicherheitsprotokolle (Logs):</strong> Werden nach 30
-              Tagen automatisch gelöscht.
-            </li>
-            <li>
-              <strong>Session-Cookie:</strong> Wird beim Schließen des Browsers
-              automatisch gelöscht.
-            </li>
-          </ul>
-          <p>
-            Die Bereitstellung der Daten ist für die Bearbeitung Ihrer Anfrage
-            erforderlich. Ohne diese Angaben können wir Ihre Anfrage nicht
-            beantworten.
-          </p>
+
+          <div className="space-y-2">
+            <h3 className="font-semibold text-brand-primary">
+              5.1 Zusätzlich verarbeitete technische Daten
+            </h3>
+            <ul className="list-disc space-y-1 pl-6">
+              <li>
+                <strong>IP-Adresse:</strong>
+                <ul className="ml-4 mt-1 list-disc space-y-1">
+                  <li>
+                    zur Missbrauchsprävention (Rate Limiting) für maximal 1
+                    Stunde
+                  </li>
+                  <li>
+                    zur Sicherheitsprotokollierung (Abuse-Monitoring) für
+                    maximal 30 Tage
+                  </li>
+                </ul>
+                <p className="ml-4 mt-1">
+                  Die IP-Adresse wird nicht im E-Mail-Versand verwendet und
+                  nicht zur inhaltlichen Bearbeitung Ihrer Anfrage genutzt.
+                </p>
+              </li>
+              <li>
+                <strong>Zeitstempel:</strong> Datum und Uhrzeit der
+                Formularübermittlung
+              </li>
+              <li>
+                <strong>Session-Cookie (PHPSESSID):</strong> technisch
+                notwendiges Cookie zur Abwehr von CSRF-Angriffen (Schutz vor
+                gefälschten Formularanfragen)
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-2">
+            <h3 className="font-semibold text-brand-primary">5.2 Zwecke</h3>
+            <ul className="list-disc space-y-1 pl-6">
+              <li>Bearbeitung und Beantwortung Ihrer Anfrage</li>
+              <li>
+                Schutz vor Missbrauch und Sicherstellung der technischen
+                Sicherheit
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-2">
+            <h3 className="font-semibold text-brand-primary">
+              5.3 Rechtsgrundlagen
+            </h3>
+            <ul className="list-disc space-y-1 pl-6">
+              <li>
+                Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung), soweit Ihre
+                Anfrage auf einen Vertragsschluss oder die Anbahnung eines
+                Vertrags gerichtet ist
+              </li>
+              <li>
+                Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse), soweit die
+                Verarbeitung zur IT-Sicherheit/Missbrauchsprävention
+                erforderlich ist
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-2">
+            <h3 className="font-semibold text-brand-primary">
+              5.4 Verarbeitung und Übermittlung
+            </h3>
+            <p>
+              Die eingegebenen Daten werden über unseren Server verarbeitet und
+              per E-Mail an uns übermittelt. Eine Weitergabe zu Werbe- oder
+              Marketingzwecken erfolgt nicht. Eine Verarbeitung durch technische
+              Auftragsverarbeiter (z. B. Hosting-Anbieter) kann stattfinden.
+            </p>
+          </div>
+
+          <div className="space-y-2">
+            <h3 className="font-semibold text-brand-primary">
+              5.5 Speicherdauer
+            </h3>
+            <ul className="list-disc space-y-1 pl-6">
+              <li>
+                <strong>Formulardaten:</strong> Löschung nach abschließender
+                Bearbeitung und sofern keine gesetzlichen Aufbewahrungspflichten
+                entgegenstehen (in der Regel nach 6 Monaten). Erfolgt die
+                Bearbeitung per E-Mail, richtet sich die tatsächliche Löschung
+                nach den internen Postfachprozessen und gesetzlichen
+                Aufbewahrungspflichten.
+              </li>
+              <li>
+                <strong>Rate-Limiting-Daten:</strong> Speicherung für 1 Stunde,
+                anschließende Löschung im Rahmen der automatischen
+                Systemverarbeitung.
+              </li>
+              <li>
+                <strong>Sicherheitsprotokolle:</strong> Löschung nach 30 Tagen.
+              </li>
+              <li>
+                <strong>Session-Cookie:</strong> Löschung beim Schließen des
+                Browsers.
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-2">
+            <h3 className="font-semibold text-brand-primary">
+              5.6 Erforderlichkeit der Bereitstellung (Art. 13 Abs. 2 lit. e
+              DSGVO)
+            </h3>
+            <p>
+              Die Bereitstellung der Daten ist für die Bearbeitung Ihrer Anfrage
+              erforderlich. Ohne diese Angaben können wir Ihre Anfrage nicht
+              beantworten.
+            </p>
+          </div>
         </section>
 
         <section className="space-y-2">
           <h2 className="text-lg font-semibold text-brand-primary">
-            5. Kontaktaufnahme per E-Mail oder Telefon
+            6. Kontaktaufnahme per E-Mail oder Telefon (Art. 13 Abs. 1 lit. c
+            DSGVO)
           </h2>
           <p>
             Wenn Sie uns per E-Mail oder telefonisch kontaktieren, verarbeiten
-            wir Ihre Angaben zur Bearbeitung Ihrer Anfrage.
+            wir die von Ihnen mitgeteilten Daten (z. B. Name, Kontaktdaten,
+            Inhalt der Anfrage) zur Bearbeitung Ihres Anliegens.
           </p>
-          <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>
+          <p>
+            <strong>Rechtsgrundlage:</strong>
+          </p>
+          <ul className="list-disc space-y-1 pl-6">
+            <li>
+              Art. 6 Abs. 1 lit. b DSGVO, soweit die Kontaktaufnahme der
+              Vertragsanbahnung oder Vertragsdurchführung dient, und
+            </li>
+            <li>
+              Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse), soweit es
+              sich um allgemeine Anfragen handelt und wir ein berechtigtes
+              Interesse an deren Bearbeitung haben.
+            </li>
+          </ul>
+          <p>
+            <strong>Speicherdauer:</strong> Wir löschen die
+            Kommunikationsinhalte, sobald die Bearbeitung abgeschlossen ist und
+            keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+          </p>
         </section>
 
         <section className="space-y-2">
           <h2 className="text-lg font-semibold text-brand-primary">
-            6. Empfänger von Daten
+            7. Cookies / Endgerätezugriff (DSGVO und § 25 TDDDG)
+          </h2>
+          <p>
+            Auf dieser Website wird ein technisch notwendiges Session-Cookie
+            (PHPSESSID) verwendet, um das Kontaktformular vor CSRF-Angriffen zu
+            schützen. Dieses Cookie wird beim Schließen des Browsers automatisch
+            gelöscht.
+          </p>
+          <p>
+            <strong>Rechtsgrundlagen:</strong>
+          </p>
+          <ul className="list-disc space-y-1 pl-6">
+            <li>
+              § 25 Abs. 2 Nr. 2 TDDDG (Speicherung/Zugriff auf Informationen im
+              Endgerät, soweit unbedingt erforderlich), und
+            </li>
+            <li>
+              Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der sicheren
+              und funktionsfähigen Bereitstellung der Website).
+            </li>
+          </ul>
+          <p>
+            <strong>Tracking/Analyse/Marketing:</strong> Nach Ihren Angaben
+            setzen wir keine Analyse- oder Marketing-Tools ein und verwenden
+            keine Cookies zu Tracking- oder Werbezwecken.
+          </p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-lg font-semibold text-brand-primary">
+            8. Empfänger von Daten (Art. 13 Abs. 1 lit. e DSGVO)
           </h2>
           <p>
             Personenbezogene Daten werden innerhalb unseres Unternehmens nur an
@@ -177,133 +327,100 @@ export default function DatenschutzPage() {
           </p>
           <ul className="list-disc space-y-1 pl-6">
             <li>
-              <strong>Hostinger International Ltd</strong> - als
-              Hosting-Anbieter für die technische Bereitstellung der Website und
-              E-Mail-Infrastruktur
+              Hostinger International Ltd (Hosting/technische Bereitstellung
+              innerhalb EU/EWR)
             </li>
           </ul>
           <p>
-            Es erfolgt keine Weitergabe Ihrer Daten an Dritte zu Werbe- oder
-            Marketingzwecken.
+            Eine Weitergabe Ihrer Daten an Dritte zu Werbe- oder
+            Marketingzwecken erfolgt nicht.
           </p>
         </section>
 
         <section className="space-y-2">
           <h2 className="text-lg font-semibold text-brand-primary">
-            7. Cookies, Tracking und Analyse
-          </h2>
-          <p>
-            <strong>Technisch notwendige Cookies:</strong> Auf dieser Website
-            wird ein technisch notwendiges Session-Cookie (PHPSESSID) verwendet,
-            um das Kontaktformular vor CSRF-Angriffen zu schützen. Dieses Cookie
-            ist für die sichere Funktion des Formulars erforderlich und enthält
-            keine personenbezogenen Daten. Es wird automatisch beim Schließen
-            des Browsers gelöscht.
-          </p>
-          <p>
-            <strong>Marketing und Analyse:</strong> Wir setzen derzeit keine
-            Analyse- oder Marketing-Tools ein, die eine Einwilligung erfordern.
-            Es werden keine Cookies zu Tracking- oder Werbezwecken gesetzt.
-          </p>
-          <p>
-            Rechtsgrundlage für technisch notwendige Cookies: Art. 6 Abs. 1 lit.
-            f DSGVO (berechtigtes Interesse an der sicheren Bereitstellung der
-            Website).
-          </p>
-          <p>
-            Hinweis zur Speicherdauer des Session-Cookies: Das Cookie ist als
-            Session-Cookie konfiguriert und wird beim Schließen des Browsers
-            gelöscht.
-          </p>
-        </section>
-
-        <section className="space-y-2">
-          <h2 className="text-lg font-semibold text-brand-primary">
-            8. Datensicherheit und SSL-Verschlüsselung
+            9. Datensicherheit und Verschlüsselung
           </h2>
           <p>
             Wir setzen technische und organisatorische Sicherheitsmaßnahmen ein,
-            um Ihre personenbezogenen Daten gegen zufällige oder vorsätzliche
-            Manipulationen, Verlust, Zerstörung oder den Zugriff unberechtigter
-            Personen zu schützen.
-          </p>
-          <p>
-            Diese Website nutzt aus Sicherheitsgründen und zum Schutz der
-            Übertragung personenbezogener Daten eine SSL- bzw.
-            TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie
-            daran, dass die Adresszeile des Browsers von &quot;http://&quot; auf
-            &quot;https://&quot; wechselt und an dem Schloss-Symbol in Ihrer
-            Browserzeile.
-          </p>
-          <p>
-            Wenn die SSL- bzw. TLS-Verschlüsselung aktiviert ist, können die
-            Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen
-            werden.
+            um Ihre personenbezogenen Daten vor Verlust, Missbrauch oder
+            unberechtigtem Zugriff zu schützen. Diese Website nutzt eine SSL-
+            bzw. TLS-Verschlüsselung, um übermittelte Daten zu schützen.
           </p>
         </section>
 
         <section className="space-y-2">
           <h2 className="text-lg font-semibold text-brand-primary">
-            9. Instagram
+            10. Social Media (Instagram/TikTok) – reine Links
           </h2>
           <p>
-            Auf unserer Website befindet sich ein Link zum sozialen Netzwerk
-            Instagram.
+            Auf unserer Website befinden sich Icons/Links zu sozialen Netzwerken
+            (z. B. Instagram, TikTok). Beim Anklicken eines solchen Links werden
+            Sie auf die jeweilige Plattform weitergeleitet. Für die Verarbeitung
+            personenbezogener Daten auf den Plattformen sind die jeweiligen
+            Anbieter verantwortlich.
           </p>
           <p>
-            Beim Anklicken des Links werden Sie auf die Seite von Instagram
-            weitergeleitet.
+            Nach Ihren Angaben sind diese Plattformen auf unserer Website nicht
+            über Plugins, Pixel oder eingebettete Inhalte integriert, sondern
+            ausschließlich als normale Links.
           </p>
-          <p>
-            Für die Datenverarbeitung auf Instagram ist ausschließlich der
-            jeweilige Anbieter verantwortlich.
-          </p>
-          <p>
-            Weitere Informationen finden Sie in der Datenschutzerklärung von
-            Instagram:
-          </p>
-          <p>https://help.instagram.com/519522125107875</p>
         </section>
 
         <section className="space-y-2">
           <h2 className="text-lg font-semibold text-brand-primary">
-            10. Ihre Rechte
+            11. Automatisierte Entscheidungsfindung / Profiling (Art. 13 Abs. 2
+            lit. f DSGVO)
           </h2>
-          <p>Sie haben das Recht auf:</p>
+          <p>
+            Eine automatisierte Entscheidungsfindung einschließlich Profiling
+            findet nicht statt.
+          </p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-lg font-semibold text-brand-primary">
+            12. Ihre Rechte (Art. 13 Abs. 2 lit. b DSGVO)
+          </h2>
+          <p>Sie haben nach der DSGVO insbesondere folgende Rechte:</p>
           <ul className="list-disc space-y-1 pl-6">
-            <li>Auskunft über Ihre gespeicherten Daten</li>
-            <li>Berichtigung unrichtiger Daten</li>
-            <li>Löschung Ihrer Daten</li>
-            <li>Einschränkung der Verarbeitung</li>
-            <li>Widerspruch gegen die Verarbeitung</li>
-            <li>Datenübertragbarkeit</li>
+            <li>Recht auf Auskunft</li>
+            <li>Recht auf Berichtigung</li>
+            <li>Recht auf Löschung</li>
+            <li>Recht auf Einschränkung der Verarbeitung</li>
+            <li>Recht auf Widerspruch</li>
+            <li>Recht auf Datenübertragbarkeit</li>
           </ul>
-          <p>Bitte wenden Sie sich hierzu an:</p>
-          <p>info@balweh.de</p>
+          <p>
+            Zur Ausübung Ihrer Rechte können Sie uns unter info@balweh.de
+            kontaktieren.
+          </p>
         </section>
 
         <section className="space-y-2">
           <h2 className="text-lg font-semibold text-brand-primary">
-            11. Beschwerderecht bei Aufsichtsbehörde
+            13. Widerspruchsrecht bei Verarbeitung auf Grundlage berechtigter
+            Interessen (Art. 21 DSGVO)
+          </h2>
+          <p>
+            Wenn wir Ihre personenbezogenen Daten auf Grundlage von Art. 6 Abs.
+            1 lit. f DSGVO verarbeiten, haben Sie das Recht, aus Gründen, die
+            sich aus Ihrer besonderen Situation ergeben, jederzeit Widerspruch
+            gegen diese Verarbeitung einzulegen.
+          </p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-lg font-semibold text-brand-primary">
+            14. Beschwerderecht bei der Aufsichtsbehörde (Art. 13 Abs. 2 lit. d
+            DSGVO)
           </h2>
           <p>
             Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu
-            beschweren.
+            beschweren. Für Nordrhein-Westfalen ist dies die Landesbeauftragte
+            für Datenschutz und Informationsfreiheit Nordrhein-Westfalen,
+            Kavalleriestr. 2–4, 40213 Düsseldorf.
           </p>
-          <p>Zuständig für Nordrhein-Westfalen ist:</p>
-          <p>
-            Landesbeauftragte für Datenschutz und Informationsfreiheit
-            Nordrhein-Westfalen
-          </p>
-          <p>Kavalleriestr. 2-4, 40213 Düsseldorf</p>
-          <p>https://www.ldi.nrw.de</p>
-        </section>
-
-        <section className="space-y-2">
-          <h2 className="text-lg font-semibold text-brand-primary">
-            12. Stand der Datenschutzerklärung
-          </h2>
-          <p>Stand: 08.03.2026</p>
         </section>
       </div>
     </main>
