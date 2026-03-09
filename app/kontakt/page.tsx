@@ -141,27 +141,45 @@ export default function Kontakt() {
             </div>
           </article>
           <article className="rounded-xl border border-zinc-200 bg-white p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-            <h2 className="text-lg font-semibold text-brand-primary">
-              <Image
-                src="/social/instagram_glyph_black.png"
-                alt="Instagram"
-                width={20}
-                height={20}
-                className="mb-1 mr-2 inline-block"
-              />
-              Instagram
-            </h2>
-            <a
-              href="https://www.instagram.com/balweh_/"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="mt-3 block font-medium text-blue-600 hover:underline"
-            >
-              @balweh_
-            </a>
-            <p className="mt-4 text-sm leading-7 text-zinc-600">
-              Folgen Sie uns auf Instagram und schreiben Sie uns direkt.
+            <h2 className="text-lg font-semibold text-brand-primary">Social</h2>
+            <p className="mt-3 text-sm leading-7 text-zinc-600">
+              Folgen Sie uns auf Instagram und TikTok, um immer über unsere
+              neuesten Projekte und Updates informiert zu bleiben.
             </p>
+            <div className="mt-4 space-y-4">
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/social/instagram_glyph_black.png"
+                  alt="Instagram"
+                  width={28}
+                  height={28}
+                />
+                <a
+                  href="https://www.instagram.com/balweh_/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="font-medium text-blue-600 hover:underline"
+                >
+                  @balweh_
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/social/TIKTOK_SOCIAL_ICON_SOLO_BLACK.svg"
+                  alt="TikTok"
+                  width={28}
+                  height={28}
+                />
+                <a
+                  href="https://www.tiktok.com/@balweh10"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="font-medium text-blue-600 hover:underline"
+                >
+                  @balweh10
+                </a>
+              </div>
+            </div>
           </article>
         </div>
       </section>
