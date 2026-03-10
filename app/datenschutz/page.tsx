@@ -104,7 +104,31 @@ export default function DatenschutzPage() {
 
           <div className="space-y-2">
             <h3 className="font-semibold text-brand-primary">
-              4.2 Empfänger (Art. 13 Abs. 1 lit. e DSGVO)
+              4.2 Lokale Bereitstellung von Webfonts
+            </h3>
+            <p>
+              Zur einheitlichen und optisch ansprechenden Darstellung unserer
+              Website nutzen wir die Schriftart &quot;Geist&quot;. Diese
+              Schriftart haben wir heruntergeladen und lokal auf unserem
+              Webserver installiert. Beim Aufruf unserer Website werden die
+              Schriftdateien direkt von unserem Server (Hostinger) an Ihren
+              Browser übertragen.
+            </p>
+            <p>
+              Es findet keine Verbindung zu Servern von Drittanbietern (z. B.
+              Google Fonts) statt. Daher wird Ihre IP-Adresse im Rahmen der
+              Schriftdarstellung nicht an externe Dienstleister übermittelt.
+            </p>
+            <p>
+              <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO
+              (berechtigtes Interesse an einer technisch sicheren und
+              gestalterisch einheitlichen Darstellung unseres Online-Auftritts).
+            </p>
+          </div>
+
+          <div className="space-y-2">
+            <h3 className="font-semibold text-brand-primary">
+              4.3 Empfänger (Art. 13 Abs. 1 lit. e DSGVO)
             </h3>
             <p>
               Empfänger der Daten ist unser Hosting-Dienstleister Hostinger
@@ -114,7 +138,7 @@ export default function DatenschutzPage() {
 
           <div className="space-y-2">
             <h3 className="font-semibold text-brand-primary">
-              4.3 Drittlandübermittlung (Art. 13 Abs. 1 lit. f DSGVO)
+              4.4 Drittlandübermittlung (Art. 13 Abs. 1 lit. f DSGVO)
             </h3>
             <p>
               Nach Ihren Angaben erfolgt das Hosting ausschließlich innerhalb
