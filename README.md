@@ -33,7 +33,13 @@ Then open `http://localhost:3000` in your browser.
 npm run dev      # Development server (localhost:3000)
 npm run lint     # ESLint checking
 npm run build    # Production build (generates /out folder)
-npm run start    # Preview production build
+npm run start    # Starts Next.js server (not used with static export)
+```
+
+For static-export preview (matches FTP hosting output):
+
+```bash
+npx serve@latest out -l 3000
 ```
 
 ## Project Structure
@@ -112,7 +118,7 @@ Health check endpoint: `/api/monitoring-health.php`
 **Usage:**
 
 ```bash
-"X-Monitor-Key: YOUR_KEY" https://balweh.de/api/monitoring-health.php
+curl -H "X-Monitor-Key: YOUR_KEY" https://balweh.de/api/monitoring-health.php
 ```
 
 **Response:**
