@@ -94,7 +94,7 @@ export default function ContactForm() {
           const data = await response.json();
           setCsrfToken(data.csrf_token);
         }
-      } catch (error) {
+      } catch {
         // CSRF token fetch failed, will be retried on form submission
       }
     };
@@ -141,7 +141,7 @@ export default function ContactForm() {
         const data = await response.json();
         tokenToUse = data.csrf_token;
         setCsrfToken(tokenToUse);
-      } catch (error) {
+      } catch {
         setStatus("error");
         setMessage(
           "Es gab einen Fehler beim Versenden Ihrer Anfrage. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.",
