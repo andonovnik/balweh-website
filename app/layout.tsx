@@ -16,10 +16,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.balweh.de"),
   title: {
     default: "Balweh Gebäudereinigung und Galabau",
-    template: "%s | Balweh - Gebäudereinigung und Galabau",
+    template: "%s | Balweh Gebäudereinigung und Galabau",
   },
   description: SITE_DESCRIPTION,
-  applicationName: "Balweh - Gebäudereinigung und Galabau",
+  applicationName: "Balweh Gebäudereinigung und Galabau",
   icons: {
     icon: [
       {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   appleWebApp: {
     capable: true,
-    title: "Balweh - Gebäudereinigung und Galabau",
+    title: "Balweh Gebäudereinigung und Galabau",
   },
   manifest: "/manifest.json",
   robots: {
@@ -43,12 +43,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Balweh Gebäudereinigung und Galabau",
-    description: SITE_DESCRIPTION,
     locale: "de_DE",
     type: "website",
     siteName: "Balweh Gebäudereinigung und Galabau",
-    url: "https://www.balweh.de",
     images: [
       {
         url: "/social/og-image.png",
