@@ -1,6 +1,14 @@
+## SMTP configuration for contact form (PHPMailer)
+SetEnv SMTP_HOST smtp.hostinger.com
+SetEnv SMTP_PORT 465
+SetEnv SMTP_USERNAME no-reply@balweh.de
+SetEnv SMTP_PASSWORD t^9NsfwY>lk:
+SetEnv SMTP_FROM_EMAIL no-reply@balweh.de
+SetEnv SMTP_FROM_NAME "Balweh Gebäudereinigung und Galabau"
+
 # Protect secret key files and other dotfiles in /api
 <FilesMatch "^\.">
-  Require all denied
+Require all denied
 </FilesMatch>
 
 # Prevent browser/proxy caching to reduce data retention risk.
@@ -11,3 +19,6 @@
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
+
+# Monitoring key for /api/monitoring-health.php
+SetEnv MONITORING_HEALTH_KEY 98H0sYjkBaRVH4pNCZD21eGqZjijaOXx9+SrZIcKoBS4SnEjCxUUpQUWMIWePixt

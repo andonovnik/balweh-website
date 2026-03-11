@@ -35,6 +35,10 @@ yarn-error.log*
 public/api/.monitoring-health.key
 public/api/.monitoring-health.key.*
 
+# smtp configuration (sensitive)
+public/api/.htaccess
+public/api/.env
+
 # vercel
 .vercel
 

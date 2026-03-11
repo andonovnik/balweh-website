@@ -13,6 +13,155 @@
  * - Disclosure: See /datenschutz for full privacy policy
  */
 
+// Load PHPMailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require __DIR__ . '/PHPMailer/src/Exception.php';
+require __DIR__ . '/PHPMailer/src/PHPMailer.php';
+require __DIR__ . '/PHPMailer/src/SMTP.php';
+
+// Load key=value entries from local .env file for environments without process env vars.
+function load_local_env_file($env_path)
+{
+    if (!file_exists($env_path) || !is_readable($env_path)) {
+        return;
+    }
+
+    $lines = file($env_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    if (!is_array($lines)) {
+        return;
+    }
+
+    foreach ($lines as $line) {
+        $trimmed = trim($line);
+        if ($trimmed === '' || strpos($trimmed, '#') === 0) {
+            continue;
+        }
+
+        $parts = explode('=', $trimmed, 2);
+        if (count($parts) !== 2) {
+            continue;
+        }
+
+        $key = trim($parts[0]);
+        $value = trim($parts[1]);
+        if ($key === '') {
+            continue;
+        }
+
+        // Strip optional wrapping quotes from values.
+        $len = strlen($value);
+        if ($len >= 2) {
+            $first = $value[0];
+            $last = $value[$len - 1];
+            if (($first === '"' && $last === '"') || ($first === "'" && $last === "'")) {
+                $value = substr($value, 1, -1);
+            }
+        }
+
+        putenv($key . '=' . $value);
+        $_ENV[$key] = $value;
+    }
+}
+
+function send_email_smtp($smtp_config, $to, $subject, $body, $from_email, $from_name, $reply_to_email = null, $reply_to_name = null, $is_auto_reply = false, $is_html = false, $alt_body = '')
+{
+    try {
+        $mail = new PHPMailer(true);
+        $mail->isSMTP();
+        $mail->Host = $smtp_config['host'];
+        $mail->Port = (int) $smtp_config['port'];
+        $mail->SMTPAuth = true;
+        $mail->Username = $smtp_config['username'];
+        $mail->Password = $smtp_config['password'];
+        // Hostinger commonly uses SMTPS on 465 and STARTTLS on 587.
+        if ((int) $smtp_config['port'] === 465) {
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        } else {
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        }
+        $mail->CharSet = 'UTF-8';
+        $mail->Hostname = 'balweh.de';
+        $mail->MessageID = '<' . uniqid('contact_', true) . '@balweh.de>';
+        $mail->XMailer = 'Balweh Contact API';
+
+        $mail->setFrom($from_email, $from_name);
+        $mail->addAddress($to);
+
+        if (!empty($reply_to_email)) {
+            $mail->addReplyTo($reply_to_email, $reply_to_name ?: '');
+        }
+
+        if ($is_auto_reply) {
+            // Mark autoresponses explicitly to help mailbox providers classify them correctly.
+            $mail->addCustomHeader('Auto-Submitted', 'auto-replied');
+            $mail->addCustomHeader('X-Auto-Response-Suppress', 'All');
+        }
+
+        $mail->isHTML($is_html);
+        $mail->Subject = $subject;
+        $mail->Body = $body;
+        if ($is_html) {
+            $mail->AltBody = $alt_body !== '' ? $alt_body : trim(strip_tags(str_replace(['<br>', '<br/>', '<br />'], "\n", $body)));
+        }
+
+        $sent = $mail->send();
+        return [
+            'success' => (bool) $sent,
+            'error' => ''
+        ];
+    } catch (Exception $e) {
+        $smtp_error = $mail->ErrorInfo ?: $e->getMessage();
+        error_log('PHPMailer SMTP error: ' . $smtp_error);
+        return [
+            'success' => false,
+            'error' => $smtp_error
+        ];
+    }
+}
+
+function resolve_client_ip()
+{
+    // Prefer proxy-forwarded client IP when available (common on shared hosting/CDN setups).
+    $candidates = [];
+
+    if (!empty($_SERVER['HTTP_CF_CONNECTING_IP'])) {
+        $candidates[] = trim((string) $_SERVER['HTTP_CF_CONNECTING_IP']);
+    }
+
+    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $forwarded = explode(',', (string) $_SERVER['HTTP_X_FORWARDED_FOR']);
+        if (isset($forwarded[0])) {
+            $candidates[] = trim($forwarded[0]);
+        }
+    }
+
+    if (!empty($_SERVER['REMOTE_ADDR'])) {
+        $candidates[] = trim((string) $_SERVER['REMOTE_ADDR']);
+    }
+
+    foreach ($candidates as $candidate) {
+        if (filter_var($candidate, FILTER_VALIDATE_IP)) {
+            return $candidate;
+        }
+    }
+
+    return 'unknown';
+}
+
+load_local_env_file(__DIR__ . '/.env');
+
+// Load SMTP configuration from environment or config file
+$smtp_config = [
+    'host' => getenv('SMTP_HOST') ?: 'smtp.hostinger.com',
+    'port' => getenv('SMTP_PORT') ?: 465,
+    'username' => getenv('SMTP_USERNAME') ?: 'no-reply@balweh.de',
+    'password' => getenv('SMTP_PASSWORD') ?: '', // MUST be set via environment variable or .htaccess
+    'from_email' => getenv('SMTP_FROM_EMAIL') ?: 'no-reply@balweh.de',
+    'from_name' => getenv('SMTP_FROM_NAME') ?: 'Balweh Gebäudereinigung und Galabau'
+];
+
 // Configure session cookie before starting session
 session_set_cookie_params([
     'lifetime' => 0,
@@ -39,7 +188,6 @@ $current_origin = $host !== '' ? ($scheme . '://' . $host) : '';
 $allowed_origins = array_filter([
     'https://balweh.de',
     'https://www.balweh.de',
-    'http://localhost:3000',
     $current_origin,
 ]);
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
@@ -67,9 +215,9 @@ if (!isset($_SESSION['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $cs
 
 // Rate limiting - simple file-based rate limiter
 $rate_limit_file = sys_get_temp_dir() . '/contact_form_rate_limit.json';
-$rate_limit_max = 3; // Max submissions per window
-$rate_limit_window = 3600; // 1 hour in seconds
-$client_ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$rate_limit_max = 3;
+$rate_limit_window = 3600;
+$client_ip = resolve_client_ip();
 
 if (file_exists($rate_limit_file)) {
     $raw = file_get_contents($rate_limit_file);
@@ -95,8 +243,14 @@ if (file_exists($rate_limit_file)) {
     }
 
     if (isset($rate_data[$client_ip]) && count($rate_data[$client_ip]) >= $rate_limit_max) {
+        $oldest = min($rate_data[$client_ip]);
+        $retry_after = max(1, $rate_limit_window - (time() - $oldest));
+        header('Retry-After: ' . (string) $retry_after);
         http_response_code(429);
-        echo json_encode(['error' => 'Zu viele Anfragen. Bitte versuchen Sie es später erneut.']);
+        echo json_encode([
+            'error' => 'Zu viele Anfragen. Bitte versuchen Sie es später erneut.',
+            'retry_after' => $retry_after
+        ]);
         exit;
     }
 } else {
@@ -223,11 +377,6 @@ $body .= $message . "\n";
 $body .= "\n" . str_repeat("-", 50) . "\n";
 $body .= "Diese E-Mail wurde über das Kontaktformular auf balweh.de versendet.\n";
 
-// Set email headers (use fixed From address to avoid header injection and improve deliverability)
-$headers = "From: kontaktformular@balweh.de\r\n";
-$headers .= "Reply-To: " . sanitize_header($email) . "\r\n";
-$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-
 // Log submission (for security monitoring)
 $log_file = sys_get_temp_dir() . '/contact_form_submissions.log';
 $cleanup_marker_file = sys_get_temp_dir() . '/contact_form_log_cleanup.timestamp';
@@ -265,8 +414,63 @@ $log_entry = sprintf(
 );
 error_log($log_entry, 3, $log_file);
 
-// Send email to Balweh
-if (mail($to, $subject, $body, $headers)) {
+if ($smtp_config['password'] === '') {
+    http_response_code(500);
+    echo json_encode(['error' => 'SMTP ist nicht konfiguriert. Bitte kontaktieren Sie den Website-Betreiber.']);
+    exit;
+}
+
+$from_email = sanitize_header($smtp_config['from_email']);
+$from_name = sanitize_header($smtp_config['from_name']);
+
+// Send email to Balweh via SMTP.
+$inquiry_result = send_email_smtp(
+    $smtp_config,
+    $to,
+    $subject,
+    $body,
+    $from_email,
+    $from_name,
+    $email,
+    $name
+);
+
+if ($inquiry_result['success']) {
+    // Auto-reply should not block contact form success if delivery fails.
+    $auto_reply_subject = 'Vielen Dank für Ihre Anfrage';
+    $safe_name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+    $safe_service_name = htmlspecialchars($service_name, ENT_QUOTES, 'UTF-8');
+    $auto_reply_body = '<!doctype html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head><body style="margin:0;padding:0;background:#ffffff;font-family:Arial,Helvetica,sans-serif;color:#17313a;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#ffffff;"><tr><td align="center" style="padding:34px 18px 36px 18px;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px;background:#ffffff;"><tr><td align="center" style="padding:0 12px 24px 12px;"><img src="https://staging.balweh.de/social/og-image.png" alt="Balweh Logo" width="220" style="display:block;margin:0 auto;outline:none;text-decoration:none;height:auto;max-width:100%;"></td></tr><tr><td style="padding:0 12px 12px 12px;font-size:15px;line-height:1.7;"><h1 style="margin:0 0 14px 0;font-size:29px;line-height:1.2;color:#073646;font-weight:700;">Vielen Dank für Ihre Anfrage</h1><p style="margin:0 0 12px 0;">Hallo ' . $safe_name . ',</p><p style="margin:0 0 12px 0;">wir haben Ihre Anfrage zu <strong style="color:#073646;">' . $safe_service_name . '</strong> erhalten.</p><p style="margin:0 0 18px 0;">Unser Team meldet sich schnellstmöglich bei Ihnen.</p><p style="margin:0;color:#17313a;">Mit freundlichen Grüßen<br><strong>Balweh Gebäudereinigung und Galabau Team</strong></p></td></tr><tr><td style="padding:22px 12px 0 12px;font-size:13px;line-height:1.6;color:#34515b;"><div style="font-weight:700;color:#073646;font-size:14px;">Balweh Gebäudereinigung und Galabau e.K.</div><div>Professionelle Gebäudereinigung und Garten- und Landschaftsbau</div><div style="margin-top:10px;">Telefon: <a href="tel:+4915567200971" style="color:#5a7b70;text-decoration:none;font-weight:700;">+49 155 - 67200971</a></div><div>E-Mail: <a href="mailto:info@balweh.de" style="color:#5a7b70;text-decoration:none;">info@balweh.de</a></div><div>Web: <a href="https://balweh.de" style="color:#5a7b70;text-decoration:none;">https://balweh.de</a></div><div style="margin-top:8px;">Rechtliches: <a href="https://balweh.de/impressum" style="color:#5a7b70;text-decoration:none;">Impressum</a> | <a href="https://balweh.de/datenschutz" style="color:#5a7b70;text-decoration:none;">Datenschutz</a></div></td></tr></table></td></tr></table></body></html>';
+    $auto_reply_text = "Hallo " . $name . ",\n\n";
+    $auto_reply_text .= "vielen Dank für Ihre Anfrage zu \"" . $service_name . "\".\n";
+    $auto_reply_text .= "Wir haben Ihre Nachricht erhalten und melden uns schnellstmöglich bei Ihnen.\n\n";
+    $auto_reply_text .= "Mit freundlichen Grüßen\n";
+    $auto_reply_text .= "Balweh Gebäudereinigung und Galabau e.K.\n";
+    $auto_reply_text .= "Professionelle Gebäudereinigung & Garten- und Landschaftsbau\n";
+    $auto_reply_text .= "Telefon: +49 155 - 67200971\n";
+    $auto_reply_text .= "E-Mail: info@balweh.de\n";
+    $auto_reply_text .= "Web: https://balweh.de\n";
+    $auto_reply_text .= "Impressum: https://balweh.de/impressum\n";
+    $auto_reply_text .= "Datenschutz: https://balweh.de/datenschutz\n";
+
+    $auto_reply_result = send_email_smtp(
+        $smtp_config,
+        $email,
+        $auto_reply_subject,
+        $auto_reply_body,
+        $from_email,
+        $from_name,
+        null,
+        null,
+        true,
+        true,
+        $auto_reply_text
+    );
+
+    if (!$auto_reply_result['success']) {
+        error_log('Auto-reply email could not be sent for contact form submission from ' . $email);
+    }
+
     http_response_code(200);
     echo json_encode(['success' => 'E-Mail erfolgreich versendet']);
 } else {
