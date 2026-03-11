@@ -22,3 +22,6 @@ Require all denied
 
 # Monitoring key for /api/monitoring-health.php
 SetEnv MONITORING_HEALTH_KEY 98H0sYjkBaRVH4pNCZD21eGqZjijaOXx9+SrZIcKoBS4SnEjCxUUpQUWMIWePixt
+
+# Cleanup Job Key
+SetEnv CLEANUP_JOB_KEY wuJtv8qrqDLum53flndmdffXMNs/wS9D5DuTyN7GimLvF4PCZx+hARV3ak7i81DN
