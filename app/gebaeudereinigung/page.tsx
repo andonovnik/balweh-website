@@ -151,7 +151,7 @@ export default function Gebaeudereinigung() {
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src="/images/gebaeudereinigung-grid-1.webp"
-                  alt="Traditionelle Wonhäuser mit typisch mitteleuropäischer Architektur"
+                  alt="Traditionelle Wohnhäuser mit typisch mitteleuropäischer Architektur"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
