@@ -136,6 +136,8 @@ if ($cleanup_marker_time !== null) {
     $cleanup_stale = ($now - $cleanup_marker_time) > 172800; // 48h threshold
 }
 
+$cleanup_recent = $cleanup_marker_time !== null && !$cleanup_stale;
+
 $temp_disk_free_bytes = @disk_free_space($temp_dir);
 $temp_disk_total_bytes = @disk_total_space($temp_dir);
 
@@ -148,6 +150,7 @@ $checks = [
     'cleanup_marker_present' => $marker_exists,
     'cleanup_marker_readable' => $marker_readable,
     'cleanup_marker_stale' => $cleanup_stale,
+    'cleanup_recent' => $cleanup_recent,
 ];
 
 $overall_ok = $checks['temp_dir_writable'] && !$checks['cleanup_marker_stale'];
@@ -201,6 +204,7 @@ echo json_encode([
         'log_age_seconds' => $log_age_seconds,
         'cleanup_marker_unix' => $cleanup_marker_time,
         'cleanup_marker_age_seconds' => $cleanup_marker_age_seconds,
+        'last_cleanup_run_unix' => $cleanup_marker_time,
         'temp_disk_free_bytes' => $temp_disk_free_bytes === false ? null : $temp_disk_free_bytes,
         'temp_disk_total_bytes' => $temp_disk_total_bytes === false ? null : $temp_disk_total_bytes,
         'runtime_php_version' => PHP_VERSION,
