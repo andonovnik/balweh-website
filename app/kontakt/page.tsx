@@ -1,23 +1,48 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import BreadcrumbNav from "../components/BreadcrumbNav";
+import JsonLd from "../components/JsonLd";
 import ContactForm from "../components/ContactForm";
+import {
+  createBreadcrumbSchema,
+  createContactPageSchema,
+  createPageMetadata,
+} from "../lib/seo";
 
-export const metadata: Metadata = {
+const pagePath = "/kontakt";
+
+export const metadata: Metadata = createPageMetadata({
   title: "Kontakt",
   description:
     "Kontaktieren Sie Balweh in Leverkusen für professionelle Gebäudereinigung und Garten- und Landschaftsbau. Telefonisch erreichbar Montag bis Freitag von 08:00–18:00 Uhr.",
+  path: pagePath,
+  openGraphTitle: "Kontakt | Balweh Leverkusen",
   keywords: [
     "Kontakt Gebäudereinigung Leverkusen",
     "Kontakt Galabau Leverkusen",
     "Reinigungsservice Leverkusen Kontakt",
     "Gartenbau Leverkusen Anfrage",
   ],
-};
+});
+
+const contactPageSchema = createContactPageSchema(pagePath);
+const breadcrumbSchema = createBreadcrumbSchema([
+  { label: "Startseite", path: "/" },
+  { label: "Kontakt", path: pagePath },
+]);
 
 export default function Kontakt() {
   return (
     <main>
+      <JsonLd data={contactPageSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <section className="mx-auto w-full max-w-6xl px-6 py-20 md:py-28">
+        <BreadcrumbNav
+          items={[
+            { href: "/", label: "Startseite" },
+            { label: "Kontakt" },
+          ]}
+        />
         <p className="mb-4 text-sm font-medium uppercase tracking-wide text-zinc-500">
           In Verbindung bleiben
         </p>

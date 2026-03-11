@@ -1,11 +1,22 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import BreadcrumbNav from "../components/BreadcrumbNav";
+import JsonLd from "../components/JsonLd";
+import {
+  createBreadcrumbSchema,
+  createPageMetadata,
+  createServiceSchema,
+} from "../lib/seo";
 
-export const metadata: Metadata = {
+const pagePath = "/gebaeudereinigung";
+
+export const metadata: Metadata = createPageMetadata({
   title: "Gebäudereinigung",
   description:
     "Professionelle Gebäudereinigung in Leverkusen. Unterhaltsreinigung, Glas- und Fassadenreinigung, Büro- und Hotelreinigung, Winterdienst und mehr.",
+  path: pagePath,
+  openGraphTitle: "Gebäudereinigung in Leverkusen | Balweh",
   keywords: [
     "Gebäudereinigung Leverkusen",
     "Gebäudeservice Leverkusen",
@@ -17,12 +28,26 @@ export const metadata: Metadata = {
     "Dachreinigung Leverkusen",
     "Winterdienst Leverkusen",
   ],
-};
+});
+
+const serviceSchema = createServiceSchema("Gebäudereinigung", pagePath);
+const breadcrumbSchema = createBreadcrumbSchema([
+  { label: "Startseite", path: "/" },
+  { label: "Gebäudereinigung", path: pagePath },
+]);
 
 export default function Gebaeudereinigung() {
   return (
     <main>
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <section className="mx-auto w-full max-w-6xl px-6 py-20 md:py-28">
+        <BreadcrumbNav
+          items={[
+            { href: "/", label: "Startseite" },
+            { label: "Gebäudereinigung" },
+          ]}
+        />
         <p className="mb-4 text-sm font-medium uppercase tracking-wide text-zinc-500">
           Gebäudereinigung
         </p>

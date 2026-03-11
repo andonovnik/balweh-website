@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import JsonLd from "./components/JsonLd";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import {
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+  websiteSchema,
+} from "./lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -9,17 +16,24 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const SITE_DESCRIPTION =
-  "Professionelle Gebäudereinigung und Gartenlandschaftsbau in Deutschland. Zuverlässige Dienstleistungen für Unternehmen und private Kunden.";
-
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.balweh.de"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Balweh Gebäudereinigung und Galabau",
-    template: "%s | Balweh Gebäudereinigung und Galabau",
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
-  applicationName: "Balweh Gebäudereinigung und Galabau",
+  applicationName: SITE_NAME,
+  alternates: {
+    canonical: "/",
+  },
+  category: "Dienstleistungen",
+  keywords: [
+    "Gebäudereinigung Leverkusen",
+    "Garten- und Landschaftsbau Leverkusen",
+    "Gebäudeservice NRW",
+    "Galabau Leverkusen",
+  ],
   icons: {
     icon: [
       {
@@ -41,11 +55,21 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   openGraph: {
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
     locale: "de_DE",
     type: "website",
-    siteName: "Balweh Gebäudereinigung und Galabau",
+    siteName: SITE_NAME,
     images: [
       {
         url: "/social/og-image.png",
@@ -55,50 +79,12 @@ export const metadata: Metadata = {
       },
     ],
   },
-};
-
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://www.balweh.de",
-  name: "Balweh Gebäudereinigung und Garten- und Landschaftsbau",
-  description: SITE_DESCRIPTION,
-  url: "https://www.balweh.de",
-  telephone: "+4921423086869",
-  email: "info@balweh.de",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Baumberger Str. 54",
-    postalCode: "51373",
-    addressLocality: "Leverkusen",
-    addressRegion: "NRW",
-    addressCountry: "DE",
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    images: ["/social/og-image.png"],
   },
-  areaServed: [
-    {
-      "@type": "State",
-      name: "Nordrhein-Westfalen",
-    },
-    {
-      "@type": "City",
-      name: "Leverkusen",
-    },
-  ],
-  priceRange: "$$",
-  image: "https://www.balweh.de/balweh_logo_with_text.svg",
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "08:00",
-    closes: "18:00",
-  },
-  sameAs: ["https://www.instagram.com/balweh_/"],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5",
-    ratingCount: "1",
-  },
-  serviceType: ["Gebäudereinigung", "Garten- und Landschaftsbau"],
 };
 
 export default function RootLayout({
@@ -109,12 +95,7 @@ export default function RootLayout({
   return (
     <html lang="de">
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessSchema),
-          }}
-        />
+        <JsonLd data={websiteSchema} />
       </head>
       <body className={`${geistSans.variable} font-sans antialiased`}>
         <Header />

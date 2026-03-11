@@ -1,23 +1,42 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import BreadcrumbNav from "../components/BreadcrumbNav";
+import JsonLd from "../components/JsonLd";
+import { createBreadcrumbSchema, createPageMetadata } from "../lib/seo";
 
-export const metadata: Metadata = {
+const pagePath = "/ueber-uns";
+
+export const metadata: Metadata = createPageMetadata({
   title: "Über uns",
   description:
     "Mit Sitz in Leverkusen betreuen wir Kunden in ganz Nordrhein-Westfalen – von privaten Haushalten bis hin zu großen Gewerbeobjekten.",
+  path: pagePath,
+  openGraphTitle: "Über uns | Balweh Leverkusen",
   keywords: [
     "Gebäudereinigung Leverkusen",
     "Galabau Leverkusen",
     "Gebäudeservice NRW",
     "Gartenbau Nordrhein-Westfalen",
   ],
-};
+});
+
+const breadcrumbSchema = createBreadcrumbSchema([
+  { label: "Startseite", path: "/" },
+  { label: "Über uns", path: pagePath },
+]);
 
 export default function ÜberUns() {
   return (
     <main>
+      <JsonLd data={breadcrumbSchema} />
       <section className="mx-auto w-full max-w-6xl px-6 py-20 md:py-28">
+        <BreadcrumbNav
+          items={[
+            { href: "/", label: "Startseite" },
+            { label: "Über uns" },
+          ]}
+        />
         <p className="mb-4 text-sm font-medium uppercase tracking-wide text-zinc-500">
           Wer wir sind
         </p>
