@@ -10,6 +10,34 @@
 
 header('Content-Type: application/json; charset=utf-8');
 
+function count_log_lines($path)
+{
+    if (!file_exists($path) || !is_readable($path)) {
+        return 0;
+    }
+
+    $contents = file_get_contents($path);
+    if (!is_string($contents) || $contents === '') {
+        return 0;
+    }
+
+    return substr_count($contents, "\n") + 1;
+}
+
+function file_age_seconds($path, $now)
+{
+    if (!file_exists($path)) {
+        return null;
+    }
+
+    $modified = filemtime($path);
+    if ($modified === false) {
+        return null;
+    }
+
+    return max(0, $now - $modified);
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     http_response_code(405);
     echo json_encode(['error' => 'Method not allowed']);
@@ -53,14 +81,43 @@ $rate_limit_exists = file_exists($rate_limit_file);
 $log_exists = file_exists($log_file);
 $marker_exists = file_exists($cleanup_marker_file);
 
+$rate_limit_readable = $rate_limit_exists && is_readable($rate_limit_file);
+$log_readable = $log_exists && is_readable($log_file);
+$marker_readable = $marker_exists && is_readable($cleanup_marker_file);
+
 $rate_limit_entries = 0;
+$rate_limit_unique_ips = 0;
+$rate_limit_max_requests_per_ip = 0;
+$rate_limit_entries_active = 0;
+$rate_limit_unique_ips_active = 0;
+$rate_limit_max_requests_per_ip_active = 0;
 if ($rate_limit_exists) {
     $raw = file_get_contents($rate_limit_file);
     $decoded = is_string($raw) ? json_decode($raw, true) : null;
     if (is_array($decoded)) {
+        $rate_limit_unique_ips = count($decoded);
         foreach ($decoded as $timestamps) {
             if (is_array($timestamps)) {
-                $rate_limit_entries += count($timestamps);
+                $entries_for_ip = count($timestamps);
+                $rate_limit_entries += $entries_for_ip;
+                if ($entries_for_ip > $rate_limit_max_requests_per_ip) {
+                    $rate_limit_max_requests_per_ip = $entries_for_ip;
+                }
+
+                $active_entries_for_ip = 0;
+                foreach ($timestamps as $timestamp) {
+                    if (is_int($timestamp) && ($now - $timestamp) < 3600) {
+                        $active_entries_for_ip++;
+                    }
+                }
+
+                $rate_limit_entries_active += $active_entries_for_ip;
+                if ($active_entries_for_ip > 0) {
+                    $rate_limit_unique_ips_active++;
+                }
+                if ($active_entries_for_ip > $rate_limit_max_requests_per_ip_active) {
+                    $rate_limit_max_requests_per_ip_active = $active_entries_for_ip;
+                }
             }
         }
     }
@@ -68,33 +125,87 @@ if ($rate_limit_exists) {
 
 $log_size_bytes = $log_exists ? filesize($log_file) : 0;
 $log_last_modified = $log_exists ? filemtime($log_file) : null;
-$cleanup_marker_time = $marker_exists ? (int) file_get_contents($cleanup_marker_file) : null;
+$log_line_count = count_log_lines($log_file);
+$log_age_seconds = file_age_seconds($log_file, $now);
+
+$cleanup_marker_time = $marker_readable ? (int) file_get_contents($cleanup_marker_file) : null;
+$cleanup_marker_age_seconds = $cleanup_marker_time !== null ? max(0, $now - $cleanup_marker_time) : null;
 
 $cleanup_stale = false;
 if ($cleanup_marker_time !== null) {
     $cleanup_stale = ($now - $cleanup_marker_time) > 172800; // 48h threshold
 }
 
+$temp_disk_free_bytes = @disk_free_space($temp_dir);
+$temp_disk_total_bytes = @disk_total_space($temp_dir);
+
 $checks = [
     'temp_dir_writable' => is_writable($temp_dir),
     'rate_limit_file_present' => $rate_limit_exists,
+    'rate_limit_file_readable' => $rate_limit_readable,
     'log_file_present' => $log_exists,
+    'log_file_readable' => $log_readable,
     'cleanup_marker_present' => $marker_exists,
+    'cleanup_marker_readable' => $marker_readable,
     'cleanup_marker_stale' => $cleanup_stale,
 ];
 
 $overall_ok = $checks['temp_dir_writable'] && !$checks['cleanup_marker_stale'];
+
+$warnings = [];
+
+if (!$checks['temp_dir_writable']) {
+    $warnings[] = 'temp_dir_not_writable';
+}
+
+if ($checks['cleanup_marker_stale']) {
+    $warnings[] = 'cleanup_marker_stale';
+}
+
+if ($log_exists && is_int($log_size_bytes) && $log_size_bytes > 5 * 1024 * 1024) {
+    $warnings[] = 'log_file_large';
+}
+
+if ($rate_limit_max_requests_per_ip_active >= 3) {
+    $warnings[] = 'rate_limit_pressure_high';
+}
+
+if (
+    $temp_disk_free_bytes !== false
+    && $temp_disk_total_bytes !== false
+    && $temp_disk_total_bytes > 0
+) {
+    $free_ratio = $temp_disk_free_bytes / $temp_disk_total_bytes;
+    if ($free_ratio < 0.10) {
+        $warnings[] = 'temp_disk_low_space';
+    }
+}
 
 http_response_code($overall_ok ? 200 : 500);
 
 echo json_encode([
     'status' => $overall_ok ? 'ok' : 'warning',
     'timestamp' => date('c', $now),
+    'warnings' => $warnings,
     'checks' => $checks,
     'metrics' => [
         'rate_limit_entries_total' => $rate_limit_entries,
+        'rate_limit_unique_ips' => $rate_limit_unique_ips,
+        'rate_limit_max_requests_per_ip' => $rate_limit_max_requests_per_ip,
+        'rate_limit_entries_active' => $rate_limit_entries_active,
+        'rate_limit_unique_ips_active' => $rate_limit_unique_ips_active,
+        'rate_limit_max_requests_per_ip_active' => $rate_limit_max_requests_per_ip_active,
         'log_size_bytes' => $log_size_bytes,
+        'log_line_count' => $log_line_count,
         'log_last_modified_unix' => $log_last_modified,
+        'log_age_seconds' => $log_age_seconds,
         'cleanup_marker_unix' => $cleanup_marker_time,
+        'cleanup_marker_age_seconds' => $cleanup_marker_age_seconds,
+        'temp_disk_free_bytes' => $temp_disk_free_bytes === false ? null : $temp_disk_free_bytes,
+        'temp_disk_total_bytes' => $temp_disk_total_bytes === false ? null : $temp_disk_total_bytes,
+        'runtime_php_version' => PHP_VERSION,
+        'runtime_sapi' => PHP_SAPI,
+        'retention_log_days' => 30,
+        'retention_rate_limit_seconds' => 3600,
     ],
 ], JSON_UNESCAPED_SLASHES);
