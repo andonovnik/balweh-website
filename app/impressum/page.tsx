@@ -15,7 +15,7 @@ export default function ImpressumPage() {
           <h2 className="text-lg font-semibold text-brand-primary">
             Angaben gemäß § 5 DDG
           </h2>
-          <p>Balweh Gebäudereinigung und Galabau e.K.</p>
+          <p>Balweh Gebäudereinigung und Galabau</p>
           <p>Inhaber: Abdula Balweh</p>
           <p>Baumberger Str. 54</p>
           <p>51373 Leverkusen</p>

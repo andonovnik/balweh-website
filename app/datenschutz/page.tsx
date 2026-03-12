@@ -37,9 +37,7 @@ export default function DatenschutzPage() {
           <p>
             Verantwortlich für die Datenverarbeitung auf dieser Website ist:
           </p>
-          <p className="font-medium">
-            Balweh Gebäudereinigung und Galabau e.K.
-          </p>
+          <p className="font-medium">Balweh Gebäudereinigung und Galabau</p>
           <p>Inhaber: Abdula Balweh</p>
           <p>Baumberger Str. 54</p>
           <p>51373 Leverkusen</p>

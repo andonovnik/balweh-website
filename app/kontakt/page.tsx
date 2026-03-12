@@ -60,7 +60,7 @@ export default function Kontakt() {
             </h2>
             <div className="mt-3 space-y-4">
               <p className="text-sm font-medium text-zinc-900">
-                Balweh Gebäudereinigung und Galabau e.K.
+                Balweh Gebäudereinigung und Galabau
               </p>
               <div className="flex items-start gap-3">
                 <svg

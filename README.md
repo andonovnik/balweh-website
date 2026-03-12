@@ -1,6 +1,6 @@
 # BALWEH Website
 
-Official website for Balweh Gebäudereinigung und Galabau e.K. - Professional building cleaning and landscaping services.
+Official website for Balweh Gebäudereinigung und Galabau - Professional building cleaning and landscaping services.
 
 ## Tech Stack
 
@@ -158,10 +158,12 @@ curl -fsS "https://balweh.de/api/log-cleanup.php?key=YOUR_CLEANUP_KEY" >/dev/nul
 **Recommended frequency:** hourly or daily.
 
 **Key configuration (HTTP mode):**
+
 - Set env var: `CLEANUP_JOB_KEY`
 - Or create file: `public_html/api/.log-cleanup.key`
 
 The cleanup job enforces:
+
 - Rate-limit file retention: 1 hour
 - Submission log retention: 30 days
 
@@ -185,17 +187,20 @@ All pages import these helpers instead of duplicating metadata. Reusable compone
 ### GEO (Geographic/Local Business)
 
 **Business Location:**
+
 - Address: Baumberger Str. 54, 51373 Leverkusen, Nordrhein-Westfalen, Germany
 - Phone: +49 155 67200971
 - Email: info@balweh.de
 
 **Service Area:**
+
 - Primary: Nordrhein-Westfalen (NRW)
 - Configured in `createServiceSchema()` areaServed field
 
 **Geographic Schema:**
 
 The `websiteSchema` includes LocalBusiness markup with:
+
 - Full postal address details
 - Operating hours: Monday–Friday, 08:00–18:00
 - Service offerings: Gebäudereinigung (Building Cleaning) and Garten- und Landschaftsbau (Landscaping)
@@ -242,4 +247,4 @@ export const CONTACT_EMAIL = "..."
 
 ## License
 
-Proprietary - Balweh Gebäudereinigung und Galabau e.K.
+Proprietary - Balweh Gebäudereinigung und Galabau
