@@ -28,8 +28,8 @@ export default function ImpressumPage() {
           <h2 className="text-lg font-semibold text-brand-primary">
             Registereintrag
           </h2>
-          <p>Handelsregister: Amtsgericht [eintragen]</p>
-          <p>Registernummer: HRA [eintragen]</p>
+          <p>Handelsregister: Amtsgericht [wird nach Eintragung ergänzt]</p>
+          <p>Registernummer: HRA [wird nach Eintragung ergänzt]</p>
         </section>
 
         <section className="space-y-2">
@@ -37,7 +37,8 @@ export default function ImpressumPage() {
             Umsatzsteuer-ID
           </h2>
           <p>
-            Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: [eintragen]
+            Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: [wird nach
+            Erteilung ergänzt]
           </p>
         </section>
 
