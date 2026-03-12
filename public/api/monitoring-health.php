@@ -3,9 +3,7 @@
 // Lightweight monitoring health endpoint for contact form logging/rate limiting.
 // Protection model:
 // - Requires GET
-// - Requires X-Monitor-Key header matching either:
-//   1) MONITORING_HEALTH_KEY env var, or
-//   2) key in local file: /api/.monitoring-health.key
+// - Requires X-Monitor-Key header matching MONITORING_HEALTH_KEY
 // - Returns only operational metadata (no personal data)
 
 header('Content-Type: application/json; charset=utf-8');
@@ -177,17 +175,6 @@ if ($rate_limit_max_requests_per_ip_active >= 3) {
     $warnings[] = 'rate_limit_pressure_high';
 }
 
-if (
-    $temp_disk_free_bytes !== false
-    && $temp_disk_total_bytes !== false
-    && $temp_disk_total_bytes > 0
-) {
-    $free_ratio = $temp_disk_free_bytes / $temp_disk_total_bytes;
-    if ($free_ratio < 0.10) {
-        $warnings[] = 'temp_disk_low_space';
-    }
-}
-
 http_response_code($overall_ok ? 200 : 500);
 
 echo json_encode([
@@ -217,8 +204,6 @@ echo json_encode([
         'cron_log_last_modified_unix' => $cron_log_last_modified,
         'cron_log_last_modified' => $cron_log_last_modified ? date('Y-m-d H:i:s', $cron_log_last_modified) : null,
         'cron_log_age_seconds' => $cron_log_age_seconds,
-        'temp_disk_free_bytes' => $temp_disk_free_bytes === false ? null : $temp_disk_free_bytes,
-        'temp_disk_total_bytes' => $temp_disk_total_bytes === false ? null : $temp_disk_total_bytes,
         'runtime_php_version' => PHP_VERSION,
         'runtime_sapi' => PHP_SAPI,
         'retention_log_days' => 30,
