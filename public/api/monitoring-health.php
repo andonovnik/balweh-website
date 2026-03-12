@@ -72,10 +72,10 @@ if (!hash_equals($expected_key, $provided_key)) {
 }
 
 $now = time();
-$temp_dir = sys_get_temp_dir();
-$rate_limit_file = $temp_dir . '/contact_form_rate_limit.json';
-$log_file = $temp_dir . '/contact_form_submissions.log';
-$cleanup_marker_file = $temp_dir . '/contact_form_log_cleanup.timestamp';
+$log_dir = '/home/u989266693/.logs';
+$rate_limit_file = $log_dir . '/contact_form_rate_limit.json';
+$log_file = $log_dir . '/contact_form_submissions.log';
+$cleanup_marker_file = $log_dir . '/contact_form_log_cleanup.timestamp';
 
 $rate_limit_exists = file_exists($rate_limit_file);
 $log_exists = file_exists($log_file);
@@ -138,11 +138,8 @@ if ($cleanup_marker_time !== null) {
 
 $cleanup_recent = $cleanup_marker_time !== null && !$cleanup_stale;
 
-$temp_disk_free_bytes = @disk_free_space($temp_dir);
-$temp_disk_total_bytes = @disk_total_space($temp_dir);
 
 $checks = [
-    'temp_dir_writable' => is_writable($temp_dir),
     'rate_limit_file_present' => $rate_limit_exists,
     'rate_limit_file_readable' => $rate_limit_readable,
     'log_file_present' => $log_exists,
@@ -153,13 +150,9 @@ $checks = [
     'cleanup_recent' => $cleanup_recent,
 ];
 
-$overall_ok = $checks['temp_dir_writable'] && !$checks['cleanup_marker_stale'];
+$overall_ok = !$checks['cleanup_marker_stale'];
 
 $warnings = [];
-
-if (!$checks['temp_dir_writable']) {
-    $warnings[] = 'temp_dir_not_writable';
-}
 
 if ($checks['cleanup_marker_stale']) {
     $warnings[] = 'cleanup_marker_stale';

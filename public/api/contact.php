@@ -214,7 +214,8 @@ if (!isset($_SESSION['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $cs
 }
 
 // Rate limiting - simple file-based rate limiter
-$rate_limit_file = sys_get_temp_dir() . '/contact_form_rate_limit.json';
+$log_dir = '/home/u989266693/.logs';
+$rate_limit_file = $log_dir . '/contact_form_rate_limit.json';
 $rate_limit_max = 3;
 $rate_limit_window = 3600;
 $client_ip = resolve_client_ip();
@@ -378,8 +379,8 @@ $body .= "\n" . str_repeat("-", 50) . "\n";
 $body .= "Diese E-Mail wurde über das Kontaktformular auf balweh.de versendet.\n";
 
 // Log submission (for security monitoring)
-$log_file = sys_get_temp_dir() . '/contact_form_submissions.log';
-$cleanup_marker_file = sys_get_temp_dir() . '/contact_form_log_cleanup.timestamp';
+$log_file = $log_dir . '/contact_form_submissions.log';
+$cleanup_marker_file = $log_dir . '/contact_form_log_cleanup.timestamp';
 
 // Run retention cleanup at most once per day using an independent marker file.
 $should_run_cleanup = true;

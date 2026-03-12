@@ -164,10 +164,11 @@ if (!$is_cli) {
     }
 }
 
-$temp_dir = sys_get_temp_dir();
-$rate_limit_file = $temp_dir . '/contact_form_rate_limit.json';
-$log_file = $temp_dir . '/contact_form_submissions.log';
-$cleanup_marker_file = $temp_dir . '/contact_form_log_cleanup.timestamp';
+
+$log_dir = '/home/u989266693/.logs';
+$rate_limit_file = $log_dir . '/contact_form_rate_limit.json';
+$log_file = $log_dir . '/contact_form_submissions.log';
+$cleanup_marker_file = $log_dir . '/contact_form_log_cleanup.timestamp';
 
 $rate_limit_window_seconds = 3600;
 $log_retention_days = 30;
