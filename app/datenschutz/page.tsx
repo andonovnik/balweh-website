@@ -1,12 +1,8 @@
-import type { Metadata } from "next";
-import { createPageMetadata } from "../lib/seo";
-
-export const metadata: Metadata = createPageMetadata({
+export const metadata = {
   title: "Datenschutz",
   description:
     "Datenschutzerklärung von Balweh zur Verarbeitung personenbezogener Daten gemäß DSGVO.",
-  path: "/datenschutz",
-});
+};
 
 export default function DatenschutzPage() {
   return (

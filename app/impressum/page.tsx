@@ -1,12 +1,8 @@
-import type { Metadata } from "next";
-import { createPageMetadata } from "../lib/seo";
-
-export const metadata: Metadata = createPageMetadata({
+export const metadata = {
   title: "Impressum",
   description:
     "Impressum von Balweh Gebäudereinigung und Galabau mit Pflichtangaben gemäß § 5 DDG.",
-  path: "/impressum",
-});
+};
 
 export default function ImpressumPage() {
   return (

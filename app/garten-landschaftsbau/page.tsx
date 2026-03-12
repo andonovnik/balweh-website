@@ -1,22 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import BreadcrumbNav from "../components/BreadcrumbNav";
-import JsonLd from "../components/JsonLd";
-import {
-  createBreadcrumbSchema,
-  createPageMetadata,
-  createServiceSchema,
-} from "../lib/seo";
 
-const pagePath = "/garten-landschaftsbau";
-
-export const metadata: Metadata = createPageMetadata({
+export const metadata: Metadata = {
   title: "Garten- und Landschaftsbau",
   description:
     "Professioneller Garten- und Landschaftsbau in Leverkusen. Pflasterarbeiten, Terrassenbau, Zaunanlagen, Rollrasen und Gartenpflege. Jetzt unverbindlich beraten lassen!",
-  path: pagePath,
-  openGraphTitle: "Garten- und Landschaftsbau in Leverkusen | Balweh",
   keywords: [
     "Gartenbau Leverkusen",
     "Landschaftsbau Leverkusen",
@@ -27,26 +16,12 @@ export const metadata: Metadata = createPageMetadata({
     "Gartenpflege Leverkusen",
     "Rollrasen verlegen Leverkusen",
   ],
-});
-
-const serviceSchema = createServiceSchema("Garten- und Landschaftsbau", pagePath);
-const breadcrumbSchema = createBreadcrumbSchema([
-  { label: "Startseite", path: "/" },
-  { label: "Garten- und Landschaftsbau", path: pagePath },
-]);
+};
 
 export default function GartenLandschaftsbau() {
   return (
     <main>
-      <JsonLd data={serviceSchema} />
-      <JsonLd data={breadcrumbSchema} />
       <section className="mx-auto w-full max-w-6xl px-6 py-20 md:py-28">
-        <BreadcrumbNav
-          items={[
-            { href: "/", label: "Startseite" },
-            { label: "Garten- und Landschaftsbau" },
-          ]}
-        />
         <p className="mb-4 text-sm font-medium uppercase tracking-wide text-zinc-500">
           Garten- und Landschaftsbau (GaLabau)
         </p>
