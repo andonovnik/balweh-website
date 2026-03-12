@@ -139,6 +139,13 @@ if ($cleanup_marker_time !== null) {
 $cleanup_recent = $cleanup_marker_time !== null && !$cleanup_stale;
 
 
+
+$cron_log_file = $log_dir . '/cron-ran.log';
+$cron_log_exists = file_exists($cron_log_file);
+$cron_log_readable = $cron_log_exists && is_readable($cron_log_file);
+$cron_log_last_modified = $cron_log_exists ? filemtime($cron_log_file) : null;
+$cron_log_age_seconds = $cron_log_last_modified !== null ? max(0, $now - $cron_log_last_modified) : null;
+
 $checks = [
     'rate_limit_file_present' => $rate_limit_exists,
     'rate_limit_file_readable' => $rate_limit_readable,
@@ -148,6 +155,10 @@ $checks = [
     'cleanup_marker_readable' => $marker_readable,
     'cleanup_marker_stale' => $cleanup_stale,
     'cleanup_recent' => $cleanup_recent,
+    'cron_log_present' => $cron_log_exists,
+    'cron_log_readable' => $cron_log_readable,
+    'cron_log_last_modified' => $cron_log_last_modified,
+    'cron_log_age_seconds' => $cron_log_age_seconds,
 ];
 
 $overall_ok = !$checks['cleanup_marker_stale'];
@@ -201,6 +212,11 @@ echo json_encode([
         'cleanup_marker_age_seconds' => $cleanup_marker_age_seconds,
         'last_cleanup_run_unix' => $cleanup_marker_time,
         'last_cleanup_run' => $cleanup_marker_time ? date('Y-m-d H:i:s', $cleanup_marker_time) : null,
+        'cron_log_present' => $cron_log_exists,
+        'cron_log_readable' => $cron_log_readable,
+        'cron_log_last_modified_unix' => $cron_log_last_modified,
+        'cron_log_last_modified' => $cron_log_last_modified ? date('Y-m-d H:i:s', $cron_log_last_modified) : null,
+        'cron_log_age_seconds' => $cron_log_age_seconds,
         'temp_disk_free_bytes' => $temp_disk_free_bytes === false ? null : $temp_disk_free_bytes,
         'temp_disk_total_bytes' => $temp_disk_total_bytes === false ? null : $temp_disk_total_bytes,
         'runtime_php_version' => PHP_VERSION,

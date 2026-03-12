@@ -1,3 +1,7 @@
+$log_dir = '/home/u989266693/.logs';
+
+// Log each cron job run
+file_put_contents($log_dir . '/cron-ran.log', date('c') . " OK\n", FILE_APPEND);
 <?php
 
 // Retention cleanup endpoint for contact form operational files.
@@ -165,7 +169,6 @@ if (!$is_cli) {
 }
 
 
-$log_dir = '/home/u989266693/.logs';
 $rate_limit_file = $log_dir . '/contact_form_rate_limit.json';
 $log_file = $log_dir . '/contact_form_submissions.log';
 $cleanup_marker_file = $log_dir . '/contact_form_log_cleanup.timestamp';
