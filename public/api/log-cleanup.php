@@ -1,7 +1,3 @@
-$log_dir = '/home/u989266693/.logs';
-
-// Log each cron job run
-file_put_contents($log_dir . '/cron-ran.log', date('c') . " OK\n", FILE_APPEND);
 <?php
 
 // Retention cleanup endpoint for contact form operational files.
@@ -19,6 +15,11 @@ file_put_contents($log_dir . '/cron-ran.log', date('c') . " OK\n", FILE_APPEND);
 // - contact_form_log_cleanup.timestamp (update marker)
 
 header('Content-Type: application/json; charset=utf-8');
+
+$log_dir = '/home/u989266693/.logs';
+
+// Log each cron job run
+file_put_contents($log_dir . '/cron-ran.log', date('c') . " OK\n", FILE_APPEND);
 
 function get_cleanup_key()
 {
@@ -141,6 +142,7 @@ function cleanup_log_file($path, $retention_days)
     return $result;
 }
 
+
 $is_cli = (PHP_SAPI === 'cli');
 if (!$is_cli) {
     if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
@@ -149,21 +151,25 @@ if (!$is_cli) {
         exit;
     }
 
-    $expected_key = get_cleanup_key();
+    $secretFile = '/home/u989266693/.cron_secret';
+    $expected_key = '';
+    if (file_exists($secretFile) && is_readable($secretFile)) {
+        $expected_key = trim((string) file_get_contents($secretFile));
+    }
     if ($expected_key === '') {
         http_response_code(503);
         echo json_encode([
             'status' => 'misconfigured',
-            'error' => 'Cleanup job key is not configured',
-            'hint' => 'Set CLEANUP_JOB_KEY or create /api/.log-cleanup.key',
+            'error' => 'Cron secret is not configured',
+            'hint' => 'Create /home/u989266693/.cron_secret with your secret key',
         ]);
         exit;
     }
 
-    $provided_key = $_SERVER['HTTP_X_CLEANUP_KEY'] ?? ($_GET['key'] ?? '');
+    $provided_key = $_SERVER['HTTP_X_CRON_KEY'] ?? ($_GET['key'] ?? '');
     if (!hash_equals($expected_key, (string) $provided_key)) {
         http_response_code(403);
-        echo json_encode(['error' => 'Forbidden']);
+        echo json_encode(['error' => 'Forbidden: invalid cron key']);
         exit;
     }
 }
