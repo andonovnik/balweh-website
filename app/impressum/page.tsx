@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/impressum",
   },
+  keywords: [
+    "Impressum Balweh",
+    "Balweh Leverkusen Impressum",
+    "Gebäudereinigung Impressum Leverkusen",
+    "Galabau Impressum Leverkusen",
+  ],
 };
 
 export default function ImpressumPage() {

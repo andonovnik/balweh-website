@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/datenschutz",
   },
+  keywords: [
+    "Datenschutz Balweh",
+    "Datenschutzerklärung Balweh",
+    "DSGVO Balweh",
+    "Datenschutz Gebäudereinigung Leverkusen",
+    "Datenschutz Galabau Leverkusen",
+  ],
 };
 
 export default function DatenschutzPage() {

@@ -5,7 +5,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Gebäudereinigung",
   description:
-    "Professionelle Gebäudereinigung in Leverkusen. Unterhaltsreinigung, Glas- und Fassadenreinigung, Büro- und Hotelreinigung, Winterdienst und mehr.",
+    "Professionelle Gebäudereinigung in Leverkusen: Unterhaltsreinigung, Büroreinigung, Glas- und Fassadenreinigung sowie Winterdienst. Jetzt Angebot sichern.",
   alternates: {
     canonical: "/gebaeudereinigung",
   },
@@ -15,10 +15,11 @@ export const metadata: Metadata = {
     "Büroreinigung Leverkusen",
     "Glas- und Fassadenreinigung Leverkusen",
     "Unterhaltsreinigung Leverkusen",
-    "Hotelreinigung Leverkusen",
-    "Baustellenreinigung Leverkusen",
-    "Dachreinigung Leverkusen",
+    "Treppenhausreinigung Leverkusen",
     "Winterdienst Leverkusen",
+    "Gebäudereinigung",
+    "Unterhaltsreinigung",
+    "Gebäudeservice",
   ],
 };
 

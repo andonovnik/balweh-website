@@ -6,15 +6,21 @@ import BalwehLogo from "./balweh_logo_with_text.svg";
 export const metadata: Metadata = {
   title: "Balweh Gebäudereinigung und Galabau Leverkusen",
   description:
-    "Ihr Partner für glänzende Gebäude und gepflegte Gärten. Erleben Sie Qualität, die man sieht, und einen Service, den man spürt.",
+    "Balweh ist Ihr Partner für professionelle Gebäudereinigung und Garten- und Landschaftsbau in Leverkusen. Jetzt unverbindliches Angebot anfragen.",
   alternates: {
     canonical: "/",
   },
   keywords: [
+    "Gebäudereinigung Leverkusen",
+    "Garten- und Landschaftsbau Leverkusen",
+    "Reinigungsservice Leverkusen",
+    "Gebäudeservice Leverkusen",
+    "Gartenpflege Leverkusen",
+    "Winterdienst Leverkusen",
+    "Balweh Leverkusen",
     "Gebäudereinigung",
-    "Galabau",
-    "Reinigungsservice",
-    "Gartenpflege Leverkusen NRW",
+    "Garten- und Landschaftsbau",
+    "Reinigungsfirma",
   ],
 };
 

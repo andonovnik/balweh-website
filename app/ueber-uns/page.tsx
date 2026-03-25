@@ -5,15 +5,21 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Über uns",
   description:
-    "Mit Sitz in Leverkusen betreuen wir Kunden in ganz Nordrhein-Westfalen – von privaten Haushalten bis hin zu großen Gewerbeobjekten.",
+    "Erfahren Sie mehr über Balweh aus Leverkusen: Ihr zuverlässiger Partner für Gebäudereinigung und Garten- und Landschaftsbau in NRW.",
   alternates: {
     canonical: "/ueber-uns",
   },
   keywords: [
     "Gebäudereinigung Leverkusen",
     "Galabau Leverkusen",
-    "Gebäudeservice NRW",
-    "Gartenbau Nordrhein-Westfalen",
+    "Gebäudeservice Leverkusen",
+    "Gartenbau Leverkusen",
+    "Über uns Balweh",
+    "Balweh Leverkusen",
+    "Reinigungsfirma Leverkusen",
+    "Gebäudereinigung",
+    "Garten- und Landschaftsbau",
+    "Dienstleister Gebäudereinigung",
   ],
 };
 
