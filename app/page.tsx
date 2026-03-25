@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Balweh Gebäudereinigung und Galabau Leverkusen",
   description:
     "Ihr Partner für glänzende Gebäude und gepflegte Gärten. Erleben Sie Qualität, die man sieht, und einen Service, den man spürt.",
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
     "Gebäudereinigung",
     "Galabau",

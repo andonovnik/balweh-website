@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.balweh.de";
+  const baseUrl = "https://balweh.de";
   const now = new Date();
 
   return [

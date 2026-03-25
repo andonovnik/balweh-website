@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Gebäudereinigung",
   description:
     "Professionelle Gebäudereinigung in Leverkusen. Unterhaltsreinigung, Glas- und Fassadenreinigung, Büro- und Hotelreinigung, Winterdienst und mehr.",
+  alternates: {
+    canonical: "/gebaeudereinigung",
+  },
   keywords: [
     "Gebäudereinigung Leverkusen",
     "Gebäudeservice Leverkusen",

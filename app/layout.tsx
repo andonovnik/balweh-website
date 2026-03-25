@@ -13,7 +13,7 @@ const SITE_DESCRIPTION =
   "Professionelle Gebäudereinigung und Gartenlandschaftsbau in Deutschland. Zuverlässige Dienstleistungen für Unternehmen und private Kunden.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.balweh.de"),
+  metadataBase: new URL("https://balweh.de"),
   title: {
     default: "Balweh Gebäudereinigung und Galabau",
     template: "%s | Balweh Gebäudereinigung und Galabau",
@@ -60,10 +60,10 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://www.balweh.de",
+  "@id": "https://balweh.de",
   name: "Balweh Gebäudereinigung und Garten- und Landschaftsbau",
   description: SITE_DESCRIPTION,
-  url: "https://www.balweh.de",
+  url: "https://balweh.de",
   telephone: "+4921423086869",
   email: "info@balweh.de",
   address: {
@@ -85,7 +85,7 @@ const localBusinessSchema = {
     },
   ],
   priceRange: "$$",
-  image: "https://www.balweh.de/balweh_logo_with_text.svg",
+  image: "https://balweh.de/balweh_logo_with_text.svg",
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],

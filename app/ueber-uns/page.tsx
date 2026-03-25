@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Über uns",
   description:
     "Mit Sitz in Leverkusen betreuen wir Kunden in ganz Nordrhein-Westfalen – von privaten Haushalten bis hin zu großen Gewerbeobjekten.",
+  alternates: {
+    canonical: "/ueber-uns",
+  },
   keywords: [
     "Gebäudereinigung Leverkusen",
     "Galabau Leverkusen",

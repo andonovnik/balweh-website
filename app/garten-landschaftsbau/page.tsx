@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Garten- und Landschaftsbau",
   description:
     "Professioneller Garten- und Landschaftsbau in Leverkusen. Pflasterarbeiten, Terrassenbau, Zaunanlagen, Rollrasen und Gartenpflege. Jetzt unverbindlich beraten lassen!",
+  alternates: {
+    canonical: "/garten-landschaftsbau",
+  },
   keywords: [
     "Gartenbau Leverkusen",
     "Landschaftsbau Leverkusen",

@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Kontakt",
   description:
     "Kontaktieren Sie Balweh in Leverkusen für professionelle Gebäudereinigung und Garten- und Landschaftsbau. Telefonisch erreichbar Montag bis Freitag von 08:00–18:00 Uhr.",
+  alternates: {
+    canonical: "/kontakt",
+  },
   keywords: [
     "Kontakt Gebäudereinigung Leverkusen",
     "Kontakt Galabau Leverkusen",

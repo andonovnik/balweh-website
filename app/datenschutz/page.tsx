@@ -1,7 +1,12 @@
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Datenschutz",
   description:
     "Datenschutzerklärung von Balweh zur Verarbeitung personenbezogener Daten gemäß DSGVO.",
+  alternates: {
+    canonical: "/datenschutz",
+  },
 };
 
 export default function DatenschutzPage() {

@@ -1,7 +1,12 @@
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Impressum",
   description:
     "Impressum von Balweh Gebäudereinigung und Galabau mit Pflichtangaben gemäß § 5 DDG.",
+  alternates: {
+    canonical: "/impressum",
+  },
 };
 
 export default function ImpressumPage() {
