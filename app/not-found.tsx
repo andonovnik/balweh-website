@@ -4,6 +4,10 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "404 - Seite nicht gefunden",
   description: "Die angeforderte Seite wurde nicht gefunden.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function NotFound() {
