@@ -29,7 +29,7 @@ export default function ImpressumPage() {
           <p>Balweh Gebäudereinigung und Galabau</p>
           <p>Inhaber: Abdula Balweh</p>
           <p>Baumberger Str. 54</p>
-          <p>51373 Leverkusen</p>
+          <p>51371 Leverkusen</p>
           <p>Deutschland</p>
           <p>Telefon: +49 155 67200971</p>
           <p>E-Mail: info@balweh.de</p>
@@ -59,7 +59,7 @@ export default function ImpressumPage() {
           </h2>
           <p>Abdula Balweh</p>
           <p>Baumberger Str. 54</p>
-          <p>51373 Leverkusen</p>
+          <p>51371 Leverkusen</p>
         </section>
 
         <section className="space-y-2">

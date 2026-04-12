@@ -52,7 +52,7 @@ export default function DatenschutzPage() {
           <p className="font-medium">Balweh Gebäudereinigung und Galabau</p>
           <p>Inhaber: Abdula Balweh</p>
           <p>Baumberger Str. 54</p>
-          <p>51373 Leverkusen</p>
+          <p>51371 Leverkusen</p>
           <p>Deutschland</p>
           <p>Telefon: +49 155 67200971</p>
           <p>E-Mail: info@balweh.de</p>

@@ -69,7 +69,7 @@ const localBusinessSchema = {
   address: {
     "@type": "PostalAddress",
     streetAddress: "Baumberger Str. 54",
-    postalCode: "51373",
+    postalCode: "51371",
     addressLocality: "Leverkusen",
     addressRegion: "NRW",
     addressCountry: "DE",
