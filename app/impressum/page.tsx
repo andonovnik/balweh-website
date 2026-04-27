@@ -37,10 +37,17 @@ export default function ImpressumPage() {
 
         <section className="space-y-2">
           <h2 className="text-lg font-semibold text-brand-primary">
-            Registereintrag
+            Zuständige Kammer
           </h2>
-          <p>Handelsregister: Amtsgericht [wird nach Eintragung ergänzt]</p>
-          <p>Registernummer: HRA [wird nach Eintragung ergänzt]</p>
+          <p>
+            Handwerkskammer zu Köln
+            <br />
+            Heumarkt 12
+            <br />
+            50667 Köln
+          </p>
+          <p>Betriebsnummer: 1244028</p>
+          <p>Verliehen in Deutschland</p>
         </section>
 
         <section className="space-y-2">
